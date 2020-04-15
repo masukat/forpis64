@@ -118,15 +118,15 @@
           <div class="add-table_done">
               <div class="done_tr">
                   <div class="done_th" width="60px">完了</div>
-                  <div class="done_td">{{form.done}}</div>
+                  <div class="done_td"></div>
               </div>
               <div class="done_tr">
                   <div class="done_th">評価</div>
-                  <div class="done_td">{{form.review}}</div>
+                  <div class="done_td"></div>
               </div>
               <div class="done_tr">
                   <div class="done_th_completiondate">完了日</div>
-                  <div class="done_td">{{form.completiondate}}</div>
+                  <div class="done_td"></div>
               </div>
           </div>
           <!-- 追加・更新欄 -->
@@ -134,39 +134,39 @@
               <div class="add-table_1">
                   <div class="tr">
                       <div class="th_motivation"><i class="fas fa-child"></i></div>
-                      <div class="td_id_motivation">{{form.motivation}}</div>
+                      <div class="td_id_motivation"></div>
                   </div>
                   <div class="tr">
                       <div class="th_genre1">in/out</div>
-                      <div class="td_id_genre1">{{form.genre1}}</div>
+                      <div class="td_id_genre1"></div>
                   </div>
                   <div class="tr">
                       <div class="th_genre2">項目</div>
-                      <div class="td_id_genre2">{{form.genre2}}</div>
+                      <div class="td_id_genre2"></div>
                   </div>
               </div>
               <div class="add-table_2">
                 <div class="tr">
                     <div class="th_plan">やりたいこと(場所:案)</div>
-                    <div class="td_id_plan">{{form.plan}}</div>
+                    <div class="td_id_plan"></div>
                 </div>
                 <div class="tr">
                     <div class="th_travelhour">h</div>
-                    <div class="td_id_travelhour">{{form.travelhour}}</div>
+                    <div class="td_id_travelhour"></div>
                 </div>
                 <div class="tr">
                     <div class="th_travelmin">min</div>
-                    <div class="td_id_travelmin">{{form.travelmin}}</div>
+                    <div class="td_id_travelmin"></div>
                 </div>
               </div>
               <div class="add-table_3">
                   <div class="tr">
                       <div class="th_urllink">URL</div>
-                      <div class="td_id_urllink">{{form.urllink}}</div>
+                      <div class="td_id_urllink"></div>
                   </div>
                   <div class="tr">
                       <div class="th_tag1">メモ</div>
-                      <div class="td_id_tag1">{{form.tag1}}</div>
+                      <div class="td_id_tag1"></div>
                   </div>
               </div>
               <div class="add-table_input">
@@ -188,15 +188,15 @@
           <div class="delete-table_done">
               <div class="done_tr">
                   <div class="done_th_delete" width="60px">完了</div>
-                  <div class="done_td_delete">{% if obj.done %}完了{% else %}未完了{% endif %}</div>
+                  <div class="done_td_delete"></div>
               </div>
               <div class="done_tr">
                   <div class="done_th_delete">評価</div>
-                  <div class="done_td_delete">{% if obj.review is None %}ー{% else %}{{obj.review}}{% endif %}</div>
+                  <div class="done_td_delete"></div>
               </div>
               <div class="done_tr">
                   <div class="done_th_delete_completiondate">完了日</div>
-                  <div class="done_td_delete">{% if obj.completiondate is None %}ー{% else %}{{obj.completiondate|date:"Y/n/j"}}{% endif %}</div>
+                  <div class="done_td_delete"></div>
               </div>
           </div>
           <!-- 追加・更新欄 -->
@@ -204,41 +204,39 @@
               <div class="delete-table_1">
                   <div class="tr">
                       <div class="delete_th_motivation"><i class="fas fa-child"></i></div>
-                      <div class="td_id_motivation">{% if obj.motivation is None %}ー{% else %}{{obj.motivation}}{% endif %}</div>
+                      <div class="td_id_motivation"></div>
                   </div>
                   <div class="tr">
                       <div class="delete_th_genre1">in/out</div>
-                      <div class="td_id_genre1">{{obj.genre1}}</div>
+                      <div class="td_id_genre1"></div>
                   </div>
                   <div class="tr">
                       <div class="delete_th_genre2">項目</div>
-                      <div class="td_id_genre2">{{obj.genre2}}</div>
+                      <div class="td_id_genre2"></div>
                   </div>
               </div>
               <div class="delete-table_2">
                   <div class="tr">
                       <div class="delete_th_plan">やりたいこと(場所:案)</div>
-                      <div class="td_id_plan">{{obj.plan}}</div>
+                      <div class="td_id_plan"></div>
                   </div>
                   <div class="tr">
                       <div class="delete_th_travelhour">h</div>
-                      <div class="td_id_travelhour">{% if obj.travelhour is None %}ー{% else %}{{obj.travelhour}}{% endif %}</div>
+                      <div class="td_id_travelhour"></div>
                   </div>
                   <div class="tr">
                       <div class="delete_th_travelmin">min</div>
-                      <div class="td_id_travelmin">{% if obj.travelmin is None %}ー{% else %}{{obj.travelmin}}{% endif %}</div>
+                      <div class="td_id_travelmin"></div>
                   </div>
               </div>
               <div class="delete-table_3">
                   <div class="tr">
                       <div class="delete_th_urllink">URL</div>
-                      <div class="td_id_urllink">{% if obj.urllink == '' %}ー
-                                                  {% else %}<a href = {{obj.urllink}} target="_blank">{{obj.urllink}}</a>
-                                                  {% endif %}</div>
+                      <div class="td_id_urllink"></div>
                   </div>
                   <div class="tr">
                       <div class="delete_th_tag1">メモ</div>
-                      <div class="td_id_tag1">{% if obj.tag1 == '' %}ー{% else %}{{obj.tag1}}{% endif %}</div>
+                      <div class="td_id_tag1"></div>
                   </div>
               </div>
               <div class="delete-table_input">
@@ -284,32 +282,17 @@
                   </tr>
               </thead>
               <tbody class="edit-table_tbody_undone">
-              {% for plan in data_undone %}
-                  {% if plan.done == False %}
                   <tr class="undonerow">
-                    <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
-                     <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
-                      <td class="motivation">{% if plan.motivation is None %}ー{% else %}{{plan.motivation}}{% endif %}</td>
-                      <td class="genre1">{{plan.genre1}}</td>
-                      <td class="genre2">{{plan.genre2}}</td>
-                      <td class="plan">
-                                        {% if plan.urllink == '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ' %}
-                                          {{plan.plan}}
-                                        {%  else %}
-                                          <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
-                                        {% endif %}
-                      </td>
-                      <td class="travelhour">{% if plan.travelhour is None %}ー{% else %}{{plan.travelhour}}{% endif %}</td>
-                      <td class="travelmin">{% if plan.travelmin is None %}ー{% else %}{{plan.travelmin}}{% endif %}</td>
-                      <td class="tag">
-                                      {% if plan.tag1 == '                                                                                                    ' %}
-                                      {% else %}
-                                        {{plan.tag1}}
-                                      {% endif %}
-                      </td>
+                    <td class="delete"></td>
+                     <td class="edit"></td>
+                      <td class="motivation"></td>
+                      <td class="genre1"></td>
+                      <td class="genre2"></td>
+                      <td class="plan"></td>
+                      <td class="travelhour"></td>
+                      <td class="travelmin"></td>
+                      <td class="tag"></td>
                   </tr>
-                  {% endif %}
-              {% endfor %}
               </tbody>
           </table>
       </div>
@@ -349,33 +332,18 @@
                   </tr>
               </thead>
               <tbody class="edit-table_tbody_done">
-              {% for plan in data_done %}
-                  {% if plan.done %}
                   <tr class="donerow">
-                      <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="fas fa-trash-alt"></i></a></td>
-                      <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="fas fa-edit"></i></a></td>
-                      <td class="review">{% if plan.review is None %}ー{% else %}{{plan.review}}{% endif %}</td>
-                      <td class="genre1">{{plan.genre1}}</td>
-                      <td class="genre2">{{plan.genre2}}</td>
-                      <td class="plan">
-                                        {% if plan.urllink == '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ' %}
-                                          {{plan.plan}}
-                                        {%  else %}
-                                          <a href="{{plan.urllink}}">{{plan.plan}}</a>
-                                        {% endif %}
-                      </td>
-                      <td class="travelhour">{% if plan.travelhour is None %}ー{% else %}{{plan.travelhour}}{% endif %}</td>
-                      <td class="travelmin">{% if plan.travelmin is None %}ー{% else %}{{plan.travelmin}}{% endif %}</td>
-                      <td class="tag">
-                                      {% if plan.tag1 == '                                                                                                    ' %}
-                                      {% else %}
-                                        {{plan.tag1}}
-                                      {% endif %}
-                      </td>
-                      <td class="completiondate">{% if plan.completiondate is None %}ー{% else %}{{plan.completiondate|date:"Y/m/d"}}{% endif %}</td>
+                      <td class="delete"></td>
+                      <td class="edit"></td>
+                      <td class="review"></td>
+                      <td class="genre1"></td>
+                      <td class="genre2"></td>
+                      <td class="plan"></td>
+                      <td class="travelhour"></td>
+                      <td class="travelmin"></td>
+                      <td class="tag"></td>
+                      <td class="completiondate"></td>
                   </tr>
-                  {% endif %}
-              {% endfor %}
               </tbody>
           </table>
       </div>
