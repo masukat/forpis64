@@ -131,8 +131,8 @@ except ImportError:
 
 print("DEBUG")
 print(DEBUG)
+
 # This is new:heroku postgres
-if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
