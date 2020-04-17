@@ -137,7 +137,7 @@
                       <div class="td_id_motivation">{{form.motivation}}</div>
                   </div>
                   <div class="tr">
-                      <div class="th_genre1">in/out</div>
+                      <div class="th_genre1">分野</div>
                       <div class="td_id_genre1">{{form.genre1}}</div>
                   </div>
                   <div class="tr">
@@ -207,7 +207,7 @@
                       <div class="td_id_motivation">{% if obj.motivation is None %}ー{% else %}{{obj.motivation}}{% endif %}</div>
                   </div>
                   <div class="tr">
-                      <div class="delete_th_genre1">in/out</div>
+                      <div class="delete_th_genre1">分野</div>
                       <div class="td_id_genre1">{{obj.genre1}}</div>
                   </div>
                   <div class="tr">
@@ -262,7 +262,7 @@
           </div>
           <div class="genre1_time_tag1_check">
               他項目:
-              <input type="checkbox" id="genre1_1_check" onclick="checkbox_cell(this,'genre1_1_display')">in/out
+              <input type="checkbox" id="genre1_1_check" onclick="checkbox_cell(this,'genre1_1_display')">分野
               <input type="checkbox" id="tag1_1_check" onclick="checkbox_cell(this,'tag1_1_display')">memo
               <input type="checkbox" id="time_1_check" onclick="checkbox_cell(this,'hour_1_display');checkbox_cell_2(this,'min_1_display')">時間
           </div>
@@ -275,7 +275,7 @@
                       <th id="delete_1_display">削除</th>
                       <th id="edit_1_display">編集</th>
                       <th id="motivation_1_display"><i class="fas fa-child"></th>
-                      <th id="genre1_1_display">in/<br>out</th>
+                      <th id="genre1_1_display">分野</th>
                       <th id="genre2_1_display">項目</th>
                       <th id="plan_1_display">やりたいこと(場所:案)</th>
                       <th id="hour_1_display">h</th>
@@ -326,7 +326,7 @@
           <div class="genre1_time_tag1_check">
               他項目:
               <input type="checkbox" id="completiondate_2_check" onclick="checkbox_cell(this,'completiondate_2_display')">完了日
-              <input type="checkbox" id="genre1_2_check" onclick="checkbox_cell(this,'genre1_2_display')">in/out
+              <input type="checkbox" id="genre1_2_check" onclick="checkbox_cell(this,'genre1_2_display')">分野
               <input type="checkbox" id="tag1_2_check" onclick="checkbox_cell(this,'tag1_2_display')">memo
               <input type="checkbox" id="time_2_check" onclick="checkbox_cell(this,'hour_2_display');checkbox_cell_2(this,'min_2_display')">時間
           </div>
@@ -339,7 +339,7 @@
                       <th id="delete_2_display">削除</th>
                       <th id="edit_2_display">編集</th>
                       <th id="review_2_display">評価</th>
-                      <th id="genre1_2_display">in/<br>out</th>
+                      <th id="genre1_2_display">分野</th>
                       <th id="genre2_2_display">項目</th>
                       <th id="plan_2_display">やりたいこと(場所:案)</th>
                       <th id="hour_2_display">h</th>

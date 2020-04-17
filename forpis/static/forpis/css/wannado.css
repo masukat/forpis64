@@ -4,18 +4,22 @@
     position: fixed;
     top: 0px;
     width: 100%;
+    background-color: #FF9999;
 }
 .titleImg{
     text-align: center;
     display: block;
     margin-left: auto;
-    margin-right: 507px;
+    margin-right: 489px;
     height: 139px;
+    width: 46%
 }
 h1 {
   position: relative;
   padding: 0.1em;
   background: #FFCC99;
+  margin-left: 6px;
+  margin-right: 6px;
 
   font-family: Comic Sans MS;
   font-size: 34pt;
