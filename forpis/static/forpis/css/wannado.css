@@ -1,6 +1,5 @@
 /*【上】*/
 .headerImg{
-    background-color: #FFC0CB;
     z-index: 1000;
     position: fixed;
     top: 0px;
@@ -13,28 +12,41 @@
     margin-right: 507px;
     height: 139px;
 }
-h1{
-    color: #9057FF;
-    background: #DCC2FF;
-    box-shadow: 0px 0px 0px 5px #DCC2FF;
-    border: dashed 1px #96c2fe;
+h1 {
+  position: relative;
+  padding: 0.1em;
+  background: #FFCC99;
 
-    font-size: 40pt;
-    font-family: Comic Sans MS;
-    text-align: left;
-    padding: 0.1em 0.3em;
+  font-family: Comic Sans MS;
+  font-size: 34pt;
+  color: #FF0461;
+  text-align: left;
+
+  box-shadow: 0px 0px 0px 5px #FFCC99;
+  border: dashed 2px #FF0461;
+}
+
+h1:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #FFCC99;
+  width: 0;
+  height: 0;
 }
 .iventName{
     font-size: 30pt;
     position: relative;/*相対位置*/
     line-height: 1.4;/*行高*/
-    color: #7b6459;/*文字色*/
+    color: #555555;/*文字色*/
 }
 
 /*【全体】*/
 body{
-    color: #7172ac;
-    background-color: #FFC0CB;
+    color: white;
+    background-color: #FF9999;
     padding-top: 105px;;
     font-size: 15pt;
     font-family: monospace;
@@ -175,13 +187,13 @@ button.reuturn_button:active {
     width: 63px;
 }
 .done_th{
-    background-color: #BC8F8F;
+    background-color: #FF69A3;
 }
 .done_th_completiondate{
-    height: 28px;
+    height: 31px;
     width: 172px;
     text-align: center;
-    background-color: #BC8F8F;
+    background-color: #FF69A3;
     color: white;
 }
 .th_motivation{
@@ -329,14 +341,14 @@ table tr td{
         height: auto;
     }
     h1{
-        font-family: Verdana;
-        font-size: 17pt;
-        padding: 0.1em 0.4em;
+        font-family: "Droid Sans";
+        font-size: 16pt;
+        padding: 0em 0.4em;
     }
 
     /*【全体】*/
     body{
-        padding-top: 39px;
+        padding-top: 51px;
     }
 
     /*【削除テーブル】*/
