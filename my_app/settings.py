@@ -129,9 +129,6 @@ try:
 except ImportError:
     pass
 
-print("DEBUG")
-print(DEBUG)
-
 # This is new:heroku postgres
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
