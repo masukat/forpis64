@@ -29,10 +29,8 @@
           //もしスマホなら最初は非表示
           if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
               hidden();
-              hourHidden();
-              minHidden();
-              hourHidden2();
-              minHidden2();
+              hiddenOther();
+              timeHidden();
           }else{
               AllChecked();
           }
@@ -46,47 +44,49 @@
       }
       //最初に隠しておくため
       function hidden(){
-          var array = ["delete_1","edit_1","genre1_1","tag1_1","delete_2","edit_2","genre1_2","tag1_2","completiondate_2"];
-              for(var j=0;j<array.length;j++){
-                  var id = array[j] + "_display";
-                  var obj = array[j] + "_check";
-                  var CELL = document.getElementById(id);
-                  var TABLE = CELL.parentNode.parentNode.parentNode;
-                  for(var i=0;TABLE.rows[i];i++) {
-                      TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+          var array = ["delete","edit","genre1","tag1"];
+              for(var k=1;k<4;k++){
+                  for(var j=0;j<array.length;j++){
+                      var id = array[j] + "_display_" + k;
+                      var obj = array[j] + "_check_" + k;
+                      var CELL = document.getElementById(id);
+                      var TABLE = CELL.parentNode.parentNode.parentNode;
+                      for(var i=0;TABLE.rows[i];i++) {
+                          TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                      }
                   }
               }
       }
-      function hourHidden(){
-          var c = document.getElementById("hour_1_display");
-          var t = c.parentNode.parentNode.parentNode;
-          for(var i=0;t.rows[i];i++) {
-              t.rows[i].cells[c.cellIndex].style.display = "none";
-          }
+      function hiddenOther(){
+          var array_display = ["completiondate_display_2"];
+          var array_check = ["completiondate_check_2"];
+              for(var j=0;j<array_display.length;j++){
+                  for(var l=0;l<array_check.length;l++){
+                      var id = array_display[j];
+                      var obj = array_check[l];
+                      var CELL = document.getElementById(id);
+                      var TABLE = CELL.parentNode.parentNode.parentNode;
+                      for(var i=0;TABLE.rows[i];i++) {
+                          TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                      }
+                  }
+              }
       }
-      function minHidden(){
-          var c = document.getElementById("min_1_display");
-          var t = c.parentNode.parentNode.parentNode;
-          for(var i=0;t.rows[i];i++) {
-              t.rows[i].cells[c.cellIndex].style.display = "none";
-          }
-      }
-      function hourHidden2(){
-          var c = document.getElementById("hour_2_display");
-          var t = c.parentNode.parentNode.parentNode;
-          for(var i=0;t.rows[i];i++) {
-              t.rows[i].cells[c.cellIndex].style.display = "none";
-          }
-      }
-      function minHidden2(){
-          var c = document.getElementById("min_2_display");
-          var t = c.parentNode.parentNode.parentNode;
-          for(var i=0;t.rows[i];i++) {
-              t.rows[i].cells[c.cellIndex].style.display = "none";
+      function timeHidden(){
+          var array = ["hour","min"];
+          for(var k=1;k<3;k++){
+              for(var j=0;j<array.length;j++){
+                  var id = array[j] + "_display_" + k;
+                  var c = document.getElementById(id);
+                  var t = c.parentNode.parentNode.parentNode;
+                  for(var i=0;t.rows[i];i++) {
+                      t.rows[i].cells[c.cellIndex].style.display = "none";
+                  }
+              }
           }
       }
       //checkboxのcheckがついたら表示
-      function checkbox_cell( obj,id ){
+      function checkbox_cell_1( obj,id ){
           var CELL = document.getElementById(id);
           var TABLE = CELL.parentNode.parentNode.parentNode;
           for(var i=0;TABLE.rows[i];i++) {
@@ -107,11 +107,11 @@
   <!-- 追加・更新画面 -->
   {% if delete_flag == 0 %}
       {% if id == 0 %}
-          <div class="iventName"><i class="fas fa-paw"></i>追加</div>
+          <div class="iventName"><i class="fab fa-github"></i>追加</div>
           <form action="{% url 'wannado' %}" method="post">
       {% elif id > 0 %}
           <div><a href={% url 'wannado' %}><button class="return_button" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
-          <div class="iventName"><i class="fas fa-paw"></i>更新</div>
+          <div class="iventName"><i class="fab fa-github"></i>更新</div>
           <form action="{% url 'wannado_edit' id %}" method="post">
       {% endif %}
           <!-- 完了確認欄 -->
@@ -181,7 +181,7 @@
   <!-- 削除画面(データ表示) -->
   {% elif delete_flag == 1 %}
           <div><a href={% url 'wannado' %}><button class="return_button" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
-          <div class="iventName"><i class="fas fa-paw"></i>消す？？</div>
+          <div class="iventName"><i class="fab fa-github"></i>消す？？</div>
           <form action={% url 'wannado_delete' id%} method="post">
 
           <!-- 完了確認欄 -->
@@ -252,19 +252,19 @@
   {% endif %}
 
   <!-- やりたいことリスト -->
-  <div class="iventName"><i class="fas fa-paw"></i>やりたいことリスト</div>
+  <div class="iventName"><i class="fas fa-paw"></i>やりたいこと TOP10</div>
       <!-- 初期状態で列非表示 -->
       <div class="checkbox">
           <div class="delete_edit_check">
               編集する？
-              <input type="checkbox" id="delete_1_check" onclick="checkbox_cell(this,'delete_1_display')">delete
-              <input type="checkbox" id="edit_1_check" onclick="checkbox_cell(this,'edit_1_display')">edit
+              <input type="checkbox" id="delete_check_1" onclick="checkbox_cell_1(this,'delete_display_1')">delete
+              <input type="checkbox" id="edit_check_1" onclick="checkbox_cell_1(this,'edit_display_1')">edit
           </div>
           <div class="genre1_time_tag1_check">
               他項目:
-              <input type="checkbox" id="genre1_1_check" onclick="checkbox_cell(this,'genre1_1_display')">分野
-              <input type="checkbox" id="tag1_1_check" onclick="checkbox_cell(this,'tag1_1_display')">memo
-              <input type="checkbox" id="time_1_check" onclick="checkbox_cell(this,'hour_1_display');checkbox_cell_2(this,'min_1_display')">時間
+              <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell_1(this,'genre1_display_1')">分野
+              <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell_1(this,'tag1_display_1')">memo
+              <input type="checkbox" id="time_check_1" onclick="checkbox_cell_1(this,'hour_display_1');checkbox_cell_2(this,'min_display_1')">時間
           </div>
       </div>
       <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -272,15 +272,15 @@
           <table>
               <thead class="edit-table_thead_undone">
                   <tr>
-                      <th id="delete_1_display">削除</th>
-                      <th id="edit_1_display">編集</th>
-                      <th id="motivation_1_display"><i class="fas fa-child"></th>
-                      <th id="genre1_1_display">分野</th>
-                      <th id="genre2_1_display">項目</th>
-                      <th id="plan_1_display">やりたいこと(場所:案)</th>
-                      <th id="hour_1_display">h</th>
-                      <th id="min_1_display">min</th>
-                      <th id="tag1_1_display">メモ</th>
+                      <th id="delete_display_1">削除</th>
+                      <th id="edit_display_1">編集</th>
+                      <th id="motivation_display_1"><i class="fas fa-child"></th>
+                      <th id="genre1_display_1">分野</th>
+                      <th id="genre2_display_1">項目</th>
+                      <th id="plan_display_1">やりたいこと(場所:案)</th>
+                      <th id="hour_display_1">h</th>
+                      <th id="min_display_1">min</th>
+                      <th id="tag1_display_1">メモ</th>
                   </tr>
               </thead>
               <tbody class="edit-table_tbody_undone">
@@ -314,21 +314,79 @@
           </table>
       </div>
 
+      <!-- 勉強リスト -->
+      <div class="iventName"><i class="fas fa-carrot"></i>勉強</div>
+          <!-- 初期状態で列非表示 -->
+          <div class="checkbox">
+              <div class="delete_edit_check">
+                  編集する？
+                  <input type="checkbox" id="delete_check_3" onclick="checkbox_cell_1(this,'delete_display_3')">delete
+                  <input type="checkbox" id="edit_check_3" onclick="checkbox_cell_1(this,'edit_display_3')">edit
+              </div>
+              <div class="genre1_time_tag1_check">
+                  他項目:
+                  <input type="checkbox" id="genre1_check_3" onclick="checkbox_cell_1(this,'genre1_display_3')">分野
+                  <input type="checkbox" id="tag1_check_3" onclick="checkbox_cell_1(this,'tag1_display_3')">memo
+              </div>
+          </div>
+          <!-- テーブル(idは非表示にするときに呼び出される) -->
+          <div class="edit-table_undone" align="center">
+              <table>
+                  <thead class="edit-table_thead_undone">
+                      <tr>
+                          <th id="delete_display_3">削除</th>
+                          <th id="edit_display_3">編集</th>
+                          <th id="motivation_display_3"><i class="fas fa-child"></th>
+                          <th id="genre1_display_3">分野</th>
+                          <th id="genre2_display_3">項目</th>
+                          <th id="plan_display_3">やりたいこと(場所:案)</th>
+                          <th id="tag1_display_3">メモ</th>
+                      </tr>
+                  </thead>
+                  <tbody class="edit-table_tbody_undone">
+                  {% for plan in data_undone %}
+                      {% if '勉強' in plan.genre1 %}
+                      <tr class="undonerow">
+                        <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                         <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                          <td class="motivation">{% if plan.motivation is None %}ー{% else %}{{plan.motivation}}{% endif %}</td>
+                          <td class="genre1">{{plan.genre1}}</td>
+                          <td class="genre2">{{plan.genre2}}</td>
+                          <td class="plan">
+                                            {% if plan.urllink == '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ' %}
+                                              {{plan.plan}}
+                                            {%  else %}
+                                              <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
+                                            {% endif %}
+                          </td>
+                          <td class="tag">
+                                          {% if plan.tag1 == '                                                                                                    ' %}
+                                          {% else %}
+                                            {{plan.tag1}}
+                                          {% endif %}
+                          </td>
+                      </tr>
+                      {% endif %}
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+
   <!-- やったことリスト -->
   <div class="iventName"><i class="fas fa-paw"></i>やったことリスト</div>
       <!-- 初期状態で列非表示 -->
       <div class="checkbox">
           <div class="delete_edit_check_done">
               編集する？
-              <input type="checkbox" id="delete_2_check" onclick="checkbox_cell(this,'delete_2_display')">delete
-              <input type="checkbox" id="edit_2_check" onclick="checkbox_cell(this,'edit_2_display')">edit
+              <input type="checkbox" id="delete_check_2" onclick="checkbox_cell_1(this,'delete_display_2')">delete
+              <input type="checkbox" id="edit_check_2" onclick="checkbox_cell_1(this,'edit_display_2')">edit
           </div>
           <div class="genre1_time_tag1_check">
               他項目:
-              <input type="checkbox" id="completiondate_2_check" onclick="checkbox_cell(this,'completiondate_2_display')">完了日
-              <input type="checkbox" id="genre1_2_check" onclick="checkbox_cell(this,'genre1_2_display')">分野
-              <input type="checkbox" id="tag1_2_check" onclick="checkbox_cell(this,'tag1_2_display')">memo
-              <input type="checkbox" id="time_2_check" onclick="checkbox_cell(this,'hour_2_display');checkbox_cell_2(this,'min_2_display')">時間
+              <input type="checkbox" id="completiondate_check_2" onclick="checkbox_cell_1(this,'completiondate_display_2')">完了日
+              <input type="checkbox" id="genre1_check_2" onclick="checkbox_cell_1(this,'genre1_display_2')">分野
+              <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell_1(this,'tag1_display_2')">memo
+              <input type="checkbox" id="time_check_2" onclick="checkbox_cell_1(this,'hour_display_2');checkbox_cell_2(this,'min_display_2')">時間
           </div>
       </div>
       <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -336,16 +394,16 @@
           <table>
               <thead class="edit-table_thead_done">
                   <tr>
-                      <th id="delete_2_display">削除</th>
-                      <th id="edit_2_display">編集</th>
-                      <th id="review_2_display">評価</th>
-                      <th id="genre1_2_display">分野</th>
-                      <th id="genre2_2_display">項目</th>
-                      <th id="plan_2_display">やりたいこと(場所:案)</th>
-                      <th id="hour_2_display">h</th>
-                      <th id="min_2_display">min</th>
-                      <th id="tag1_2_display">メモ</th>
-                      <th id="completiondate_2_display">完了日</th>
+                      <th id="delete_display_2">削除</th>
+                      <th id="edit_display_2">編集</th>
+                      <th id="review_display_2">評価</th>
+                      <th id="genre1_display_2">分野</th>
+                      <th id="genre2_display_2">項目</th>
+                      <th id="plan_display_2">やりたいこと(場所:案)</th>
+                      <th id="hour_display_2">h</th>
+                      <th id="min_display_2">min</th>
+                      <th id="tag1_display_2">メモ</th>
+                      <th id="completiondate_display_2">完了日</th>
                   </tr>
               </thead>
               <tbody class="edit-table_tbody_done">

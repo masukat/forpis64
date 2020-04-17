@@ -298,20 +298,23 @@ table tr td{
     border-width: 2px;
 }
 
-#delete_1_display, #delete_2_display, #edit_1_display, #edit_2_display, #motivation_1_display, #review_2_display{
+[id^="delete_display_"], [id^="edit_display_"]{
     width: 43px;
 }
-#hour_1_display, #hour_2_display{
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+[id^="hour_display_"]{
     width: 34px;
 }
-#min_1_display, #min_2_display{
+[id^="min_display_"]{
     width: 45px;
 }
-#genre1_1_display, #genre1_2_display{
-    width: 50px;
+[id^="genre1_display_"]{
+    width: 116px;
 }
-#genre2_1_display, #genre2_2_display{
-    width: 212px;
+[id^="genre2_display_"]{
+    width: 130px;
 }
 
 .delete, .done, .motivation, .review, .genre1, .genre2, .travelhour, .travelmin, .urlLink, .edit{
@@ -536,47 +539,47 @@ table tr td{
     }
 
     /*人マークがあるから幅分けないといけない*/
-    #delete_1_display{
+    [id^="delete_display_"]{
         width: 26px;
     }
-    #edit_1_display{
+    [id^="edit_display_"]{
         width: 32px;
     }
-    #motivation_1_display{
+    [id^="motivation_display_"]{
         width: 27px;
     }
     .motivation{
         width: 41px;
     }
-    #review_2_display{
+    [id^="review_display_"]{
         width: 30px;
     }
     .review{
         width: 34px;
     }
-    .genre2, #genre2_1_display, #genre2_2_display{
+    .genre2, [id^="genre2_display_"]{
         width: 120px;
         font-size: 16px;
     }
-    .plan, #plan_1_display, #plan_2_display{
+    .plan, [id^="plan_display_"]{
         width: 290px;
     }
-    #tag1_1_display{
+    #tag1_display_1{
         width: 125px;
     }
     /*これは完璧！*/
-    #tag1_2_display{
+    #tag1_display_2{
         width: 137px;
     }
-    #hour_1_display, #hour_2_display{
+    [id^="hour_display_"]{
         width: 18px;
     }
 
     /*【やったことリスト】*/
-    #delete_2_display{
+    #delete_display_2{
         width: 27px;
     }
-    #edit_2_display{
+    #edit_display_2{
         width: 33px;
     }
     .delete{
@@ -597,7 +600,7 @@ table tr td{
     .genre1{
         width: 53px;
     }
-    #completiondate_2_display{
+    #completiondate_display_2{
         width: 190px;
     }
     .completiondate{
