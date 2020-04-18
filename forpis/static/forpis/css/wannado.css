@@ -554,6 +554,9 @@ table tr td{
     [id^="motivation_display_"]{
         width: 26px;
     }
+    #motivation_display_1{
+        width: 20px;
+    }
     .motivation{
         width: 34px;
         font-size: 14px;
