@@ -314,7 +314,7 @@ table tr td{
     width: 116px;
 }
 #genre1_display_1{
-    width: 90px;
+    width: 98px;
 }
 [id^="genre2_display_"]{
     width: 130px;
@@ -552,13 +552,10 @@ table tr td{
         width: 32px;
     }
     [id^="motivation_display_"]{
-        width: 27px;
-    }
-    #motivation_display_1{
         width: 26px;
     }
     .motivation{
-        width: 41px;
+        width: 34px;
         font-size: 14px;
     }
     [id^="review_display_"]{
@@ -567,12 +564,16 @@ table tr td{
     .review{
         width: 34px;
     }
-    .genre2, [id^="genre2_display_"]{
-        width: 89px;
+    .genre2{
+        width: 97px;
+        font-size: 14px;
+    }
+    [id^="genre2_display_"]{
+        width: 84px;
         font-size: 14px;
     }
     #genre2_display_1{
-        width: 65px;
+        width: 75px;
     }
     .plan, [id^="plan_display_"]{
         width: 290px;
@@ -611,7 +612,7 @@ table tr td{
         width: 54px;
     }
     .genre1{
-      width: 121px;
+      width: 140px;
       font-size: 14px;
     }
     #completiondate_display_2{
