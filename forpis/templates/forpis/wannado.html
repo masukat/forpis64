@@ -29,7 +29,6 @@
           //もしスマホなら最初は非表示
           if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
               hidden();
-              hiddenOther();
               timeHidden();
           }else{
               AllChecked();
@@ -44,30 +43,23 @@
       }
       //最初に隠しておくため
       function hidden(){
-          var array = ["delete","edit","genre1","tag1"];
+          var array = ["delete","edit","genre1","tag1","completiondate"];
               for(var k=1;k<4;k++){
                   for(var j=0;j<array.length;j++){
                       var id = array[j] + "_display_" + k;
                       var obj = array[j] + "_check_" + k;
                       var CELL = document.getElementById(id);
-                      var TABLE = CELL.parentNode.parentNode.parentNode;
-                      for(var i=0;TABLE.rows[i];i++) {
-                          TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
-                      }
-                  }
-              }
-      }
-      function hiddenOther(){
-          var array_display = ["completiondate_display_2"];
-          var array_check = ["completiondate_check_2"];
-              for(var j=0;j<array_display.length;j++){
-                  for(var l=0;l<array_check.length;l++){
-                      var id = array_display[j];
-                      var obj = array_check[l];
-                      var CELL = document.getElementById(id);
-                      var TABLE = CELL.parentNode.parentNode.parentNode;
-                      for(var i=0;TABLE.rows[i];i++) {
-                          TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                      if(CELL === null) {
+
+                      }else{
+                          try{
+                              var TABLE = CELL.parentNode.parentNode.parentNode;
+                              for(var i=0;TABLE.rows[i];i++) {
+                                  TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                              }
+                          }catch{
+
+                          }
                       }
                   }
               }
@@ -86,14 +78,14 @@
           }
       }
       //checkboxのcheckがついたら表示
-      function checkbox_cell_1( obj,id ){
+      function checkbox_cell( obj,id ){
           var CELL = document.getElementById(id);
           var TABLE = CELL.parentNode.parentNode.parentNode;
           for(var i=0;TABLE.rows[i];i++) {
               TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
           }
       }
-      function checkbox_cell_2( obj,id ){
+      function checkbox_cell_min( obj,id ){
           var CELL = document.getElementById(id);
           var TABLE = CELL.parentNode.parentNode.parentNode;
           for(var i=0;TABLE.rows[i];i++) {
@@ -257,14 +249,13 @@
       <div class="checkbox">
           <div class="delete_edit_check">
               編集する？
-              <input type="checkbox" id="delete_check_1" onclick="checkbox_cell_1(this,'delete_display_1')">delete
-              <input type="checkbox" id="edit_check_1" onclick="checkbox_cell_1(this,'edit_display_1')">edit
+              <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
+              <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
           </div>
           <div class="genre1_time_tag1_check">
               他項目:
-              <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell_1(this,'genre1_display_1')">分野
-              <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell_1(this,'tag1_display_1')">memo
-              <input type="checkbox" id="time_check_1" onclick="checkbox_cell_1(this,'hour_display_1');checkbox_cell_2(this,'min_display_1')">時間
+              <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell(this,'tag1_display_1')">memo
+              <input type="checkbox" id="time_check_1" onclick="checkbox_cell(this,'hour_display_1');checkbox_cell_min(this,'min_display_1')">時間
           </div>
       </div>
       <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -320,13 +311,12 @@
           <div class="checkbox">
               <div class="delete_edit_check">
                   編集する？
-                  <input type="checkbox" id="delete_check_3" onclick="checkbox_cell_1(this,'delete_display_3')">delete
-                  <input type="checkbox" id="edit_check_3" onclick="checkbox_cell_1(this,'edit_display_3')">edit
+                  <input type="checkbox" id="delete_check_3" onclick="checkbox_cell(this,'delete_display_3')">delete
+                  <input type="checkbox" id="edit_check_3" onclick="checkbox_cell(this,'edit_display_3')">edit
               </div>
               <div class="genre1_time_tag1_check">
                   他項目:
-                  <input type="checkbox" id="genre1_check_3" onclick="checkbox_cell_1(this,'genre1_display_3')">分野
-                  <input type="checkbox" id="tag1_check_3" onclick="checkbox_cell_1(this,'tag1_display_3')">memo
+                  <input type="checkbox" id="tag1_check_3" onclick="checkbox_cell(this,'tag1_display_3')">memo
               </div>
           </div>
           <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -337,7 +327,6 @@
                           <th id="delete_display_3">削除</th>
                           <th id="edit_display_3">編集</th>
                           <th id="motivation_display_3"><i class="fas fa-child"></th>
-                          <th id="genre1_display_3">分野</th>
                           <th id="genre2_display_3">項目</th>
                           <th id="plan_display_3">やりたいこと(場所:案)</th>
                           <th id="tag1_display_3">メモ</th>
@@ -350,7 +339,6 @@
                         <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
                          <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
                           <td class="motivation">{% if plan.motivation is None %}ー{% else %}{{plan.motivation}}{% endif %}</td>
-                          <td class="genre1">{{plan.genre1}}</td>
                           <td class="genre2">{{plan.genre2}}</td>
                           <td class="plan">
                                             {% if plan.urllink == '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ' %}
@@ -378,15 +366,15 @@
       <div class="checkbox">
           <div class="delete_edit_check_done">
               編集する？
-              <input type="checkbox" id="delete_check_2" onclick="checkbox_cell_1(this,'delete_display_2')">delete
-              <input type="checkbox" id="edit_check_2" onclick="checkbox_cell_1(this,'edit_display_2')">edit
+              <input type="checkbox" id="delete_check_2" onclick="checkbox_cell(this,'delete_display_2')">delete
+              <input type="checkbox" id="edit_check_2" onclick="checkbox_cell(this,'edit_display_2')">edit
           </div>
           <div class="genre1_time_tag1_check">
               他項目:
-              <input type="checkbox" id="completiondate_check_2" onclick="checkbox_cell_1(this,'completiondate_display_2')">完了日
-              <input type="checkbox" id="genre1_check_2" onclick="checkbox_cell_1(this,'genre1_display_2')">分野
-              <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell_1(this,'tag1_display_2')">memo
-              <input type="checkbox" id="time_check_2" onclick="checkbox_cell_1(this,'hour_display_2');checkbox_cell_2(this,'min_display_2')">時間
+              <input type="checkbox" id="completiondate_check_2" onclick="checkbox_cell(this,'completiondate_display_2')">完了日
+              <input type="checkbox" id="genre1_check_2" onclick="checkbox_cell(this,'genre1_display_2')">分野
+              <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell(this,'tag1_display_2')">memo
+              <input type="checkbox" id="time_check_2" onclick="checkbox_cell(this,'hour_display_2');checkbox_cell_min(this,'min_display_2')">時間
           </div>
       </div>
       <!-- テーブル(idは非表示にするときに呼び出される) -->

@@ -313,6 +313,9 @@ table tr td{
 [id^="genre1_display_"]{
     width: 116px;
 }
+#genre1_display_1{
+    width: 75px;
+}
 [id^="genre2_display_"]{
     width: 130px;
 }
@@ -348,7 +351,7 @@ table tr td{
         height: auto;
     }
     h1{
-        font-family: "Droid Sans";
+        font-family: Verdana;
         font-size: 16pt;
         padding: 0em 0.4em;
     }
@@ -548,8 +551,12 @@ table tr td{
     [id^="motivation_display_"]{
         width: 27px;
     }
+    #motivation_display_1{
+        width: 22px;
+    }
     .motivation{
         width: 41px;
+        font-size: 14px;
     }
     [id^="review_display_"]{
         width: 30px;
@@ -558,8 +565,8 @@ table tr td{
         width: 34px;
     }
     .genre2, [id^="genre2_display_"]{
-        width: 120px;
-        font-size: 16px;
+        width: 94px;
+        font-size: 14px;
     }
     .plan, [id^="plan_display_"]{
         width: 290px;
@@ -598,7 +605,8 @@ table tr td{
         width: 54px;
     }
     .genre1{
-        width: 53px;
+      width: 104px;
+      font-size: 14px;
     }
     #completiondate_display_2{
         width: 190px;
