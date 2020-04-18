@@ -314,7 +314,7 @@ table tr td{
     width: 116px;
 }
 #genre1_display_1{
-    width: 75px;
+    width: 90px;
 }
 [id^="genre2_display_"]{
     width: 130px;
@@ -497,13 +497,13 @@ table tr td{
     }
 
     [class^="th_"]{
-        height: 30px;
+        height: 21px;
     }
     .th_travelhour{
         width: 54px;
     }
     .th_motivation{
-        height: 28px;
+        height: 19px;
         padding-left: 0px;
         padding-right: 0px;
         width: 54px;
@@ -538,9 +538,12 @@ table tr td{
         height: 200px;
     }
     table tr th,td{
-        font-size: 12pt;
+        font-size: 11pt;
     }
 
+    .fa-child:before {
+        font-size: 21px;
+    }
     /*人マークがあるから幅分けないといけない*/
     [id^="delete_display_"]{
         width: 26px;
@@ -552,7 +555,7 @@ table tr td{
         width: 27px;
     }
     #motivation_display_1{
-        width: 22px;
+        width: 26px;
     }
     .motivation{
         width: 41px;
@@ -565,8 +568,11 @@ table tr td{
         width: 34px;
     }
     .genre2, [id^="genre2_display_"]{
-        width: 94px;
+        width: 89px;
         font-size: 14px;
+    }
+    #genre2_display_1{
+        width: 65px;
     }
     .plan, [id^="plan_display_"]{
         width: 290px;
@@ -605,7 +611,7 @@ table tr td{
         width: 54px;
     }
     .genre1{
-      width: 104px;
+      width: 121px;
       font-size: 14px;
     }
     #completiondate_display_2{
