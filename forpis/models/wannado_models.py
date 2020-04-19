@@ -1,5 +1,16 @@
 from django.db import models
 
+MOTIVATION_CHOISES=(
+    ('5','5'),
+    ('4','4'),
+    ('3','3'),
+    ('2','2'),
+    ('1','1'),
+)
+
+class WannaDo_motivation(models.Model):
+    motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
+
 class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
     genre2 = models.CharField(max_length=100,blank=True)
@@ -14,7 +25,6 @@ class WannaDo(models.Model):
     travelhour = models.IntegerField(blank=True)
     travelmin = models.IntegerField(blank=True)
     completiondate = models.DateField(blank=True)
-
     class Meta:
         db_table ="forpis_wannado"
 

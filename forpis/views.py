@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .models import WannaDo
+from .models.wannado_models import WannaDo
 from .forms import WannaDoForm
+from .forms import WannaDoForm_motivation
 
 def wannado(request):
     data_undone = WannaDo.objects.all().order_by('motivation','genre1','genre2').reverse()
@@ -11,13 +12,16 @@ def wannado(request):
         'data_undone':data_undone,
         'data_done':data_done,
         'form':WannaDoForm(),
+        'form_motivation':WannaDoForm_motivation(),
         'id':0,
         'delete_flag':0,
         }
     if (request.method == 'POST'):
         obj = WannaDo()
         wannado = WannaDoForm(request.POST, instance=obj)
+        wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado.save()
+        wannado_motivation.save()
         return redirect(to='/forpis/wannado')
     return render(request, 'forpis/wannado.html', params)
 
@@ -27,7 +31,7 @@ def wannado_edit(request,num):
 
     obj = WannaDo.objects.get(id=num)
 
-    #項目、空白削除、max_length=100
+    #分野、空白削除、max_length=100
     if obj.genre1 != '                                                                                                    ':
         obj.genre1 = obj.genre1.rstrip()
     #項目、空白削除、max_length=100
@@ -49,12 +53,15 @@ def wannado_edit(request,num):
 
     if (request.method == 'POST'):
         wannado = WannaDoForm(request.POST, instance=obj)
+        wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado.save()
+        wannado_motivation.save()
         return redirect(to='/forpis/wannado')
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
         'form':WannaDoForm(instance=obj),
+        'form_motivation':WannaDoForm_motivation(instance=obj),
         'id':num,
         'delete_flag':0,
         }
