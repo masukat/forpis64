@@ -533,7 +533,7 @@ table tr td{
         height: 300px;
     }
     .edit-table_tbody_undone_habit{
-        height: 100px;
+        height: 135px;
     }
     .edit-table_tbody_undone_study{
         height: 150px;
@@ -574,15 +574,18 @@ table tr td{
         width: 34px;
     }
     .genre2{
-        width: 153px;
+        width: 133px;
         font-size: 14px;
     }
     [id^="genre2_display_"]{
         width: 156px;
         font-size: 14px;
     }
+    #genre1_display_1 {
+        width: 118px;
+    }
     #genre2_display_1{
-        width: 106px;
+        width: 125px;
     }
     .plan, [id^="plan_display_"]{
         width: 290px;
@@ -621,7 +624,7 @@ table tr td{
         width: 54px;
     }
     .genre1{
-      width: 160px;
+      width: 190px;
       font-size: 14px;
     }
     #completiondate_display_2{
