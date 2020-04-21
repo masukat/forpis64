@@ -532,7 +532,10 @@ table tr td{
         overflow: scroll;
         height: 300px;
     }
-    .edit-table_tbody_undone_habit, .edit-table_tbody_undone_book{
+    .edit-table_tbody_undone_habit{
+        height: 150px;
+    }
+    .edit-table_tbody_undone_book{
         height: 135px;
     }
     .edit-table_tbody_undone_study{
