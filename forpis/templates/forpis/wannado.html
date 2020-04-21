@@ -126,11 +126,11 @@
               <div class="add-table_1">
                   <div class="tr">
                       <div class="th_motivation"><i class="fas fa-child"></i></div>
-                      <div class="td_id_motivation">{{form.motivation}}</div>
+                      <div class="td_id_motivation">{{form_motivation}}</div>
                   </div>
                   <div class="tr">
                       <div class="th_genre1">分野</div>
-                      <div class="td_id_genre1">{{form.genre1}}</div>
+                      <div class="td_id_genre1">{{form_genre1}}</div>
                   </div>
                   <div class="tr">
                       <div class="th_genre2">項目</div>
@@ -270,7 +270,7 @@
                       <th id="tag1_display_4">メモ</th>
                   </tr>
               </thead>
-              <tbody class="edit-table_tbody_undone">
+              <tbody class="edit-table_tbody_undone_habit">
               {% for plan in data_undone %}
                   {% if '習慣' in plan.genre1 %}
                   <tr class="undonerow">
@@ -387,7 +387,7 @@
                           <th id="tag1_display_3">メモ</th>
                       </tr>
                   </thead>
-                  <tbody class="edit-table_tbody_undone">
+                  <tbody class="edit-table_tbody_undone_study">
                   {% for plan in data_undone %}
                       {% if '勉強' in plan.genre1 %}
                       <tr class="undonerow">

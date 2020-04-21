@@ -527,10 +527,16 @@ table tr td{
     .edit-table_thead_done, .edit-table_thead_undone{
         display: block;
     }
-    .edit-table_tbody_undone{
+    [class^="edit-table_tbody_undone"]{
         display: block;
         overflow: scroll;
         height: 300px;
+    }
+    .edit-table_tbody_undone_habit{
+        height: 100px;
+    }
+    .edit-table_tbody_undone_study{
+        height: 150px;
     }
     .edit-table_tbody_done{
         display: block;
@@ -538,7 +544,7 @@ table tr td{
         height: 200px;
     }
     table tr th,td{
-        font-size: 11pt;
+        font-size: 10pt;
     }
 
     .fa-child:before {
@@ -568,15 +574,15 @@ table tr td{
         width: 34px;
     }
     .genre2{
-        width: 97px;
+        width: 153px;
         font-size: 14px;
     }
     [id^="genre2_display_"]{
-        width: 84px;
+        width: 156px;
         font-size: 14px;
     }
     #genre2_display_1{
-        width: 75px;
+        width: 106px;
     }
     .plan, [id^="plan_display_"]{
         width: 290px;
