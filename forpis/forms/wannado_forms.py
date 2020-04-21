@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*
 from django import forms
-from .models.wannado_models import WannaDo
-from .models.wannado_models import WannaDo_motivation
+from ..models.wannado_models import WannaDo,WannaDo_motivation,WannaDo_genre1
 
 class WannaDoForm(forms.ModelForm):
     class Meta:
@@ -10,5 +9,10 @@ class WannaDoForm(forms.ModelForm):
 
 class WannaDoForm_motivation(forms.ModelForm):
    class Meta:
-       model = WannaDo
+       model = WannaDo_motivation
        fields = ['motivation']
+
+class WannaDoForm_genre1(forms.ModelForm):
+   class Meta:
+       model = WannaDo_genre1
+       fields = ['genre1']

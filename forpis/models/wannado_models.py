@@ -8,8 +8,19 @@ MOTIVATION_CHOISES=(
     ('1','1'),
 )
 
+GENRE1_CHOISES=(
+    ('習慣','習慣'),
+    ('勉強','勉強'),
+    ('家事','家事'),
+    ('趣味','趣味'),
+    ('コロナ後','コロナ後'),
+)
+
 class WannaDo_motivation(models.Model):
     motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
+
+class WannaDo_genre1(models.Model):
+    genre1 = models.CharField(max_length=100,choices=GENRE1_CHOISES)
 
 class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
