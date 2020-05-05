@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>progress</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/summary.css' %}" />
+</head>
+<body>
+<div class="body">
+    <div class="body_wrap">
+        <!-- navi ------------------------------------------------------------------------------------------------------>
+        <nav>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
+        </nav>
+        <!-- 概要 ------------------------------------------------------------------------------------------------------->
+        <div class="tab-content">
+            <h1>概要</h1>
+            <div class="summary">
+                <span class="box-title">逆境を乗り越える</span>
+                <div class="summary_list">
+                    これは、怠け者のためのシステムづくりである。</br>
+                    長い目で見て、幸せになる選択肢を選ぶ。
+                    <ol>
+                      <li>楽しみ、ストレス発散法をいくつも用意</li>
+                      <li>何も考えなくて良い生活パターンに入る</li>
+                      <li>身内以外の人といる</li>
+                    </ol>
+                </div>
+            </div>
+
+            <p>
+              <h4>①のために必要なこと：</h4>
+              <ol>
+                <li>日々、ストレス解消法を身につける</li>
+                <li>マインド(怒りの)コントロールする方法を身につける</li>
+              </ol>
+            </p>
+
+            <p>
+              <h4>②のために必要なこと：</h4>
+              <ol>
+                <li>その生活パターンに入るだけの財力を持つ</li>
+                <li>ちょっとした(辛い時でもできる)お仕事を見つけておく</li>
+                <li>180万を貯金できるくらいの稼ぐ力を身につける</li>
+              </ol>
+            </p>
+
+            <p>
+              <h4>③のために必要なこと：</h4>
+              <ol>
+                <li>辛い時こそ身内に当たりやすいから外の世界を持つ(仕事、趣味、友人)</li>
+                <li>人との時間を積極的に作る</li>
+              </ol>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

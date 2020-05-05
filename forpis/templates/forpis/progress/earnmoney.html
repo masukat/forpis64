@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>progress</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/summary.css' %}" />
+</head>
+<body>
+<div class="body">
+    <div class="body_wrap">
+        <!-- navi ------------------------------------------------------------------------------------------------------>
+        <nav>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
+        </nav>
+        <!-- ３、稼ぐ力 ------------------------------------------------------------------------------------------------------->
+        <div class="tab-content">
+            コンテンツ 3
+        </div>
+    </div>
+</div>
+</body>
+</html>

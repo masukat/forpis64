@@ -1,0 +1,376 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>progress</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/stressrelief.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script>
+        $( function() {
+            // 日付は、年-月-日 の形式でお願いする。
+            let dateFormat = 'yy-mm-dd';
+            $('#id_completiondate').datepicker({
+            dateFormat: dateFormat
+            });
+        } );
+    </script>
+</head>
+<body>
+  <script>
+      window.onload = function(){
+          //もしスマホなら最初は非表示
+          if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
+              hidden();
+              timeHidden();
+          }else{
+              AllChecked();
+          }
+          //自動補完をoff
+          $('form').attr('autocomplete', 'off');
+      }
+      function AllChecked(){
+          document.querySelectorAll('.checkbox input').forEach(function(input){
+              input.checked = true;
+          });
+      }
+      //最初に隠しておくため
+      //1_やりたいことリスト
+      //2_やったことリスト
+      //3_勉強
+      //4_習慣
+      //5_本
+      function hidden(){
+          var array = ["delete","edit","genre1","tag1","completiondate"];
+              for(var k=1;k<6;k++){
+                  for(var j=0;j<array.length;j++){
+                      var id = array[j] + "_display_" + k;
+                      var obj = array[j] + "_check_" + k;
+                      var CELL = document.getElementById(id);
+                      if(CELL === null) {
+
+                      }else{
+                          try{
+                              var TABLE = CELL.parentNode.parentNode.parentNode;
+                              for(var i=0;TABLE.rows[i];i++) {
+                                  TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                              }
+                          }catch{
+
+                          }
+                      }
+                  }
+              }
+      }
+      function timeHidden(){
+          var array = ["hour","min"];
+          for(var k=1;k<3;k++){
+              for(var j=0;j<array.length;j++){
+                  var id = array[j] + "_display_" + k;
+                  var c = document.getElementById(id);
+                  var t = c.parentNode.parentNode.parentNode;
+                  for(var i=0;t.rows[i];i++) {
+                      t.rows[i].cells[c.cellIndex].style.display = "none";
+                  }
+              }
+          }
+      }
+      //checkboxのcheckがついたら表示
+      function checkbox_cell( obj,id ){
+          var CELL = document.getElementById(id);
+          var TABLE = CELL.parentNode.parentNode.parentNode;
+          for(var i=0;TABLE.rows[i];i++) {
+              TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
+          }
+      }
+      function checkbox_cell_min( obj,id ){
+          var CELL = document.getElementById(id);
+          var TABLE = CELL.parentNode.parentNode.parentNode;
+          for(var i=0;TABLE.rows[i];i++) {
+              TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
+          }
+      }
+  </script>
+<div class="body">
+    <div class="body_wrap">
+        <!-- navi ------------------------------------------------------------------------------------------------------>
+        <nav>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
+        </nav>
+        <!-- ２、ストレス発散法 ---------------------------------------------------------------------------------------------------->
+        <div class="tab-content">
+            <div class="explanation">
+              外の世界を持とう。広い世界を持とう。</br>
+            </div>
+            <div class="formtable">
+                <!-- 追加・更新画面 -->
+                {% if delete_flag == 0 %}
+                    {% if id == 0 %}
+                        <div class="iventName_add">楽しみ・ストレス発散</div>
+                        <form action="{% url 'progress_stressrelief' %}" method="post">
+                    {% elif id > 0 %}
+                        <div class="iventName_update">楽しみ・ストレス発散</div>
+                        <div class="return_button_update_div"><a href={% url 'progress_stressrelief' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
+                        <div class="iventName_button"><i class="fab fa-github"></i>更新</div>
+                        <form action="{% url 'progress_stressrelief_edit' id %}" method="post">
+                    {% endif %}
+                            <!-- 完了確認欄 -->
+                            <table class="add-table_done">
+                                <tr>
+                                    <th>完了</th>
+                                    <td>{{form.done}}</td>
+                                </tr>
+                                <tr>
+                                    <th>評価</th>
+                                    <td>{{form.review}}</td>
+                                </tr>
+                                <tr>
+                                    <th>完了日</th>
+                                    <td>{{form.completiondate}}</td>
+                                </tr>
+                            </table>
+                            <!-- 追加・更新欄 -->
+                            <table class="add-table">
+                                <tr>
+                                  <th><i class="fas fa-child"></i></th>
+                                  <td>{{form_motivation.motivation}}</td>
+                                </tr>
+                                <tr>
+                                    <th>分野</th>
+                                    <td>{{form.genre1}}</td>
+                                </tr>
+                                <tr>
+                                    <th>項目</th>
+                                    <td>{{form.genre2}}</td>
+                                </tr>
+                                <tr>
+                                    <th>やりたいこと</th>
+                                    <td>{{form.plan}}</td>
+                                </tr>
+                                <tr>
+                                    <th>URL</th>
+                                    <td>{{form.urllink}}</td>
+                                </tr>
+                                <tr>
+                                    <th>メモ</th>
+                                    <td>{{form.memo}}</td>
+                                </tr>
+                            </table>
+                            <div class="tr_input_div">
+                                <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                            </div>
+                                {% csrf_token %}
+                        </form>
+
+                <!-- 削除画面(データ表示) -->
+                {% elif delete_flag == 1 %}
+                    <div class="iventName_delete">楽しみ・ストレス発散</div>
+                    <div class="return_button_delete_div"><a href={% url 'progress_stressrelief' %}><button class="return_button_delete" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
+                    <div class="iventName_button"><i class="fab fa-github"></i>消す？？</div>
+                    <form action={% url 'progress_stressrelief_delete' id%} method="post">
+
+                    <!-- 完了確認欄 -->
+                    <table class="delete-table">
+                        <tr>
+                            <th>完了</th>
+                            <td>{% if obj.done %}完了{% else %}未完了{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>評価</th>
+                            <td>
+                                {% if obj.review is None %}
+                                    ー
+                                {% else %}
+                                    {{obj.review}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>完了日</th>
+                            <td>
+                                {% if obj.completiondate is None %}
+                                    ー
+                                {% else %}
+                                    {{obj.completiondate|date:"Y/n/j"}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-child"></i></th>
+                            <td>
+                                  {% if obj.motivation is None %}
+                                      ー
+                                  {% else %}
+                                      {{obj.motivation}}
+                                  {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>分野</th>
+                            <td>{{obj.genre1}}</td>
+                        </tr>
+                        <tr>
+                            <th>項目</th>
+                            <td>{{obj.genre2}}</td>
+                        </tr>
+                        <tr>
+                            <th>やりたいこと</th>
+                            <td>{{obj.plan}}</td>
+                        </tr>
+                        <tr>
+                            <th>URL</th>
+                            <td>{% if obj.urllink == '' %}
+                                    ー
+                                {% else %}
+                                    <a href = {{obj.urllink}} target="_blank">{{obj.urllink}}</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>メモ</th>
+                            <td>
+                                {% if obj.memo == '' %}
+                                    ー
+                                {% else %}
+                                    {{obj.memo}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="tr_input_delete_div">
+                        <input class="tr_input_delete" type="submit" value="削除">
+                    </div>
+                        {% csrf_token %}
+                    </form>
+                {% endif %}
+            </div>
+
+            <!-- リスト ------------------------------------------------------------------------------------------------->
+                <!-- 初期状態で列非表示 -->
+                <div class="checkbox">
+                    <div class="delete_edit_check">
+                        編集する？
+                        <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
+                        <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
+                    </div>
+                    <div class="memo_check">
+                        他項目:
+                        <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
+                    </div>
+                </div>
+                <!-- テーブル(idは非表示にするときに呼び出される) -->
+                <div class="edit-table_undone" align="center">
+                    <table>
+                        <thead class="edit-table_thead_undone">
+                            <tr>
+                                <th id="delete_display_1">削除</th>
+                                <th id="edit_display_1">編集</th>
+                                <th id="motivation_display_1"><i class="fas fa-child"></th>
+                                <th id="genre1_display_1">分野</th>
+                                <th id="plan_display_1">やりたいこと</th>
+                                <th id="memo_display_1">メモ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="edit-table_tbody_undone_study">
+                        {% for plan in data_undone %}
+                            {% if plan.done == False %}
+                                <tr class="undonerow">
+                                    <td class="delete"><a href={% url 'progress_stressrelief_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                    <td class="edit"><a href={% url 'progress_stressrelief_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                    <td class="motivation">
+                                                            {% if plan.motivation is None %}
+                                                                ー
+                                                            {% else %}
+                                                                {{plan.motivation}}
+                                                            {% endif %}
+                                    </td>
+                                    <td class="genre1">{{plan.genre1}}</td>
+                                    <td class="plan">
+                                                      {% if plan.urllink == '' %}
+                                                          {{plan.plan}}
+                                                      {% else %}
+                                                          <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
+                                                      {% endif %}
+                                    </td>
+                                    <td class="memo">
+                                                      {% if plan.memo is None %}
+                                                      {% else %}
+                                                          {{plan.memo}}
+                                                      {% endif %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 完了リスト ------------------------------------------------------------------------------------------------->
+                    <!-- 初期状態で列非表示 -->
+                    <div class="checkbox">
+                        <div class="delete_edit_check">
+                            編集する？
+                            <input type="checkbox" id="delete_check_2" onclick="checkbox_cell(this,'delete_display_2')">delete
+                            <input type="checkbox" id="edit_check_2" onclick="checkbox_cell(this,'edit_display_2')">edit
+                        </div>
+                        <div class="memo_check">
+                            他項目:
+                            <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell(this,'memo_display_2')">memo
+                            <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell(this,'memo_display_2')">完了日
+                        </div>
+                    </div>
+                    <!-- テーブル(idは非表示にするときに呼び出される) -->
+                    <div class="edit-table_undone" align="center">
+                        <table>
+                            <thead class="edit-table_thead_undone">
+                                <tr>
+                                    <th id="delete_display_2">削除</th>
+                                    <th id="edit_display_2">編集</th>
+                                    <th id="review_display_2">評価</th>
+                                    <th id="genre1_display_2">分野</th>
+                                    <th id="plan_display_2">やりたいこと</th>
+                                    <th id="memo_display_2">メモ</th>
+                                    <th id="completiondate_display_2">完了日</th>
+                                </tr>
+                            </thead>
+                            <tbody class="edit-table_tbody_undone_study">
+                            {% for plan in data_done %}
+                                {% if plan.done %}
+                                    <tr class="donerow">
+                                        <td class="delete"><a href={% url 'progress_stressrelief_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                        <td class="edit"><a href={% url 'progress_stressrelief_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                        <td class="review">{% if plan.review is None %}ー{% else %}{{plan.review}}{% endif %}</td>
+                                        <td class="genre1">{{plan.genre1}}</td>
+                                        <td class="plan">
+                                                          {% if plan.urllink == '' %}
+                                                              {{plan.plan}}
+                                                          {% else %}
+                                                              <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
+                                                          {% endif %}
+                                        </td>
+                                        <td class="memo">
+                                                          {% if plan.memo is None %}
+                                                          {% else %}
+                                                              {{plan.memo}}
+                                                          {% endif %}
+                                        </td>
+                                        <td class="completiondate">{% if plan.completiondate is None %}ー{% else %}{{plan.completiondate|date:"Y/m/d"}}{% endif %}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
