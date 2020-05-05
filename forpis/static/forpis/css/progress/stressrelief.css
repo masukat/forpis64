@@ -1,0 +1,259 @@
+/*【全体】*/
+body{
+    color: white;
+    background-color: #99CCFF;
+    padding-top: 105px;;
+    font-size: 15pt;
+    font-family: arial unicode ms;
+}
+.body {
+  width: 100%;
+  text-align: center;
+}
+.body_wrap{
+  width: 49%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/*【上】*/
+h1{
+  margin-bottom: 0px;
+}
+.explanation{
+  margin-bottom: 12px;
+}
+
+/*【tab】*/
+.tab-content {
+    border-top: 3px solid DeepSkyBlue;
+    padding: 10px;
+}
+.tab-checked, .tab {
+    background: DeepSkyBlue;
+    border: deepskyblue;
+    color: White;
+    padding: 3px 12px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 19px;
+}
+.tab {
+    background: LightGray;
+    border: LightGray;
+}
+
+
+/*テーブル*/
+.iventName_add, .iventName_button{
+  font-size: 20pt;
+}
+.iventName_update, .iventName_delete{
+  font-size: 15pt;
+}
+.formtable{
+  text-align: center;
+}
+table {
+  border-collapse:  collapse;     /* セルの線を重ねる */
+  width: 99%;
+}
+table th, td{
+  border: solid 1px;
+}
+table th{
+  background-color: #FFC7AF;
+  color: #555555;
+  border-width: 2px;
+  font-size: 13pt;
+  font-weight: 100;
+  font-family: arial unicode ms;
+  text-align: center;
+  width: 118px;
+}
+table td{
+  border-width: 2px;
+  border-color: #666666;
+  font-family: arial unicode ms;
+  font-size: 13pt;
+}
+.delete-table td{
+  background: #fff;
+  border-color: #555555;
+  width: 254px;
+}
+.add-table_done tr th, .add-table tr th{
+  border-left: #666666;
+}
+.add-table_done tr td, .add-table tr td{
+  border-right: #666666;
+}
+.add-table_done td, .add-table td{
+    width: 269px;
+    text-align: left;
+}
+.add-table_done{
+    display: flex;
+    height: 60px;
+    margin-bottom: 67px;
+}
+.edit-table_undone{
+    margin-bottom: 20px;
+}
+/*input*/
+form{
+    display:inline-block;
+    margin-bottom: 24px;
+}
+input{
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+label{
+    display: none;
+}
+/*【inputタグ幅】*/
+#id_motivation, #id_genre1, #id_genre2{
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+}
+#id_done{
+    width: 40px;
+}
+#id_motivation, #id_travelhour{
+    width: 36px;
+}
+#id_genre1{
+    width: 65px;
+}
+#id_travelmin{
+    width: 55px;
+}
+#id_review{
+    width: 62px;
+}
+#id_review, #id_completiondate{
+    margin-top: 2px;
+}
+#id_genre2{
+    width: 135px;
+}
+#id_plan,#id_urllink, #id_memo{
+    width: 266px;
+    height: 50px;
+    font-size: 13pt;
+    margin-bottom: -7px;
+}
+
+
+/*【更新・削除共通】*/
+.return_button_update_div{
+  position: relative;
+  width: 194px;
+  right: 2px;
+  top: -11px;
+}
+button.return_button_update, button.return_button_delete {
+  display: inline-block;
+  max-width: 220px;
+  height: 40px;
+  text-align: left;
+  background-color: #9ec34b;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border-bottom: 2px solid #84a01f;
+  position: absolute;
+}
+.return_button_delete_div{
+  position: relative;
+  width: 194px;
+  left: 43px;
+  top: -11px;
+}
+button.reuturn_button_update:active, button.reuturn_button_delete:active {
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+/*【削除テーブル】*/
+.delete-table{
+    color: #444444;
+}
+
+/*【追加テーブル】*/
+/*tr*/
+.tr_input_div{
+  text-align: right;
+}
+.tr_input, .tr_input_delete{
+    font-size: 11pt;
+    font-family: arial unicode ms;
+}
+.tr_input_delete{
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.tr_input_delete_div{
+    text-align: right;
+}
+
+
+
+/*【やりたいことリスト】*/
+.delete_edit_check, .memo_check{
+  font-size: 18px;
+  color: #0066FF;
+}
+.fa-child:before {
+    font-size: 24px;
+}
+
+.undonerow{
+    color: #666;
+    background-color: #eee;
+}
+.donerow{
+    color: black;
+    background-color: #C0C0C0;
+    opacity:0.7;
+}
+
+[id^="delete_display_"], [id^="edit_display_"]{
+    width: 43px;
+}
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+[id^="hour_display_"]{
+    width: 34px;
+}
+[id^="min_display_"]{
+    width: 45px;
+}
+[id^="genre1_display_"]{
+    width: 92px;
+}
+#memo_display_1{
+    width: 294px;
+}
+[id^="genre2_display_"]{
+    width: 130px;
+}
+.delete, .done, .motivation, .review, .genre1, .genre2, .travelmin, .urlLink, .edit{
+    text-align: center;
+}
+#completiondate_display_2, .completiondate{
+    width: 96px;
+}
+.completiondate{
+    text-align: right;
+}
+.plan{
+    width: 360px;
+}

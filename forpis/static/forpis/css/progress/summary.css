@@ -1,0 +1,362 @@
+/*【全体】*/
+body{
+    color: white;
+    background-color: #99CCFF;
+    padding-top: 105px;;
+    font-size: 15pt;
+    font-family: Meiryo;
+}
+.body {
+  width: 100%;
+  text-align: center;
+}
+.body_wrap{
+  width: 49%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+h1{
+  margin-bottom: 0px;
+}
+
+.summary {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #FFEEFF;
+    border-radius: 8px;
+}
+.summary .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -30px;
+    left: 4px;
+    padding: 0 7px;
+    line-height: 1;
+    font-size: 24px;
+    color: #FFEEFF;
+    font-weight: bold;
+}
+.summary .summary_list {
+    margin: 0;
+    padding: 0;
+}
+
+h4{
+  margin: 4px;
+  color: #FFEEFF;
+}
+ol{
+  margin: 2px;
+}
+ol li{
+  margin-left: 1em;
+}
+
+.tab-content {
+    border-top: 3px solid DeepSkyBlue;
+    padding: 10px;
+}
+.tab-checked, .tab {
+    background: DeepSkyBlue;
+    border: deepskyblue;
+    color: White;
+    padding: 3px 12px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 19px;
+}
+.tab {
+    background: LightGray;
+    border: LightGray;
+}
+
+table tr th{
+    background-color: #00BB00;
+    color: white;
+    border-width: 2px;
+}
+table tr td{
+    border-width: 2px;
+}
+
+form{
+    display:inline-block;
+    width: 100%;
+    margin-bottom: 43px;
+}
+input{
+    font-size: 16px;
+}
+table{
+    width: 99%;
+    margin-bottom: 38px;
+}
+
+
+/*【更新・削除共通】*/
+button.return_button {
+  display: inline-block;
+  max-width: 220px;
+  height: 40px;
+  text-align: left;
+  background-color: #9ec34b;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border-bottom: 4px solid #84a01f;
+}
+button.reuturn_button:active {
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+/*【削除テーブル】*/
+[class^="delete-table"]{
+    color: black;
+}
+.delete-table_done{
+    display: flex;
+    height: 60px;
+}
+
+/*tr*/
+.delete-table div.tr, div.done_tr {
+    position:relative;
+    margin: 3px;
+}
+.delete-table div.tr{
+    float: left;
+}
+/*th*/
+[class^="done_th_delete"]{
+    font-size: 20px;
+    background-color: #996600;
+    color: white;
+    border-radius: 2px;
+    width: 63px;
+    text-align: center;
+}
+[class^="delete_th_"]{
+    font-size: 20px;
+    background-color: #996600;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    height: 30px;
+}
+.delete_th_motivation{
+    background-color: #996600;
+    color: white;
+}
+
+/*td*/
+.done_td_delete{
+    text-align: center;
+}
+.done_th_delete_completiondate{
+    width: 130px;
+}
+.delete-table_1{
+    text-align: center;
+}
+.delete-table_1, .delete-table_2, .delete-table_input{
+    float: left;
+}
+.delete-table_2{
+    width: 645px;
+}
+.delete-table_input{
+    width: 100px;
+    height: 60px;
+    position: relative;
+}
+.tr_input_delete{
+    font-size: 11pt;
+    position: absolute;
+    bottom: 0px;
+}
+
+/*【追加テーブル】*/
+/*全体*/
+.add-table_done{
+    display: flex;
+    height: 60px;
+}
+
+/*tr*/
+.add-table div.tr, div.done_tr {
+    position:relative;
+    margin: 3px;
+}
+
+.add-table div.tr{
+    float: left;
+}
+
+.tr_input{
+    font-size: 11pt;
+    position: absolute;
+    bottom: 0px;
+}
+
+/*th*/
+.done_th, [class^="th_"]{
+    font-size: 20px;
+    background-color: #FF69A3;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    height: 31px;
+}
+.th_genre_1{
+    width: 63px;
+}
+.done_th{
+    background-color: #FF69A3;
+}
+.done_th_completiondate{
+    height: 31px;
+    width: 172px;
+    text-align: center;
+    background-color: #FF69A3;
+    color: white;
+}
+.th_motivation{
+    height: 29px;
+    padding: 1px;
+    background-color: #FF69A3;
+    color: white;
+}
+
+/*td*/
+.done_td{
+    display: flex;
+}
+
+/*input*/
+input{
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+label{
+    display: none;
+}
+#id_motivation, #id_genre1, #id_genre2{
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+}
+/*float*/
+.add-table_1, .add-table_2, .add-table_input{
+    float: left;
+}
+.add-table_2, .delete-table_2{
+    width: 377px;
+}
+.add-table_input{
+    width: 100px;
+    height: 63px;
+    position: relative;
+}
+
+
+
+/*【inputタグ幅】*/
+#id_done{
+    width: 40px;
+}
+#id_motivation, .td_id_motivation, #id_travelhour, .td_id_travelhour{
+    width: 36px;
+}
+#id_genre1, .td_id_genre1, .th_genre1{
+    width: 65px;
+}
+#id_travelmin, .td_id_travelmin{
+    width: 55px;
+}
+#id_review, .td_id_review{
+    width: 62px;
+}
+#id_review, .td_id_review, #id_completiondate{
+    margin-top: 2px;
+}
+#id_genre2, .td_id_genre2{
+    width: 135px;
+}
+#id_plan, .td_id_plan, #id_tag1, .td_id_tag1, #id_urllink, .td_id_urllink{
+    width: 266px;
+}
+.td_id_urllink{
+    overflow:hidden;
+}
+
+
+/*【やりたいことリスト】*/
+.delete_edit_check{
+    font-size: 20px;
+    color: red;
+}
+.fa-child:before {
+    font-size: 27px;
+}
+
+.undonerow{
+    color: #666;
+    background-color: #eee;
+}
+.donerow{
+    color: black;
+    background-color: #C0C0C0;
+    opacity:0.7;
+}
+
+table tr th{
+    background-color: #FF69A3;
+    color: white;
+    border-width: 2px;
+}
+table tr td{
+    border-width: 2px;
+}
+
+[id^="delete_display_"], [id^="edit_display_"]{
+    width: 43px;
+}
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+[id^="hour_display_"]{
+    width: 34px;
+}
+[id^="min_display_"]{
+    width: 45px;
+}
+[id^="genre1_display_"]{
+    width: 116px;
+}
+#genre1_display_1{
+    width: 110px;
+}
+[id^="genre2_display_"]{
+    width: 130px;
+}
+
+.delete, .done, .motivation, .review, .genre1, .genre2, .travelhour, .travelmin, .urlLink, .edit{
+    text-align: center;
+}
+.completiondate{
+  width: 136px;
+  text-align: right;
+}
+
+.genre2{
+    font-size: 20px;
+}
+.plan{
+    width: 360px;
+}
