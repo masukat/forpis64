@@ -14,7 +14,6 @@ GENRE1_CHOISES=(
     ('本','本'),
     ('アプリ','アプリ'),
     ('家事','家事'),
-    ('ストレス解消','ストレス解消'),    
     ('趣味','趣味'),
     ('コロナ後','コロナ後'),
     ('成功後','成功後'),
@@ -41,7 +40,7 @@ class WannaDo(models.Model):
     travelmin = models.IntegerField(blank=True)
     completiondate = models.DateField(blank=True)
     class Meta:
-        db_table ="forpis_wannado"
+        db_table ="wannado"
 
 
 
