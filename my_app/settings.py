@@ -130,7 +130,7 @@ except ImportError:
     pass
 
 # This is new:heroku postgres
-if DEBUG:
+if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
