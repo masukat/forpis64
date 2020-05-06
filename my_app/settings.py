@@ -119,8 +119,19 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'forpis/static'),
 )
 
+print('DEBUG')
+print(DEBUG)
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+    print('localimportError')
+
+print('try後')
 # This is new:heroku postgres
 if not DEBUG:
+    print('if not DEBUG:の中')
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
