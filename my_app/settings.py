@@ -28,7 +28,6 @@ ALLOWED_HOSTS = ['forpis64.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,14 +72,12 @@ WSGI_APPLICATION = 'my_app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=60)
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -99,7 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'ja'
 
 TIME_ZONE = 'Asia/Tokyo'
@@ -122,12 +118,6 @@ STATIC_URL = '/forpis/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'forpis/static'),
 )
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
 # This is new:heroku postgres
 if not DEBUG:
