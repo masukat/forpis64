@@ -118,8 +118,13 @@ STATIC_URL = '/forpis/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'forpis/static'),
 )
+print('◽️STATIC_ROOT')
+print(STATIC_ROOT)
 
-print('DEBUG')
+print('◽️STATICFILES_DIRS')
+print(STATICFILES_DIRS)
+
+print('◽️DEBUG')
 print(DEBUG)
 
 print('try前')
@@ -130,7 +135,7 @@ except ImportError:
     print('ImportErrorの中')
     pass
 
-print('try後')
+print('◽️try後')
 # This is new:heroku postgres
 if not DEBUG:
     print('if not DEBUG:の中')
