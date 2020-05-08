@@ -360,3 +360,9 @@ table tr td{
 .plan{
     width: 360px;
 }
+
+@media screen and (max-width: 480px){
+    .body_wrap{
+        width: 89%;
+    }
+}
