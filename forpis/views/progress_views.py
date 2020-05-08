@@ -10,7 +10,7 @@ def progress_summary(request):
     return render(request, 'forpis/progress/summary.html')
 
 def progress_habit(request):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency').reverse()
+    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
     data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
     data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
 
@@ -39,7 +39,7 @@ def progress_habit(request):
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_edit(request,num):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency').reverse()
+    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
     data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
     data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
 
@@ -69,7 +69,7 @@ def progress_habit_edit(request,num):
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_delete(request,num):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency').reverse()
+    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
     data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
     data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
 
