@@ -46,7 +46,7 @@
       //4_習慣
       //5_本
       function hidden(){
-          var array = ["delete","edit","genre1","tag1","completiondate"];
+          var array = ["delete","edit","division","genre1","memo","completiondate"];
               for(var k=1;k<6;k++){
                   for(var j=0;j<array.length;j++){
                       var id = array[j] + "_display_" + k;
@@ -67,28 +67,8 @@
                   }
               }
       }
-      function timeHidden(){
-          var array = ["hour","min"];
-          for(var k=1;k<3;k++){
-              for(var j=0;j<array.length;j++){
-                  var id = array[j] + "_display_" + k;
-                  var c = document.getElementById(id);
-                  var t = c.parentNode.parentNode.parentNode;
-                  for(var i=0;t.rows[i];i++) {
-                      t.rows[i].cells[c.cellIndex].style.display = "none";
-                  }
-              }
-          }
-      }
       //checkboxのcheckがついたら表示
       function checkbox_cell( obj,id ){
-          var CELL = document.getElementById(id);
-          var TABLE = CELL.parentNode.parentNode.parentNode;
-          for(var i=0;TABLE.rows[i];i++) {
-              TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
-          }
-      }
-      function checkbox_cell_min( obj,id ){
           var CELL = document.getElementById(id);
           var TABLE = CELL.parentNode.parentNode.parentNode;
           for(var i=0;TABLE.rows[i];i++) {
@@ -158,7 +138,9 @@
                   </div>
                   <div class="memo_check">
                       他項目:
-                      <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
+                      <input type="checkbox" id="division_check_1" onclick="checkbox_cell(this,'division_display_1')">区分
+                      <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell(this,'genre1_display_1')">分野
+                      <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
                   </div>
               </div>
               <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -178,7 +160,12 @@
                       </thead>
                       <tbody class="edit-table_tbody_undone_study">
                       {% for habit in data_habit %}
-                          <tr class="undonerow">
+                          <tr class=
+                                    {% if habit.frequency == 0 %}"stoprow"
+                                    {% elif habit.frequency == 1 %}"dayrow"
+                                    {% elif habit.frequency == 2 %}"weekrow"
+                                    {% elif habit.frequency == 3 %}"monthrow"
+                                    {% endif %}>
                               <td class="delete"><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a></td>
                               <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
                               <td class="motivation">
@@ -201,7 +188,7 @@
                               </td>
                               <td class="division">
                                                     {% if habit.division == '' %}
-                                                        ー
+                                                        　
                                                     {% else %}
                                                         {{habit.division}}
                                                     {% endif %}
@@ -225,7 +212,7 @@
                 <!-- 追加・更新画面 -->
                 {% if delete_flag == 0 %}
                     {% if id == 0 %}
-                        <div class="iventName_add">習慣</div>
+                        <div class="iventName_add">追加したい習慣</div>
                         <form action="{% url 'progress_habit' %}" method="post">
                     {% elif id > 0 %}
                         <div class="iventName_update">習慣</div>

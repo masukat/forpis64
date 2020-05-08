@@ -140,7 +140,10 @@ label{
     display: none;
 }
 /*【inputタグ幅】*/
-#id_motivation, #id_genre1, #id_genre2{
+#id_number{
+    width: 48px;
+}
+#id_motivation, #id_genre1{
     background-color: white;
     font-size: 16px;
     height: 26px;
@@ -148,14 +151,11 @@ label{
 #id_done{
     width: 40px;
 }
-#id_motivation, #id_travelhour{
+#id_motivation{
     width: 36px;
 }
 #id_genre1{
     width: 65px;
-}
-#id_travelmin{
-    width: 55px;
 }
 #id_review{
     width: 62px;
@@ -166,7 +166,7 @@ label{
 #id_genre2{
     width: 135px;
 }
-#id_habit,#id_urllink, #id_memo{
+#id_habit, #id_memo{
     width: 266px;
     height: 50px;
     font-size: 13pt;
@@ -226,17 +226,33 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
 
 
 /*【やりたいことリスト】*/
+.add-table{
+    width: 102%;
+}
 .delete_edit_check, .memo_check{
-  font-size: 18px;
-  color: #0066FF;
+    font-size: 18px;
+    color: #0066FF;
 }
 .fa-child:before {
     font-size: 24px;
 }
-
-.undonerow{
+.edit-table_undone{
+    margin-left: -71px;
+}
+.stoprow, .dayrow, .weekrow, .monthrow{
     color: #666;
-    background-color: #eee;
+}
+.stoprow{
+    background-color: #DCC2FF;
+}
+.dayrow{
+    background-color: #FFFFCC;
+}
+.weekrow{
+    background-color: #FFDBC9;
+}
+.monthrow{
+    background-color: #B1F9D0;
 }
 .donerow{
     color: black;
@@ -261,7 +277,7 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     width: 92px;
 }
 #memo_display_1{
-    width: 294px;
+    width: 370px;
 }
 [id^="genre2_display_"]{
     width: 130px;
@@ -284,7 +300,7 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     bottom: 1px;
 }
 
-.delete, .done, .motivation, .review, .genre1, .genre2, .edit, .frequency, .division, .number{
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
     text-align: center;
 }
 .completiondate{
@@ -294,17 +310,38 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
 .habit{
     width: 360px;
 }
+.edit-table_undone {
+    margin-bottom: 20px;
+}
+.checkbox{
+    margin-left: -67px;
+}
 
 /*【レスポンシブ】*/
 @media screen and (max-width: 480px){
     /*【上】*/
+    .body {
+        width: 86%;
+        font-size: 11pt;
+    }
     .body_wrap{
         width: 103%;
+    }
+    ul.cp_list {
+        padding: 0;
+        width: 109%;
     }
     .iventName_add, .iventName_button {
         font-size: 14pt;
     }
+    .edit-table_undone {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
     /*【タブ】*/
+    .tab-content {
+        padding-top: 0;
+    }
     .tab-checked, .tab{
         display: block;
         padding: 0px 9px;
@@ -317,11 +354,14 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     }
 
     table th{
-        font-size: 11pt;
+        font-size: 10pt;
         width: 96px;
     }
     table td{
         font-size: 10pt;
+    }
+    .add-table {
+        width: 115%;
     }
     .add-table_done {
         margin-bottom: 42px;
@@ -329,14 +369,25 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     .add-table_done td, .add-table td {
         width: 167px;
     }
-    #id_plan, #id_urllink, #id_memo {
-        width: 159px;
-        height: 39px;
-        font-size: 10pt;
+    #id_motivation, #id_frequency, #id_division, #id_number, #id_genre1{
+        font-size: 11pt;
+    }
+    #id_habit, #id_memo{
+        width: 178px;
+        font-size: 11pt;
+        height: 45px;
         margin-bottom: -3px;
     }
     .tr_input, .tr_input_delete {
         font-size: 10pt;
+    }
+    .must_genre1, .must_habit{
+        left: 59px;
+        bottom: 5px;
+        font-size: 13px;
+    }
+    .must_habit {
+        bottom: 2px;
     }
 
     .fa-child:before {
@@ -346,5 +397,5 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
         font-size: 15px;
     }
     [id^="motivation_display_"], [id^="review_display_"]{
-        width: 49px;
+        width: 32px;
     }
