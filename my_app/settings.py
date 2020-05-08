@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['forpis64.herokuapp.com','127.0.0.1','localhost']
 
@@ -118,14 +118,29 @@ STATIC_URL = '/forpis/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'forpis/static'),
 )
+print('◽️STATIC_ROOT')
+print(STATIC_ROOT)
 
+print('◽️STATICFILES_DIRS')
+print(STATICFILES_DIRS)
+
+print('◽️DEBUG')
+print(DEBUG)
+
+print('try前')
 try:
     from .local_settings import *
+    print('tryの中')
 except ImportError:
+    print('ImportErrorの中')
     pass
 
+print('◽️try後')
 # This is new:heroku postgres
-if DEBUG:
+if not DEBUG:
+    print('if not DEBUG:の中')
+    print('DEBUG')
+    print(DEBUG)
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
