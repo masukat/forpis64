@@ -341,6 +341,7 @@ label{
     /*【全体】*/
     body{
         font-size: 12pt;
+        font-family: monospace;
     }
     .body {
         width: 86%;
@@ -383,6 +384,9 @@ label{
         font-size: 14px;
         padding: 5px 9px;
     }
+    .tr_input, .tr_input_delete{
+        font-family: monospace;
+    }
     /*テーブル*/
     table th{
         font-size: 10pt;
@@ -411,6 +415,9 @@ label{
 
     .fa-child:before {
         font-size: 19px;
+    }
+    #id_motivation {
+        width: 48px;
     }
     #id_motivation, #id_frequency, #id_division, #id_number, #id_genre1{
         font-size: 10pt;

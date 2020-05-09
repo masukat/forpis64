@@ -318,6 +318,9 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     #id_review, #id_motivation, #id_genre1 {
         font-size: 10pt;
     }
+    #id_motivation {
+        width: 52px;
+    }
     #id_plan, #id_urllink, #id_memo {
         width: 159px;
         height: 39px;
