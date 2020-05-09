@@ -100,6 +100,7 @@ table td{
 .edit-table_undone{
     margin-bottom: 20px;
 }
+
 /*input*/
 form{
     display:inline-block;
@@ -113,11 +114,12 @@ input{
 label{
     display: none;
 }
+
 /*【inputタグ幅】*/
 [id^="id_"]{
     font-family: arial unicode ms;
 }
-#id_motivation, #id_genre1, #id_genre2{
+#id_motivation, #id_genre1 {
     background-color: white;
     font-size: 16px;
     height: 26px;
@@ -125,23 +127,17 @@ label{
 #id_done{
     width: 40px;
 }
-#id_motivation, #id_travelhour{
+#id_motivation {
     width: 36px;
 }
 #id_genre1{
     width: 65px;
-}
-#id_travelmin{
-    width: 55px;
 }
 #id_review{
     width: 62px;
 }
 #id_review, #id_completiondate{
     margin-top: 2px;
-}
-#id_genre2{
-    width: 135px;
 }
 #id_plan,#id_urllink, #id_memo{
     width: 266px;
@@ -242,10 +238,7 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
 #memo_display_2{
     width: 252px;
 }
-[id^="genre2_display_"]{
-    width: 130px;
-}
-.delete, .done, .motivation, .review, .genre1, .genre2, .travelmin, .urlLink, .edit{
+.delete, .done, .motivation, .review, .genre1, .urlLink, .edit{
     text-align: center;
 }
 #completiondate_display_2, .completiondate{
@@ -273,6 +266,26 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
         padding: 0px 9px;
         font-size: 15px;
         margin: 3px;
+    }
+    /*ボタン*/
+    button.return_button_update, button.return_button_delete {
+        max-width: 135px;
+        height: 30px;
+        font-size: 13px;
+        padding: 4px 3px;
+    }
+    button.return_button_delete {
+        height: 27px;
+    }
+    .return_button_update_div {
+        width: 188px;
+        right: 101px;
+        top: -2px;
+    }
+    .return_button_delete_div {
+        width: 198px;
+        left: -96px;
+        top: -3px;
     }
     /*全体*/
     body, table th, table td,[id^="id_"]{
@@ -302,6 +315,9 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
         margin-top: 4px;
         margin-bottom: 0px;
     }
+    #id_review, #id_motivation, #id_genre1 {
+        font-size: 10pt;
+    }
     #id_plan, #id_urllink, #id_memo {
         width: 159px;
         height: 39px;
@@ -314,6 +330,7 @@ button.reuturn_button_update:active, button.reuturn_button_delete:active {
     }
     .tr_input, .tr_input_delete {
         font-size: 10pt;
+        font-family: monospace;
     }
 
     .fa-child:before {

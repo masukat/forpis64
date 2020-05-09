@@ -27,7 +27,6 @@
           //もしスマホなら最初は非表示
           if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
               hidden();
-              timeHidden();
           }else{
               AllChecked();
           }
@@ -42,9 +41,6 @@
       //最初に隠しておくため
       //1_やりたいことリスト
       //2_やったことリスト
-      //3_勉強
-      //4_習慣
-      //5_本
       function hidden(){
           var array = ["delete","edit","genre1","memo","completiondate"];
               for(var k=1;k<6;k++){
@@ -134,12 +130,12 @@
                                     <td>{{form.plan}}</td>
                                 </tr>
                                 <tr>
-                                    <th>URL</th>
-                                    <td>{{form.urllink}}</td>
-                                </tr>
-                                <tr>
                                     <th>メモ</th>
                                     <td>{{form.memo}}</td>
+                                </tr>
+                                <tr>
+                                    <th>URL</th>
+                                    <td>{{form.urllink}}</td>
                                 </tr>
                             </table>
                             <div class="tr_input_div">
