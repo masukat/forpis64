@@ -170,7 +170,7 @@
                               <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
                               <td class="motivation">
                                                     {% if habit.motivation is None %}
-                                                        ー
+                                                        -
                                                     {% else %}
                                                         {{habit.motivation}}
                                                     {% endif %}
@@ -215,8 +215,7 @@
                         <div class="iventName_add">追加したい習慣</div>
                         <form action="{% url 'progress_habit' %}" method="post">
                     {% elif id > 0 %}
-                        <div class="iventName_update">習慣</div>
-                        <div><a href={% url 'progress_habit' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
+                        <div class="return_button_update_div"><a href={% url 'progress_habit' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
                         <div class="iventName_button"><i class="fab fa-github"></i>更新</div>
                         <form action="{% url 'progress_habit_edit' id %}" method="post">
                     {% endif %}
@@ -259,47 +258,16 @@
 
                 <!-- 削除画面(データ表示) -->
                 {% elif delete_flag == 1 %}
-                    <div class="iventName_delete">習慣</div>
-                    <div><a href={% url 'progress_habit' %}><button class="return_button_delete" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
+                    <div class="return_button_delete_div"><a href={% url 'progress_habit' %}><button class="return_button_delete" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
                     <div class="iventName_button"><i class="fab fa-github"></i>消す？？</div>
                     <form action={% url 'progress_habit_delete' id%} method="post">
 
                     <!-- 完了確認欄 -->
                     <table class="delete-table">
                         <tr>
-                            <th>完了1</th>
+                            <th>完了</th>
                             <td>
                                 {% if obj.done1 %}
-                                    完了
-                                {% else %}
-                                    未完了
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>完了2</th>
-                            <td>
-                                {% if obj.done2 %}
-                                    完了
-                                {% else %}
-                                    未完了
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>完了3</th>
-                            <td>
-                                {% if obj.done3 %}
-                                    完了
-                                {% else %}
-                                    未完了
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>完了4</th>
-                            <td>
-                                {% if obj.done4 %}
                                     完了
                                 {% else %}
                                     未完了
@@ -310,7 +278,7 @@
                             <th>評価</th>
                             <td>
                                 {% if obj.review is None %}
-                                    ー
+                                    -
                                 {% else %}
                                     {{obj.review}}
                                 {% endif %}
@@ -320,7 +288,7 @@
                             <th>完了日</th>
                             <td>
                                 {% if obj.completiondate is None %}
-                                    ー
+                                    -
                                 {% else %}
                                     {{obj.completiondate|date:"Y/n/j"}}
                                 {% endif %}
@@ -330,7 +298,7 @@
                             <th><i class="fas fa-child"></i></th>
                             <td>
                                 {% if obj.motivation is None %}
-                                    ー
+                                    -
                                 {% else %}
                                     {{obj.motivation}}
                                 {% endif %}
@@ -339,7 +307,17 @@
 
                         <tr>
                             <th>頻度</th>
-                            <td>{{obj.frequency}}</td>
+                            <td>
+                                  {% if obj.frequency == 0 %}
+                                      やめたい
+                                  {% elif obj.frequency == 1 %}
+                                      毎日
+                                  {% elif obj.frequency == 2 %}
+                                      毎週
+                                  {% elif obj.frequency == 3 %}
+                                      毎月
+                                  {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <th>区分</th>
@@ -347,7 +325,13 @@
                         </tr>
                         <tr>
                             <th>回数</th>
-                            <td>{{obj.number}}</td>
+                            <td>
+                                  {% if obj.number is None %}
+                                      -
+                                  {% else %}
+                                      {{obj.number}}
+                                  {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <th>分野</th>
@@ -361,7 +345,7 @@
                             <th>メモ</th>
                             <td>
                                 {% if obj.memo == '' %}
-                                    ー
+                                    -
                                 {% else %}
                                     {{obj.memo}}
                                 {% endif %}
