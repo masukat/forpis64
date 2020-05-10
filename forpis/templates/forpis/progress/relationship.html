@@ -4,23 +4,73 @@
 <head>
     <meta charset="utf-8">
     <title>progress</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/summary.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/hamburger.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/progress_common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/relate.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
+<script>
+    window.onload = function(){
+        //ハンバーガーメニュー
+        (function($) {
+            var $body   = $('body');
+            var $btn   = $('.toggle_btn');
+            var $mask  = $('#mask');
+            var open   = 'open'; // class
+            // menu open close
+            $btn.on( 'click', function() {
+              if ( ! $body.hasClass( open ) ) {
+                $body.addClass( open );
+              } else {
+                $body.removeClass( open );
+              }
+            });
+            // mask close
+            $mask.on('click', function() {
+              $body.removeClass( open );
+            });
+          } )(jQuery);
+    }
+</script>
 <div class="body">
     <div class="body_wrap">
         <!-- navi ------------------------------------------------------------------------------------------------------>
-        <nav>
+        <div class="tabnav">
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
             <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
-        </nav>
+        </div>
         <!-- ４、人を大切に ----------------------------------------------------------------------------------------------------->
         <div class="tab-content">
             作成中
         </div>
+
+        <!-- ハンバーガーメニュー ---------------------------------------------------------------------------------------------------------------->
+        <div id="navArea">
+          <nav>
+            <div class="inner">
+              <div class="page">ページ</div>
+              <ul>
+                <li><a href={% url 'wannado' %}>やりたいことリスト</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="toggle_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="mask"></div>
+        </div>
+
     </div>
 </div>
 </body>
