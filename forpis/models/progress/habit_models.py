@@ -27,16 +27,16 @@ DIVISION_CHOISES=(
     ('金','金'),
 )
 
-class ProgressHabit_motivation(models.Model):
+class Habit_motivation(models.Model):
     motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
 
-class ProgressHabit_frequency(models.Model):
+class Habit_frequency(models.Model):
     frequency = models.IntegerField(blank=True,choices=FREQUENCY_CHOISES)
 
-class ProgressHabit_division(models.Model):
+class Habit_division(models.Model):
     division = models.CharField(blank=True,max_length=100,choices=DIVISION_CHOISES)
 
-class ProgressHabit(models.Model):
+class Habit(models.Model):
     motivation = models.IntegerField(blank=True)
     frequency = models.IntegerField(blank=True)
     division = models.CharField(blank=True,max_length=100)

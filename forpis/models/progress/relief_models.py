@@ -9,10 +9,10 @@ MOTIVATION_CHOISES=(
     ('1','1'),
 )
 
-class ProgressStressrelief_motivation(models.Model):
+class Relief_motivation(models.Model):
     motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
 
-class ProgressStressrelief(models.Model):
+class Relief(models.Model):
     genre1 = models.CharField(max_length=100)
     genre2 = models.CharField(max_length=100,blank=True)
     plan = models.TextField()
@@ -23,6 +23,6 @@ class ProgressStressrelief(models.Model):
     motivation = models.IntegerField(blank=True)
     completiondate = models.DateField(blank=True)
     class Meta:
-        db_table ="stressrelief"
+        db_table ="relief"
 
 # Create your models here.

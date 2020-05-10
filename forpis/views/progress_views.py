@@ -1,36 +1,36 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from ..models.progress.habit_models import ProgressHabit
-from ..forms.progress.habit_forms import ProgressHabitForm,ProgressHabitForm_motivation,ProgressHabitForm_frequency,ProgressHabitForm_division
-from ..models.progress.stressrelief_models import ProgressStressrelief
-from ..forms.progress.stressrelief_forms import ProgressStressreliefForm,ProgressStressreliefForm_motivation
+from ..models.progress.habit_models import Habit
+from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitForm_frequency,HabitForm_division
+from ..models.progress.relief_models import Relief
+from ..forms.progress.relief_forms import ReliefForm,ReliefForm_motivation
 
 def progress_summary(request):
     return render(request, 'forpis/progress/summary.html')
 
 def progress_habit(request):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
-    data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
     params = {
         'data_habit':data_habit,
         'data_undone':data_undone,
         'data_done':data_done,
-        'form':ProgressHabitForm(),
-        'form_motivation':ProgressHabitForm_motivation(),
-        'form_frequency':ProgressHabitForm_frequency(),
-        'form_division':ProgressHabitForm_division(),
+        'form':HabitForm(),
+        'form_motivation':HabitForm_motivation(),
+        'form_frequency':HabitForm_frequency(),
+        'form_division':HabitForm_division(),
         'id':0,
         'delete_flag':0,
         }
     if (request.method == 'POST'):
-        obj = ProgressHabit()
-        habit = ProgressHabitForm(request.POST, instance=obj)
-        habit_motivation = ProgressHabitForm_motivation(request.POST, instance=obj)
-        habit_frequency = ProgressHabitForm_frequency(request.POST, instance=obj)
-        habit_division = ProgressHabitForm_division(request.POST, instance=obj)
+        obj = Habit()
+        habit = HabitForm(request.POST, instance=obj)
+        habit_motivation = HabitForm_motivation(request.POST, instance=obj)
+        habit_frequency = HabitForm_frequency(request.POST, instance=obj)
+        habit_division = HabitForm_division(request.POST, instance=obj)
         habit.save()
         habit_motivation.save()
         habit_frequency.save()
@@ -39,17 +39,17 @@ def progress_habit(request):
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_edit(request,num):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
-    data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
-    obj = ProgressHabit.objects.get(id=num)
+    obj = Habit.objects.get(id=num)
 
     if (request.method == 'POST'):
-        habit = ProgressHabitForm(request.POST, instance=obj)
-        habit_motivation = ProgressHabitForm_motivation(request.POST, instance=obj)
-        habit_frequency = ProgressHabitForm_frequency(request.POST, instance=obj)
-        habit_division = ProgressHabitForm_division(request.POST, instance=obj)
+        habit = HabitForm(request.POST, instance=obj)
+        habit_motivation = HabitForm_motivation(request.POST, instance=obj)
+        habit_frequency = HabitForm_frequency(request.POST, instance=obj)
+        habit_division = HabitForm_division(request.POST, instance=obj)
         habit.save()
         habit_motivation.save()
         habit_frequency.save()
@@ -59,21 +59,21 @@ def progress_habit_edit(request,num):
         'data_habit':data_habit,
         'data_undone':data_undone,
         'data_done':data_done,
-        'form':ProgressHabitForm(instance=obj),
-        'form_motivation':ProgressHabitForm_motivation(instance=obj),
-        'form_frequency':ProgressHabitForm_frequency(instance=obj),
-        'form_division':ProgressHabitForm_division(instance=obj),
+        'form':HabitForm(instance=obj),
+        'form_motivation':HabitForm_motivation(instance=obj),
+        'form_frequency':HabitForm_frequency(instance=obj),
+        'form_division':HabitForm_division(instance=obj),
         'id':num,
         'delete_flag':0,
         }
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_delete(request,num):
-    data_habit = ProgressHabit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = ProgressHabit.objects.all().order_by('motivation','genre1').reverse()
-    data_done = ProgressHabit.objects.all().order_by('completiondate','review').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
-    habit = ProgressHabit.objects.get(id=num)
+    habit = Habit.objects.get(id=num)
     if (request.method == 'POST'):
         habit.delete()
         return redirect(to='/forpis/progress/habit')
@@ -92,68 +92,68 @@ def progress_habit_delete(request,num):
 
 
 
-def progress_stressrelief(request):
-    data_undone = ProgressStressrelief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
-    data_done = ProgressStressrelief.objects.all().order_by('completiondate','review').reverse()
+def progress_relief(request):
+    data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
+    data_done = Relief.objects.all().order_by('completiondate','review').reverse()
 
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
-        'form':ProgressStressreliefForm(),
-        'form_motivation':ProgressStressreliefForm_motivation(),
+        'form':ReliefForm(),
+        'form_motivation':ReliefForm_motivation(),
         'id':0,
         'delete_flag':0,
         }
     if (request.method == 'POST'):
-        obj = ProgressStressrelief()
-        stressrelief = ProgressStressreliefForm(request.POST, instance=obj)
-        stressrelief_motivation = ProgressStressreliefForm_motivation(request.POST, instance=obj)
-        stressrelief.save()
-        stressrelief_motivation.save()
-        return redirect(to='/forpis/progress/stressrelief')
-    return render(request, 'forpis/progress/stressrelief.html', params)
+        obj = Relief()
+        relief = ReliefForm(request.POST, instance=obj)
+        relief_motivation = ReliefForm_motivation(request.POST, instance=obj)
+        relief.save()
+        relief_motivation.save()
+        return redirect(to='/forpis/progress/relief')
+    return render(request, 'forpis/progress/relief.html', params)
 
-def progress_stressrelief_edit(request,num):
-    data_undone = ProgressStressrelief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
-    data_done = ProgressStressrelief.objects.all().order_by('completiondate','review').reverse()
+def progress_relief_edit(request,num):
+    data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
+    data_done = Relief.objects.all().order_by('completiondate','review').reverse()
 
-    obj = ProgressStressrelief.objects.get(id=num)
+    obj = Relief.objects.get(id=num)
 
     if (request.method == 'POST'):
-        stressrelief = ProgressStressreliefForm(request.POST, instance=obj)
-        stressrelief_motivation = ProgressStressreliefForm_motivation(request.POST, instance=obj)
-        stressrelief.save()
-        stressrelief_motivation.save()
-        return redirect(to='/forpis/progress/stressrelief')
+        relief = ReliefForm(request.POST, instance=obj)
+        relief_motivation = ReliefForm_motivation(request.POST, instance=obj)
+        relief.save()
+        relief_motivation.save()
+        return redirect(to='/forpis/progress/relief')
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
-        'form':ProgressStressreliefForm(instance=obj),
-        'form_motivation':ProgressStressreliefForm_motivation(instance=obj),
+        'form':ReliefForm(instance=obj),
+        'form_motivation':ReliefForm_motivation(instance=obj),
         'id':num,
         'delete_flag':0,
         }
-    return render(request, 'forpis/progress/stressrelief.html', params)
+    return render(request, 'forpis/progress/relief.html', params)
 
-def progress_stressrelief_delete(request,num):
-    data_undone = ProgressStressrelief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
-    data_done = ProgressStressrelief.objects.all().order_by('completiondate','review').reverse()
+def progress_relief_delete(request,num):
+    data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
+    data_done = Relief.objects.all().order_by('completiondate','review').reverse()
 
-    stressrelief = ProgressStressrelief.objects.get(id=num)
+    relief = Relief.objects.get(id=num)
     if (request.method == 'POST'):
-        stressrelief.delete()
-        return redirect(to='/forpis/progress/stressrelief')
+        relief.delete()
+        return redirect(to='/forpis/progress/relief')
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
-        'obj':stressrelief,
+        'obj':relief,
         'id':num,
         'delete_flag':1,
         }
-    return render(request, 'forpis/progress/stressrelief.html', params)
+    return render(request, 'forpis/progress/relief.html', params)
 
 def progress_earnmoney(request):
-    return render(request, 'forpis/progress/earnmoney.html')
+    return render(request, 'forpis/progress/earn.html')
 
 def progress_relationship(request):
-    return render(request, 'forpis/progress/relationship.html')
+    return render(request, 'forpis/progress/relate.html')

@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*
 from django import forms
-from ...models.progress.habit_models import ProgressHabit,ProgressHabit_motivation,ProgressHabit_frequency,ProgressHabit_division
+from ...models.progress.habit_models import Habit,Habit_motivation,Habit_frequency,Habit_division
 
-class ProgressHabitForm(forms.ModelForm):
+class HabitForm(forms.ModelForm):
     class Meta:
-        model = ProgressHabit
+        model = Habit
         fields = ['motivation','frequency','division','number','genre1','habit','memo','done1','done2','done3','done4','review','completiondate']
 
-class ProgressHabitForm_motivation(forms.ModelForm):
+class HabitForm_motivation(forms.ModelForm):
     class Meta:
-        model = ProgressHabit_motivation
+        model = Habit_motivation
         fields = ['motivation']
 
-class ProgressHabitForm_frequency(forms.ModelForm):
+class HabitForm_frequency(forms.ModelForm):
     class Meta:
-        model = ProgressHabit_frequency
+        model = Habit_frequency
         fields = ['frequency']
 
-class ProgressHabitForm_division(forms.ModelForm):
+class HabitForm_division(forms.ModelForm):
     class Meta:
-        model = ProgressHabit_division
+        model = Habit_division
         fields = ['division']
