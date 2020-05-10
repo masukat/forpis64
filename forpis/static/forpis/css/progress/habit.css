@@ -214,20 +214,22 @@ table th{
         top: -174px;
     }
     /*【テーブル】*/
+    body, table th, table td,[id^="id_"]{
+        font-family: monospace;
+    }
     table th{
         width: 96px;
         font-size: 10pt;
-        font-family: monospace;
     }
     table td{
         font-size: 10pt;
-        font-family: monospace;
     }
     .add-table_done td, .add-table td {
         width: 167px;
     }
     .tr_input, .tr_input_delete {
         font-size: 10pt;
+        font-family: monospace;
     }
     .delete_edit_check, .memo_check{
         font-size: 15px;
@@ -272,9 +274,6 @@ table th{
         height: 30px;
         font-size: 14px;
         padding: 5px 9px;
-    }
-    .tr_input, .tr_input_delete{
-        font-family: monospace;
     }
     /*【テーブル】*/
     .edit-table_undone {

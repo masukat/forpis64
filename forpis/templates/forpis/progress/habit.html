@@ -102,11 +102,11 @@
     <div class="body_wrap">
         <!-- navi ------------------------------------------------------------------------------------------------------>
         <div class="tabnav">
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
-            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">①習慣</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">②ストレス発散法</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">③稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">④人を大切に</button>
         </div>
         <!-- ２、ストレス発散法 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
@@ -389,6 +389,7 @@
                   <div class="page">ページ</div>
                   <ul>
                     <li><a href={% url 'wannado' %}>やりたいことリスト</a></li>
+                    <li><a href={% url 'progress_summary' %}>成長</a></li>
                   </ul>
                 </div>
               </nav>
