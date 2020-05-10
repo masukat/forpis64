@@ -89,20 +89,22 @@ button.return_button_update, button.return_button_delete {
         top: -174px;
     }
     /*【テーブル】*/
+    body, table th, table td,[id^="id_"]{
+        font-family: monospace;
+    }
     table th{
         width: 96px;
         font-size: 10pt;
-        font-family: monospace;
     }
     table td{
         font-size: 10pt;
-        font-family: monospace;
     }
     .add-table_done td, .add-table td {
         width: 167px;
     }
     .tr_input, .tr_input_delete {
         font-size: 10pt;
+        font-family: monospace;
     }
     .delete_edit_check, .memo_check{
         font-size: 15px;
@@ -138,10 +140,6 @@ button.return_button_update, button.return_button_delete {
         top: 6px;
     }
     /*【テーブル】*/
-    body, table th, table td,[id^="id_"]{
-        font-family: monospace;
-        font-weight: bold;
-    }
     table th{
         font-size: 11pt;
     }
@@ -169,9 +167,6 @@ button.return_button_update, button.return_button_delete {
     #id_completiondate{
         width: 105px;
         font-size: 10pt;
-    }
-    .tr_input, .tr_input_delete {
-        font-family: monospace;
     }
 
     .fa-child:before {
