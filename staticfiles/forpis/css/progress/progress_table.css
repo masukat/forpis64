@@ -1,0 +1,192 @@
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+/*テーブルボタン*/
+.return_button_update_div{
+  position: relative;
+  width: 194px;
+  right: 50px;
+  top: 50px;
+}
+.return_button_delete_div{
+  position: relative;
+  width: 194px;
+  right: 50px;
+  top: 50px;
+}
+button.return_button_update, button.return_button_delete {
+  display: inline-block;
+  max-width: 220px;
+  height: 35px;
+  text-align: left;
+  background-color: #9ec34b;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 20px;
+  border-radius: 4px;
+  border-bottom: 2px solid #84a01f;
+  position: absolute;
+}
+button.reuturn_button_update:active, button.reuturn_button_delete:active {
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+
+/*テーブル*/
+.formtable{
+  text-align: center;
+}
+table {
+  border-collapse:  collapse;     /* セルの線を重ねる */
+  width: 99%;
+}
+table th, td{
+  border: solid 1px;
+}
+table th{
+  background-color: #FFC7AF;
+  color: #555555;
+  border-width: 2px;
+  font-size: 13pt;
+  font-weight: 100;
+  font-family: arial unicode ms;
+  text-align: center;
+  width: 118px;
+}
+table td{
+  border-width: 2px;
+  border-color: #666666;
+  font-family: arial unicode ms;
+  font-size: 13pt;
+}
+
+/*【delete】*/
+.delete-table td{
+  background: #fff;
+  border-color: #555555;
+  width: 254px;
+}
+.delete-table{
+  color: #444444;
+}
+
+/*【add】*/
+.add-table_done tr th, .add-table tr th{
+  border-left: #666666;
+}
+.add-table_done tr td, .add-table tr td{
+  border-right: #666666;
+}
+.add-table_done td, .add-table td{
+    width: 269px;
+    text-align: left;
+}
+.add-table_done{
+    display: flex;
+    height: 60px;
+    margin-bottom: 67px;
+}
+
+/*tr*/
+.tr_input_div{
+  text-align: right;
+}
+.tr_input, .tr_input_delete{
+    font-size: 11pt;
+    font-family: arial unicode ms;
+}
+.tr_input_delete{
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.tr_input_delete_div{
+    text-align: right;
+}
+
+/*input*/
+form{
+    display:inline-block;
+    margin-bottom: 24px;
+}
+input{
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+label{
+    display: none;
+}
+
+/*【inputタグ幅】*/
+[id^="id_"]{
+    font-family: arial unicode ms;
+}
+#id_motivation, #id_genre1 {
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+}
+#id_done{
+    width: 40px;
+}
+#id_motivation {
+    width: 36px;
+}
+#id_genre1{
+    width: 65px;
+}
+#id_review{
+    width: 62px;
+}
+#id_review, #id_completiondate{
+    margin-top: 2px;
+}
+#id_memo, #id_plan{
+    width: 266px;
+    height: 50px;
+    font-size: 12pt;
+    margin-bottom: -7px;
+}
+
+
+/*【check】*/
+.delete_edit_check, .memo_check{
+    font-size: 18px;
+    color: #0066FF;
+}
+/*【やりたいことリスト】*/
+.fa-child:before {
+    font-size: 24px;
+}
+
+.undonerow{
+    color: #666;
+    background-color: #eee;
+}
+.donerow{
+    color: black;
+    background-color: #C0C0C0;
+    opacity:0.7;
+}
+
+[id^="delete_display_"], [id^="edit_display_"]{
+    width: 43px;
+}
+[id^="review_display_"], [id^="motivation_display_"]{
+    width: 43px;
+}
+#memo_display_1{
+    width: 294px;
+}
+.delete, .done, .motivation, .review, .genre1, .urlLink, .edit{
+    text-align: center;
+}
+.completiondate{
+    text-align: right;
+}
+.plan{
+    width: 360px;
+}

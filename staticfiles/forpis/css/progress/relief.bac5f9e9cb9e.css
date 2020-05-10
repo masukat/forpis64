@@ -1,0 +1,178 @@
+/*【上】*/
+.explanation{
+  margin-bottom: 12px;
+}
+
+/*タイトル*/
+.iventName_add, .iventName_button{
+  font-size: 20pt;
+}
+.iventName_update, .iventName_delete{
+  font-size: 15pt;
+}
+
+/*テーブルボタン*/
+.return_button_update_div{
+  right: 2px;
+  top: -11px;
+}
+.return_button_delete_div{
+  left: 43px;
+  top: -11px;
+}
+button.return_button_update, button.return_button_delete {
+  height: 40px;
+  padding: 8px 24px;
+}
+
+
+
+
+
+
+
+/*【inputタグ幅】*/
+#id_plan, #id_urllink, #id_memo{
+    width: 266px;
+    height: 50px;
+    font-size: 13pt;
+    margin-bottom: -7px;
+}
+
+/*【やりたいことリスト】*/
+.edit-table_undone{
+    margin-bottom: 20px;
+}
+[id^="genre1_display_"]{
+    width: 92px;
+}
+#memo_display_2{
+    width: 252px;
+}
+#completiondate_display_2, .completiondate{
+    width: 96px;
+}
+
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 103%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    body, table th, table td,[id^="id_"]{
+        font-family: monospace;
+    }
+    table th{
+        width: 96px;
+        font-size: 10pt;
+    }
+    table td{
+        font-size: 10pt;
+    }
+    .add-table_done td, .add-table td {
+        width: 167px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
+
+
+/*------------------------------------------*
+* reliefCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        width: 188px;
+        right: 91px;
+        top: -7px;
+    }
+    .return_button_delete_div {
+        width: 198px;
+        left: -123px;
+        top: -8px;
+    }
+    button.return_button_update, button.return_button_delete {
+        max-width: 135px;
+        height: 28px;
+        font-size: 13px;
+        padding: 4px 7px;
+        right: -10px;
+        top: 4px;
+    }
+    button.return_button_delete {
+        height: 27px;
+        top: 6px;
+    }
+    /*【テーブル】*/
+    table th{
+        font-size: 11pt;
+    }
+    .add-table_done {
+        height: 85px;
+        margin-bottom: 20px;
+    }
+    #id_done {
+        width: 21px;
+        margin-top: 4px;
+        margin-bottom: 0px;
+    }
+    #id_review, #id_motivation, #id_genre1 {
+        font-size: 10pt;
+    }
+    #id_motivation {
+        width: 52px;
+    }
+    #id_plan, #id_urllink, #id_memo {
+        width: 159px;
+        height: 39px;
+        font-size: 10pt;
+        margin-bottom: -3px;
+    }
+    #id_completiondate{
+        width: 105px;
+        font-size: 10pt;
+    }
+
+    .fa-child:before {
+        font-size: 19px;
+    }
+    [id^="motivation_display_"], [id^="review_display_"]{
+        width: 49px;
+    }
+}
