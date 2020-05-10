@@ -214,7 +214,7 @@ table th{
         top: -174px;
     }
     /*【テーブル】*/
-    body, table th, table td,[id^="id_"]{
+    body, table th, table td, [id^="id_"]{
         font-family: monospace;
     }
     table th{
