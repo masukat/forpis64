@@ -296,6 +296,7 @@ table th{
     }
     #id_motivation, #id_frequency, #id_division, #id_number, #id_genre1{
         font-size: 10pt;
+        font-family: monospace;
     }
     #id_habit, #id_memo{
         width: 178px;
