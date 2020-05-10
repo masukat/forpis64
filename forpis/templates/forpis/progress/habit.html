@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>progress</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/hamburger.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/progress_common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/progress_table.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/habit.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -22,70 +25,89 @@
     </script>
 </head>
 <body>
-  <script>
-      window.onload = function(){
-          //もしスマホなら最初は非表示
-          if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
-              hidden();
-              timeHidden();
-          }else{
-              AllChecked();
-          }
-          //自動補完をoff
-          $('form').attr('autocomplete', 'off');
-      }
-      function AllChecked(){
-          document.querySelectorAll('.checkbox input').forEach(function(input){
-              input.checked = true;
-          });
-      }
-      //最初に隠しておくため
-      //1_やりたいことリスト
-      //2_やったことリスト
-      //3_勉強
-      //4_習慣
-      //5_本
-      function hidden(){
-          var array = ["delete","edit","division","genre1","memo","completiondate"];
-              for(var k=1;k<6;k++){
-                  for(var j=0;j<array.length;j++){
-                      var id = array[j] + "_display_" + k;
-                      var obj = array[j] + "_check_" + k;
-                      var CELL = document.getElementById(id);
-                      if(CELL === null) {
-
-                      }else{
-                          try{
-                              var TABLE = CELL.parentNode.parentNode.parentNode;
-                              for(var i=0;TABLE.rows[i];i++) {
-                                  TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
-                              }
-                          }catch{
-
-                          }
-                      }
-                  }
+<script>
+    window.onload = function(){
+        //もしスマホなら最初は非表示
+        if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
+            hidden();
+            timeHidden();
+        }else{
+            AllChecked();
+        }
+        //自動補完をoff
+        $('form').attr('autocomplete', 'off');
+        //ハンバーガーメニュー
+        (function($) {
+            var $body   = $('body');
+            var $btn   = $('.toggle_btn');
+            var $mask  = $('#mask');
+            var open   = 'open'; // class
+            // menu open close
+            $btn.on( 'click', function() {
+              if ( ! $body.hasClass( open ) ) {
+                $body.addClass( open );
+              } else {
+                $body.removeClass( open );
               }
-      }
-      //checkboxのcheckがついたら表示
-      function checkbox_cell( obj,id ){
-          var CELL = document.getElementById(id);
-          var TABLE = CELL.parentNode.parentNode.parentNode;
-          for(var i=0;TABLE.rows[i];i++) {
-              TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
-          }
-      }
-  </script>
+            });
+            // mask close
+            $mask.on('click', function() {
+              $body.removeClass( open );
+            });
+          } )(jQuery);
+    }
+    function AllChecked(){
+        document.querySelectorAll('.checkbox input').forEach(function(input){
+            input.checked = true;
+        });
+    }
+    //最初に隠しておくため
+    //1_やりたいことリスト
+    //2_やったことリスト
+    //3_勉強
+    //4_習慣
+    //5_本
+    function hidden(){
+        var array = ["delete","edit","division","genre1","memo","completiondate"];
+            for(var k=1;k<6;k++){
+                for(var j=0;j<array.length;j++){
+                    var id = array[j] + "_display_" + k;
+                    var obj = array[j] + "_check_" + k;
+                    var CELL = document.getElementById(id);
+                    if(CELL === null) {
+
+                    }else{
+                        try{
+                            var TABLE = CELL.parentNode.parentNode.parentNode;
+                            for(var i=0;TABLE.rows[i];i++) {
+                                TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
+                            }
+                        }catch{
+
+                        }
+                    }
+                }
+            }
+    }
+    //checkboxのcheckがついたら表示
+    function checkbox_cell( obj,id ){
+        var CELL = document.getElementById(id);
+        var TABLE = CELL.parentNode.parentNode.parentNode;
+        for(var i=0;TABLE.rows[i];i++) {
+            TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
+        }
+    }
+</script>
 <div class="body">
     <div class="body_wrap">
         <!-- navi ------------------------------------------------------------------------------------------------------>
-        <nav>
+        <div class="tabnav">
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='summary'">概要</button>
             <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='habit'">①習慣</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='stressrelief'">②ストレス発散法</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='earnmoney'">③稼ぐ力</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='relationship'">④人を大切に</button>
-        </nav>
+        </div>
         <!-- ２、ストレス発散法 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
 
@@ -359,6 +381,25 @@
                     </form>
                 {% endif %}
             </div>
+
+            <!-- ハンバーガーメニュー ---------------------------------------------------------------------------------------------------------------->
+            <div id="navArea">
+              <nav>
+                <div class="inner">
+                  <div class="page">ページ</div>
+                  <ul>
+                    <li><a href={% url 'wannado' %}>やりたいことリスト</a></li>
+                  </ul>
+                </div>
+              </nav>
+              <div class="toggle_btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div id="mask"></div>
+            </div>
+
         </div>
     </div>
 </div>

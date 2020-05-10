@@ -1,44 +1,6 @@
-/*【全体】*/
-body{
-    color: white;
-    background-color: #99CCFF;
-    padding-top: 14px;
-    font-size: 15pt;
-    font-family: arial unicode ms;
-}
-.body {
-  width: 100%;
-  text-align: center;
-}
-.body_wrap{
-  width: 49%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-/*【上】*/
-h1{
-  margin-bottom: 0px;
-}
-
 /*【tab】*/
 .tab-content {
-    border-top: 3px solid DeepSkyBlue;
-    padding: 10px;
     padding-top: 0;
-}
-.tab-checked, .tab {
-    background: DeepSkyBlue;
-    border: deepskyblue;
-    color: White;
-    padding: 3px 12px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 19px;
-}
-.tab {
-    background: LightGray;
-    border: LightGray;
 }
 
 /*リスト*/
@@ -75,7 +37,7 @@ ul.cp_list li.cp_list_li:after {
 	transform: rotate(60deg);
 }
 
-/*ボタン*/
+/*タイトル*/
 .iventName_add, .iventName_button{
   font-size: 20pt;
   margin-left: 64px;
@@ -84,164 +46,58 @@ ul.cp_list li.cp_list_li:after {
   font-size: 15pt;
 }
 
+/*テーブルボタン*/
 .return_button_update_div{
-  position: relative;
-  width: 194px;
   right: 336px;
   top: -174px;
 }
 .return_button_delete_div{
-  position: relative;
-  width: 194px;
   right: 362px;
   top: -174px;
 }
 button.return_button_update, button.return_button_delete {
-  display: inline-block;
-  max-width: 220px;
-  height: 35px;
-  text-align: left;
-  background-color: #9ec34b;
-  font-size: 16px;
-  color: #FFF;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 6px 20px;
-  border-radius: 4px;
-  border-bottom: 2px solid #84a01f;
-  position: absolute;
-
   left: 504px;
   top: 165px;
 }
 button.return_button_delete{
   left: 552px;
 }
-button.reuturn_button_update:active, button.reuturn_button_delete:active {
-    transform: translateY(4px);
-    border-bottom: none;
-}
+
 
 /*テーブル*/
-.formtable{
-  text-align: center;
-}
 table {
-  border-collapse:  collapse;     /* セルの線を重ねる */
   width: 115%;
-}
-table th, td{
-  border: solid 1px;
 }
 table th{
   background-color: #0000BB;
   color: white;
-  border-width: 2px;
-  font-size: 13pt;
-  font-weight: 100;
-  font-family: arial unicode ms;
-  text-align: center;
-  width: 118px;
-}
-table td{
-  border-width: 2px;
-  border-color: #666666;
-  font-family: arial unicode ms;
-  font-size: 13pt;
 }
 
-/*【削除テーブル】*/
+/*【delete】*/
 .delete-table th{
   border-color: #444444;
 }
-.delete-table td{
-  background: #fff;
-  border-color: #555555;
-  width: 254px;
-}
-.delete-table{
-    color: #444444;
-}
 
-/*【追加テーブル】*/
-.add-table_done tr th, .add-table tr th{
-  border-left: #666666;
-}
+/*【add】*/
 .add-table_done tr td, .add-table tr td{
   border-color: white;
-  border-right: #666666;
-}
-.add-table_done td, .add-table td{
-    width: 269px;
-    text-align: left;
 }
 .add-table_done{
-    display: flex;
     height: 128px;
-    margin-bottom: 67px;
 }
 .add-table{
     width: 102%;
 }
-/*tr*/
-.tr_input_div{
-  text-align: right;
-}
-.tr_input, .tr_input_delete{
-    font-size: 11pt;
-    font-family: arial unicode ms;
-}
-.tr_input_delete{
-    margin-right: 10px;
-    margin-top: 6px;
-}
-.tr_input_delete_div{
-    text-align: right;
-}
-/*input*/
-form{
-    display:inline-block;
-    margin-bottom: 24px;
-}
-input{
-    font-size: 16px;
-    box-sizing: border-box;
-    border-radius: 3px;
-}
-label{
-    display: none;
-}
+
+
 /*【inputタグ幅】*/
-[id^="id_"]{
-    font-family: arial unicode ms;
-}
 #id_number{
     width: 48px;
-}
-#id_motivation, #id_genre1{
-    background-color: white;
-    font-size: 16px;
-    height: 26px;
-}
-#id_done{
-    width: 40px;
-}
-#id_motivation{
-    width: 36px;
-}
-#id_genre1{
-    width: 65px;
-}
-#id_review{
-    width: 62px;
-}
-#id_review, #id_completiondate{
-    margin-top: 2px;
 }
 #id_genre2{
     width: 135px;
 }
-#id_habit, #id_memo{
+#id_habit{
     width: 266px;
     height: 50px;
     font-size: 12pt;
@@ -249,14 +105,11 @@ label{
 }
 
 
+/*【check】*/
+.checkbox{
+    margin-left: -67px;
+}
 /*【やりたいことリスト】*/
-.delete_edit_check, .memo_check{
-    font-size: 18px;
-    color: #0066FF;
-}
-.fa-child:before {
-    font-size: 24px;
-}
 .edit-table_undone{
     margin-left: -71px;
 }
@@ -275,15 +128,7 @@ label{
 .monthrow{
     background-color: #B1F9D0;
 }
-.donerow{
-    color: black;
-    background-color: #C0C0C0;
-    opacity:0.7;
-}
 
-[id^="delete_display_"], [id^="edit_display_"]{
-    width: 43px;
-}
 [id^="motivation_display_"], [id^="review_display_"]{
     width: 43px;
 }
@@ -303,6 +148,20 @@ label{
 .th_genre1, .th_habit{
     position: relative;
 }
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
+    text-align: center;
+}
+.completiondate{
+  width: 136px;
+  text-align: right;
+}
+.habit{
+    width: 360px;
+}
+.edit-table_undone {
+    margin-bottom: 20px;
+}
+
 /*【必須項目】*/
 .must_genre1, .must_habit{
     background: #FF1A00;
@@ -319,36 +178,71 @@ label{
     bottom: 1px;
 }
 
-.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
-    text-align: center;
-}
-.completiondate{
-  width: 136px;
-  text-align: right;
-}
-.habit{
-    width: 360px;
-}
-.edit-table_undone {
-    margin-bottom: 20px;
-}
-.checkbox{
-    margin-left: -67px;
-}
-
-/*【レスポンシブ】*/
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
 @media screen and (max-width: 480px){
-    /*【全体】*/
+    /*【上】*/
     body{
         font-size: 12pt;
         font-family: monospace;
-    }
-    .body {
-        width: 86%;
-        font-size: 11pt;
+        padding-top: 31px;
     }
     .body_wrap{
         width: 103%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    table th{
+        width: 96px;
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    table td{
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .add-table_done td, .add-table td {
+        width: 167px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
+
+
+/*------------------------------------------*
+* habitCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【全体】*/
+    .body {
+        width: 86%;
+        font-size: 11pt;
     }
     /*【上】*/
     ul.cp_list {
@@ -356,23 +250,18 @@ label{
         width: 109%;
         font-family: monospace;
     }
-    .iventName_add, .iventName_button {
-        font-size: 14pt;
-    }
     /*【タブ】*/
     .tab-content {
         padding-top: 0;
     }
-    .tab-checked, .tab{
-        display: block;
-        padding: 0px 9px;
-        font-size: 15px;
-        margin: 3px;
-    }
     /*【ボタン】*/
     .return_button_update_div {
-        right: 508px;
-        top: -174px;
+        right: 514px;
+        top: -172px;
+    }
+    .return_button_delete_div {
+        right: 548px;
+        top: -173px;
     }
     button.return_button_update{
         height: 28px;
@@ -387,14 +276,7 @@ label{
     .tr_input, .tr_input_delete{
         font-family: monospace;
     }
-    /*テーブル*/
-    table th{
-        font-size: 10pt;
-        width: 96px;
-    }
-    table td{
-        font-size: 10pt;
-    }
+    /*【テーブル】*/
     .edit-table_undone {
         margin-left: 0;
         margin-bottom: 20px;
@@ -405,12 +287,6 @@ label{
     }
     .add-table_done {
         margin-bottom: 42px;
-    }
-    .add-table_done td, .add-table td {
-        width: 167px;
-    }
-    .return_button_delete_div {
-        right: 549px;
     }
 
     .fa-child:before {
@@ -431,9 +307,6 @@ label{
     [id^="motivation_display_"], [id^="review_display_"]{
         width: 32px;
     }
-    .tr_input, .tr_input_delete {
-        font-size: 10pt;
-    }
     /*【必須項目】*/
     .must_genre1, .must_habit{
         left: 59px;
@@ -443,9 +316,7 @@ label{
     .must_habit {
         bottom: 2px;
     }
-    .delete_edit_check, .memo_check{
-        font-size: 15px;
-    }
     .checkbox {
         margin-left: 0px;
     }
+}
