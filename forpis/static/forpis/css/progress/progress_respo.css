@@ -34,6 +34,9 @@
         top: -174px;
     }
     /*【テーブル】*/
+    body, table th, table td, [id^="id_"]{
+        font-family: monospace;
+    }
     table th{
         width: 96px;
         font-size: 10pt;
