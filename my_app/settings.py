@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['forpis64.herokuapp.com','127.0.0.1','localhost']
 
@@ -137,7 +137,7 @@ except ImportError:
 
 print('◽️try後')
 # This is new:heroku postgres
-if not DEBUG:
+if DEBUG:
     print('if not DEBUG:の中')
     print('DEBUG')
     print(DEBUG)
