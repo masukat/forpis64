@@ -35,6 +35,8 @@
         }
         //自動補完をoff
         $('form').attr('autocomplete', 'off');
+        //項目「やめたい」をcheckedに
+        document.getElementById("tab-one").checked = true;
         //ハンバーガーメニュー
         (function($) {
             var $body   = $('body');
@@ -114,9 +116,12 @@
           <!-- テーブル(idは非表示にするときに呼び出される) -->
           <div class="edit-table_tbody_undone_study">
               <ul class="cp_list">
-                  <li class="cp_list_li">やめたい</li>
+                  <div class="cp_actab">
+                  <input id="tab-one" type="checkbox" name="tabs">
+                  <label for="tab-one">やめたい</label>
+                  <div class="cp_actab-content">
                       <div class="cp_list_li_child">
-                          <li>意思</li>
+                          <li class="cp_list_li">意思</li>
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and '意思' in habit.genre1 %}
@@ -125,7 +130,7 @@
                                   </ul>
                               {% endfor %}
                           </li>
-                          <li>喧嘩</li>
+                          <li class="cp_list_li">喧嘩</li>
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and '喧嘩' in habit.genre1 %}
@@ -134,7 +139,7 @@
                                   </ul>
                               {% endfor %}
                           </li>
-                          <li>行動</li>
+                          <li class="cp_list_li">行動</li>
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and '行動' in habit.genre1 %}
@@ -143,7 +148,7 @@
                                   </ul>
                               {% endfor %}
                           </li>
-                          <li>他</li>
+                          <li class="cp_list_li">他</li>
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 %}
@@ -153,55 +158,65 @@
                               {% endfor %}
                           </li>
                       </div>
-                  <li class="cp_list_li">毎日</li>
-                      <div class="cp_list_li_child">
-                          <li>意思</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and '意思' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          </li>
-                          <li>喧嘩</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and '喧嘩' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          </li>
-                          <li>行動</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and '行動' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          </li>
-                          <li>向上</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and '向上' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          </li>
-                          <li>他</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          </li>
-                      </div>
-                  <li class="cp_list_li">毎週</li>
+                  </div>
+
+                  <div class="cp_actab">
+                  <input id="tab-two" type="checkbox" name="tabs">
+                  <label for="tab-two">毎日</label>
+                  <div class="cp_actab-content">
+                    <div class="cp_list_li_child">
+                        <li class="cp_list_li">意思</li>
+                            {% for habit in data_habit %}
+                                <ul>
+                                    {% if habit.frequency == 1 and '意思' in habit.genre1 %}
+                                        <li >{{habit.habit}}</li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                        </li>
+                        <li class="cp_list_li">喧嘩</li>
+                            {% for habit in data_habit %}
+                                <ul>
+                                    {% if habit.frequency == 1 and '喧嘩' in habit.genre1 %}
+                                        <li >{{habit.habit}}</li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                        </li>
+                        <li class="cp_list_li">行動</li>
+                            {% for habit in data_habit %}
+                                <ul>
+                                    {% if habit.frequency == 1 and '行動' in habit.genre1 %}
+                                        <li >{{habit.habit}}</li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                        </li>
+                        <li class="cp_list_li">向上</li>
+                            {% for habit in data_habit %}
+                                <ul>
+                                    {% if habit.frequency == 1 and '向上' in habit.genre1 %}
+                                        <li >{{habit.habit}}</li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                        </li>
+                        <li class="cp_list_li">他</li>
+                            {% for habit in data_habit %}
+                                <ul>
+                                    {% if habit.frequency == 1 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
+                                        <li >{{habit.habit}}</li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                        </li>
+                    </div>
+                  </div>
+
+                  <div class="cp_actab">
+                  <input id="tab-three" type="checkbox" name="tabs">
+                  <label for="tab-three">毎週</label>
+                  <div class="cp_actab-content">
                       {% for habit in data_habit %}
                           <ul>
                               {% if habit.frequency == 2 %}
@@ -209,7 +224,12 @@
                               {% endif %}
                           </ul>
                       {% endfor %}
-                  <li class="cp_list_li">毎月</li>
+                  </div>
+
+                  <div class="cp_actab">
+                  <input id="tab-four" type="checkbox" name="tabs">
+                  <label for="tab-four">毎月</label>
+                  <div class="cp_actab-content">
                       {% for habit in data_habit %}
                           <ul>
                               {% if habit.frequency == 3 %}
@@ -217,6 +237,8 @@
                               {% endif %}
                           </ul>
                       {% endfor %}
+                  </div>
+
               </ul>
           </div>
 

@@ -1,3 +1,8 @@
+/*【全体】*/
+body{
+  font-size: 14pt;
+}
+
 /*【tab】*/
 .tab-content {
     padding-top: 0;
@@ -11,7 +16,7 @@ ul.cp_list {
 }
 ul.cp_list li.cp_list_li {
 	position: relative;
-	padding: 0.5em 1em 0.5em 2.3em;
+	padding: 0.5em 1em 0.5em 1.7em;
 	margin-bottom:5px;
 	border-bottom: 1px solid rgba(255,143,0,1);
 }
@@ -37,7 +42,65 @@ ul.cp_list li.cp_list_li:after {
 	transform: rotate(60deg);
 }
 .cp_list_li_child {
-    margin-left: 26px;
+    margin-left: 2px;
+}
+
+/*アコーディオンメニュー*/
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 2.5;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 0 0 1px 0;
+	background: #0066FF;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #ffdbb8;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+	max-height: 33em;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 2.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
 }
 
 /*タイトル*/
@@ -254,6 +317,10 @@ table th{
         padding: 0;
         width: 109%;
         font-family: monospace;
+    }
+    /*【アコーディオンメニュー】*/
+    .cp_actab input:checked ~ .cp_actab-content {
+        max-height: 36em;
     }
     /*【タブ】*/
     .tab-content {
