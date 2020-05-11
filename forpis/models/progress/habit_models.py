@@ -25,6 +25,19 @@ DIVISION_CHOISES=(
     ('水','水'),
     ('木','木'),
     ('金','金'),
+    ('土','土'),
+    ('日','日'),
+    ('土日','土日'),
+)
+
+GENRE1_CHOISES=(
+    ('意思','意思'),
+    ('行動','行動'),
+    ('向上','向上'),
+    ('喧嘩','喧嘩'),
+    ('目標','目標'),
+    ('関係','関係'),
+    ('他','他'),
 )
 
 class Habit_motivation(models.Model):
@@ -35,6 +48,9 @@ class Habit_frequency(models.Model):
 
 class Habit_division(models.Model):
     division = models.CharField(blank=True,max_length=100,choices=DIVISION_CHOISES)
+
+class Habit_genre1(models.Model):
+    genre1 = models.CharField(max_length=100,choices=GENRE1_CHOISES)
 
 class Habit(models.Model):
     motivation = models.IntegerField(blank=True)

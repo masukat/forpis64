@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*
 from django import forms
-from ...models.progress.habit_models import Habit,Habit_motivation,Habit_frequency,Habit_division
+from ...models.progress.habit_models import Habit,Habit_motivation,Habit_frequency,Habit_division,Habit_genre1
 
 class HabitForm(forms.ModelForm):
     class Meta:
@@ -21,3 +21,8 @@ class HabitForm_division(forms.ModelForm):
     class Meta:
         model = Habit_division
         fields = ['division']
+
+class HabitForm_genre1(forms.ModelForm):
+    class Meta:
+        model = Habit_genre1
+        fields = ['genre1']
