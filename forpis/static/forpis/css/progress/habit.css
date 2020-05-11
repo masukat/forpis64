@@ -310,7 +310,7 @@ table th{
     /*【全体】*/
     .body {
         width: 86%;
-        font-size: 11pt;
+        font-size: 10pt;
     }
     /*【上】*/
     ul.cp_list {
@@ -320,7 +320,7 @@ table th{
     }
     /*【アコーディオンメニュー】*/
     .cp_actab input:checked ~ .cp_actab-content {
-        max-height: 36em;
+        max-height: 38em;
     }
     /*【タブ】*/
     .tab-content {
