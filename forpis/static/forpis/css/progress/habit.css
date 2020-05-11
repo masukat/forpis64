@@ -36,6 +36,9 @@ ul.cp_list li.cp_list_li:after {
 	background: rgba(255,143,0,0.5);
 	transform: rotate(60deg);
 }
+.cp_list_li_child {
+    margin-left: 26px;
+}
 
 /*タイトル*/
 .iventName_add, .iventName_button{

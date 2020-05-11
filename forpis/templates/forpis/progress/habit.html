@@ -111,123 +111,194 @@
         <div class="tab-content">
 
           <!-- 毎日 ------------------------------------------------------------------------------------------------->
-              <!-- テーブル(idは非表示にするときに呼び出される) -->
-              <div class="edit-table_tbody_undone_study">
-                  <ul class="cp_list">
-                      <li class="cp_list_li">やめたい</li>
-                          {% for habit in data_habit %}
-                              <ul>
-                                  {% if habit.frequency == 0 %}
-                                      <li >{{habit.habit}}</li>
-                                  {% endif %}
-                              </ul>
-                          {% endfor %}
-                      <li class="cp_list_li">毎日</li>
-                          {% for habit in data_habit %}
-                              <ul>
-                                  {% if habit.frequency == 1 %}
-                                      <li >{{habit.habit}}</li>
-                                  {% endif %}
-                              </ul>
-                          {% endfor %}
-                      <li class="cp_list_li">毎週</li>
-                          {% for habit in data_habit %}
-                              <ul>
-                                  {% if habit.frequency == 2 %}
-                                      <li >{{habit.habit}}</li>
-                                  {% endif %}
-                              </ul>
-                          {% endfor %}
-                      <li class="cp_list_li">毎月</li>
-                          {% for habit in data_habit %}
-                              <ul>
-                                  {% if habit.frequency == 3 %}
-                                      <li >{{habit.habit}}</li>
-                                  {% endif %}
-                              </ul>
-                          {% endfor %}
-                  </ul>
-              </div>
+          <!-- テーブル(idは非表示にするときに呼び出される) -->
+          <div class="edit-table_tbody_undone_study">
+              <ul class="cp_list">
+                  <li class="cp_list_li">やめたい</li>
+                      <div class="cp_list_li_child">
+                          <li>意思</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 0 and '意思' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>喧嘩</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 0 and '喧嘩' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>行動</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 0 and '行動' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>他</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 0 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                      </div>
+                  <li class="cp_list_li">毎日</li>
+                      <div class="cp_list_li_child">
+                          <li>意思</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and '意思' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>喧嘩</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and '喧嘩' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>行動</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and '行動' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>向上</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and '向上' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                          <li>他</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          </li>
+                      </div>
+                  <li class="cp_list_li">毎週</li>
+                      {% for habit in data_habit %}
+                          <ul>
+                              {% if habit.frequency == 2 %}
+                                  <li >{{habit.habit}}</li>
+                              {% endif %}
+                          </ul>
+                      {% endfor %}
+                  <li class="cp_list_li">毎月</li>
+                      {% for habit in data_habit %}
+                          <ul>
+                              {% if habit.frequency == 3 %}
+                                  <li >{{habit.habit}}</li>
+                              {% endif %}
+                          </ul>
+                      {% endfor %}
+              </ul>
+          </div>
 
           <!-- リスト ------------------------------------------------------------------------------------------------->
-              <!-- 初期状態で列非表示 -->
-              <div class="checkbox">
-                  <div class="delete_edit_check">
-                      編集する？
-                      <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
-                      <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
-                  </div>
-                  <div class="memo_check">
-                      他項目:
-                      <input type="checkbox" id="division_check_1" onclick="checkbox_cell(this,'division_display_1')">区分
-                      <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell(this,'genre1_display_1')">分野
-                      <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
-                  </div>
+          <!-- 初期状態で列非表示 -->
+          <div class="checkbox">
+              <div class="delete_edit_check">
+                  編集する？
+                  <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
+                  <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
               </div>
-              <!-- テーブル(idは非表示にするときに呼び出される) -->
-              <div class="edit-table_undone" align="center">
-                  <table>
-                      <thead class="edit-table_thead_undone">
-                          <tr>
-                              <th id="delete_display_1">削除</th>
-                              <th id="edit_display_1">編集</th>
-                              <th id="motivation_display_1"><i class="fas fa-child"></th>
-                              <th id="frequency_display_1">頻度</th>
-                              <th id="division_display_1">区分</th>
-                              <th id="genre1_display_1">分野</th>
-                              <th id="habit_display_1">やりたいこと</th>
-                              <th id="memo_display_1">メモ</th>
-                          </tr>
-                      </thead>
-                      <tbody class="edit-table_tbody_undone_study">
-                      {% for habit in data_habit %}
-                          <tr class=
-                                    {% if habit.frequency == 0 %}"stoprow"
-                                    {% elif habit.frequency == 1 %}"dayrow"
-                                    {% elif habit.frequency == 2 %}"weekrow"
-                                    {% elif habit.frequency == 3 %}"monthrow"
-                                    {% endif %}>
-                              <td class="delete"><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a></td>
-                              <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
-                              <td class="motivation">
-                                                    {% if habit.motivation is None %}
-                                                        -
-                                                    {% else %}
-                                                        {{habit.motivation}}
-                                                    {% endif %}
-                              </td>
-                              <td class="frequency">
-                                                    {% if habit.frequency == 0 %}
-                                                        やめたい
-                                                    {% elif habit.frequency == 1 %}
-                                                        毎日
-                                                    {% elif habit.frequency == 2 %}
-                                                        毎週
-                                                    {% elif habit.frequency == 3 %}
-                                                        毎月
-                                                    {% endif %}
-                              </td>
-                              <td class="division">
-                                                    {% if habit.division == '' %}
-                                                        　
-                                                    {% else %}
-                                                        {{habit.division}}
-                                                    {% endif %}
-                              </td>
-                              <td class="genre1">{{habit.genre1}}</td>
-                              <td class="habit">{{habit.habit}}</td>
-                              <td class="memo">
-                                                {% if habit.memo is None %}
-
+              <div class="memo_check">
+                  他項目:
+                  <input type="checkbox" id="division_check_1" onclick="checkbox_cell(this,'division_display_1')">区分
+                  <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell(this,'genre1_display_1')">分野
+                  <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
+              </div>
+          </div>
+          <!-- テーブル(idは非表示にするときに呼び出される) -->
+          <div class="edit-table_undone" align="center">
+              <table>
+                  <thead class="edit-table_thead_undone">
+                      <tr>
+                          <th id="delete_display_1">削除</th>
+                          <th id="edit_display_1">編集</th>
+                          <th id="motivation_display_1"><i class="fas fa-child"></th>
+                          <th id="frequency_display_1">頻度</th>
+                          <th id="division_display_1">区分</th>
+                          <th id="genre1_display_1">分野</th>
+                          <th id="habit_display_1">やりたいこと</th>
+                          <th id="memo_display_1">メモ</th>
+                      </tr>
+                  </thead>
+                  <tbody class="edit-table_tbody_undone_study">
+                  {% for habit in data_habit %}
+                      <tr class=
+                                {% if habit.frequency == 0 %}"stoprow"
+                                {% elif habit.frequency == 1 %}"dayrow"
+                                {% elif habit.frequency == 2 %}"weekrow"
+                                {% elif habit.frequency == 3 %}"monthrow"
+                                {% endif %}>
+                          <td class="delete"><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a></td>
+                          <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
+                          <td class="motivation">
+                                                {% if habit.motivation is None %}
+                                                    -
                                                 {% else %}
-                                                    {{habit.memo}}
+                                                    {{habit.motivation}}
                                                 {% endif %}
-                              </td>
-                          </tr>
-                      {% endfor %}
-                      </tbody>
-                  </table>
-               </div>
+                          </td>
+                          <td class="frequency">
+                                                {% if habit.frequency == 0 %}
+                                                    やめたい
+                                                {% elif habit.frequency == 1 %}
+                                                    毎日
+                                                {% elif habit.frequency == 2 %}
+                                                    毎週
+                                                {% elif habit.frequency == 3 %}
+                                                    毎月
+                                                {% endif %}
+                          </td>
+                          <td class="division">
+                                                {% if habit.division == '' %}
+                                                    　
+                                                {% else %}
+                                                    {{habit.division}}
+                                                {% endif %}
+                          </td>
+                          <td class="genre1">{{habit.genre1}}</td>
+                          <td class="habit">{{habit.habit}}</td>
+                          <td class="memo">
+                                            {% if habit.memo is None %}
+
+                                            {% else %}
+                                                {{habit.memo}}
+                                            {% endif %}
+                          </td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+           </div>
 
             <div class="formtable">
                 <!-- 追加・更新画面 -->
@@ -260,7 +331,7 @@
                                 </tr>
                                 <tr>
                                     <th class="th_genre1">分野<span class="must_genre1">必須</span></th>
-                                    <td>{{form.genre1}}</td>
+                                    <td>{{form_genre1.genre1}}</td>
                                 </tr>
                                 <tr>
                                     <th class="th_habit">やりたいこと<span class="must_habit">必須</span></th>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from ..models.progress.habit_models import Habit
-from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitForm_frequency,HabitForm_division
+from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitForm_frequency,HabitForm_division,HabitForm_genre1
 from ..models.progress.relief_models import Relief
 from ..forms.progress.relief_forms import ReliefForm,ReliefForm_motivation
 
@@ -22,6 +22,7 @@ def progress_habit(request):
         'form_motivation':HabitForm_motivation(),
         'form_frequency':HabitForm_frequency(),
         'form_division':HabitForm_division(),
+        'form_genre1':HabitForm_genre1(),
         'id':0,
         'delete_flag':0,
         }
@@ -31,10 +32,12 @@ def progress_habit(request):
         habit_motivation = HabitForm_motivation(request.POST, instance=obj)
         habit_frequency = HabitForm_frequency(request.POST, instance=obj)
         habit_division = HabitForm_division(request.POST, instance=obj)
+        habit_genre1 = HabitForm_genre1(request.POST, instance=obj)
         habit.save()
         habit_motivation.save()
         habit_frequency.save()
         habit_division.save()
+        habit_genre1.save()
         return redirect(to='/forpis/progress/habit')
     return render(request, 'forpis/progress/habit.html', params)
 
@@ -50,10 +53,12 @@ def progress_habit_edit(request,num):
         habit_motivation = HabitForm_motivation(request.POST, instance=obj)
         habit_frequency = HabitForm_frequency(request.POST, instance=obj)
         habit_division = HabitForm_division(request.POST, instance=obj)
+        habit_genre1 = HabitForm_genre1(request.POST, instance=obj)
         habit.save()
         habit_motivation.save()
         habit_frequency.save()
         habit_division.save()
+        habit_genre1.save()
         return redirect(to='/forpis/progress/habit')
     params = {
         'data_habit':data_habit,
@@ -63,6 +68,7 @@ def progress_habit_edit(request,num):
         'form_motivation':HabitForm_motivation(instance=obj),
         'form_frequency':HabitForm_frequency(instance=obj),
         'form_division':HabitForm_division(instance=obj),
+        'form_genre1':HabitForm_genre1(instance=obj),
         'id':num,
         'delete_flag':0,
         }
