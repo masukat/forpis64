@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from ..models.wannado_models import WannaDo
-from ..forms.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1
+from ..forms.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1,WannaDoForm_genre2
 
 def wannado(request):
     data_undone = WannaDo.objects.all().order_by('motivation','genre1','genre2').reverse()
@@ -13,6 +13,7 @@ def wannado(request):
         'form':WannaDoForm(),
         'form_motivation':WannaDoForm_motivation(),
         'form_genre1':WannaDoForm_genre1(),
+        'form_genre2':WannaDoForm_genre2(),
         'id':0,
         'delete_flag':0,
         }
@@ -21,9 +22,11 @@ def wannado(request):
         wannado = WannaDoForm(request.POST, instance=obj)
         wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado_genre1 = WannaDoForm_genre1(request.POST, instance=obj)
+        wannado_genre2 = WannaDoForm_genre2(request.POST, instance=obj)
         wannado.save()
         wannado_motivation.save()
         wannado_genre1.save()
+        wannado_genre2.save()
         return redirect(to='/forpis/wannado')
     return render(request, 'forpis/wannado.html', params)
 
@@ -57,9 +60,11 @@ def wannado_edit(request,num):
         wannado = WannaDoForm(request.POST, instance=obj)
         wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado_genre1 = WannaDoForm_genre1(request.POST, instance=obj)
+        wannado_genre2 = WannaDoForm_genre2(request.POST, instance=obj)
         wannado.save()
         wannado_motivation.save()
         wannado_genre1.save()
+        wannado_genre2.save()
         return redirect(to='/forpis/wannado')
     params = {
         'data_undone':data_undone,
@@ -67,6 +72,7 @@ def wannado_edit(request,num):
         'form':WannaDoForm(instance=obj),
         'form_motivation':WannaDoForm_motivation(instance=obj),
         'form_genre1':WannaDoForm_genre1(instance=obj),
+        'form_genre2':WannaDoForm_genre2(instance=obj),
         'id':num,
         'delete_flag':0,
         }

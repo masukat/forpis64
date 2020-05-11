@@ -9,14 +9,30 @@ MOTIVATION_CHOISES=(
 )
 
 GENRE1_CHOISES=(
-    ('習慣','習慣'),
     ('勉強','勉強'),
     ('本','本'),
-    ('アプリ','アプリ'),
-    ('家事','家事'),
     ('趣味','趣味'),
     ('コロナ後','コロナ後'),
-    ('成功後','成功後'),
+    ('他','他'),
+)
+
+GENRE2_CHOISES=(
+    ('目標','目標'),
+    ('お金','お金'),
+    ('IT','IT'),
+    ('資格','資格'),
+    ('動画','動画'),
+    ('語学','語学'),
+    ('時事','時事'),
+    ('考え整理','考え整理'),
+    ('啓発','啓発'),
+    ('マンガ','マンガ'),
+    ('動画','動画'),
+    ('youtube','youtube'),
+    ('netflix','netflix'),
+    ('欲しい','欲しい'),
+    ('美容','美容'),
+    ('他','他'),
 )
 
 class WannaDo_motivation(models.Model):
@@ -24,6 +40,9 @@ class WannaDo_motivation(models.Model):
 
 class WannaDo_genre1(models.Model):
     genre1 = models.CharField(max_length=100,choices=GENRE1_CHOISES)
+
+class WannaDo_genre2(models.Model):
+    genre2 = models.CharField(max_length=100,blank=True,choices=GENRE2_CHOISES)
 
 class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
