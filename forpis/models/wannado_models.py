@@ -1,6 +1,7 @@
 from django.db import models
 
 MOTIVATION_CHOISES=(
+    ('6','6'),
     ('5','5'),
     ('4','4'),
     ('3','3'),
