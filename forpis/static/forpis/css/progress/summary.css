@@ -69,12 +69,16 @@ ol li{
 *------------------------------------------*/
 @media screen and (max-width: 480px){
     .body_wrap{
-      width: 100%;
+      width: 101%;
     }
     .tab-content{
       padding-top: 0;
+      padding-left: 0;
     }
     ol{
-      margin-left: -30px;
+      margin-left: -14px;
+    }
+    ol li {
+      margin-left: 0;
     }
 }
