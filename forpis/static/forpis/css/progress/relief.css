@@ -290,6 +290,25 @@ button.return_button_update, button.return_button_delete {
         height: 27px;
         top: 6px;
     }
+
+    /*【movie】*/
+    .movie {
+      display: inline-block;
+    }
+    .movieImgs{
+      width: 48%;
+      margin-right: 6px;
+    }
+    .movieText{
+      font-size: 11pt;
+    }
+    .movieLink_div {
+      margin-bottom: 10px;
+    }
+    .movieLink {
+      font-size: 11pt;
+    }
+
     /*【テーブル】*/
     table th{
         font-size: 11pt;
