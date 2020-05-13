@@ -1,3 +1,8 @@
+/*【全体】*/
+body{
+  font-size: 12pt;
+}
+
 /*【上】*/
 .explanation{
   margin-bottom: 12px;
@@ -9,6 +14,158 @@
 }
 .iventName_update, .iventName_delete{
   font-size: 15pt;
+}
+.iventName_recomend{
+  font-size: 21pt;
+}
+
+/*リスト*/
+ul.cp_list {
+	padding: 0.5em;
+	list-style: none;
+  padding-top: 0;
+}
+ul.cp_list li.cp_list_li {
+	position: relative;
+	padding: 0.5em 1em 0.5em 1.7em;
+	margin-bottom:5px;
+	border-bottom: 1px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after,
+ul.cp_list li.cp_list_li:before {
+	content:'';
+	position: absolute;
+	transform: rotate(45deg);
+}
+ul.cp_list li.cp_list_li:before {
+	top: 0.7em;
+	left: 0.2em;
+	width: 12px;
+	height: 12px;
+	border:2px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after {
+	top: 0.9em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(255,143,0,0.5);
+	transform: rotate(60deg);
+}
+.cp_list_li_child {
+    margin-left: 2px;
+}
+
+/*アコーディオンメニュー*/
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 2.5;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 6px 0 1px 0;
+	background: #5D99FF;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #fcd9ec;
+  margin-bottom: 24px;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+  max-height: 29em;
+  overflow: scroll;
+  width: 99%;
+  margin: 0 auto;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 2.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
+
+/*スクレイピング画像*/
+.movie{
+  height: 233px;
+}
+.movieTitle{
+  clear: left;
+}
+.movieDetail{
+  margin-left: 10px;
+  margin-right: 11px;
+}
+.movieImgs{
+  width: 18%;
+  float: left;
+}
+.movieLink_div{
+  text-align: right;
+}
+.movieLink{
+  color: #2C7CFF;
+}
+
+.movieTitle {
+	position: relative;
+	padding: 0.5em 1em 0.4em 1.7em;
+	margin-bottom:5px;
+	border-bottom: 2px solid rgba(105,202,255,0.6);
+}
+.movieTitle:after,
+.movieTitle:before {
+	content:'';
+	position: absolute;
+	transform: rotate(45deg);
+}
+.movieTitle:before {
+	top: 0.7em;
+	left: 0.2em;
+	width: 12px;
+	height: 12px;
+	border: 2px solid rgba(33,155,255,1);
+}
+.movieTitle:after {
+	top: 0.9em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(105,202,255,0.6);
+	transform: rotate(60deg);
 }
 
 /*テーブルボタン*/
@@ -24,12 +181,6 @@ button.return_button_update, button.return_button_delete {
   height: 40px;
   padding: 8px 24px;
 }
-
-
-
-
-
-
 
 /*【inputタグ幅】*/
 #id_plan, #id_urllink, #id_memo{

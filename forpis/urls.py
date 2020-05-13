@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import wannado_views
-from .views import progress_views
+from .views import wannado_views,progress_views
 
 urlpatterns = [
     path('wannado', wannado_views.wannado, name='wannado'),

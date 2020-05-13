@@ -6,6 +6,9 @@ from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitFor
 from ..models.progress.relief_models import Relief
 from ..forms.progress.relief_forms import ReliefForm,ReliefForm_motivation
 
+import requests
+from bs4 import BeautifulSoup
+
 def progress_summary(request):
     return render(request, 'forpis/progress/summary.html')
 
@@ -101,10 +104,18 @@ def progress_habit_delete(request,num):
 def progress_relief(request):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
+    titles = get_movieTitles()
+    titlesNum = len(titles)
+    imgs = get_movieImgs()
+    highlights = get_movieHighlights()
 
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
+        'titles':titles,
+        'range':range(titlesNum),
+        'imgs':imgs,
+        'highlights':highlights,
         'form':ReliefForm(),
         'form_motivation':ReliefForm_motivation(),
         'id':0,
@@ -122,6 +133,10 @@ def progress_relief(request):
 def progress_relief_edit(request,num):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
+    titles = get_movieTitles()
+    titlesNum = len(titles)
+    imgs = get_movieImgs()
+    highlights = get_movieHighlights()
 
     obj = Relief.objects.get(id=num)
 
@@ -134,6 +149,10 @@ def progress_relief_edit(request,num):
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
+        'titles':titles,
+        'range':range(titlesNum),
+        'imgs':imgs,
+        'highlights':highlights,
         'form':ReliefForm(instance=obj),
         'form_motivation':ReliefForm_motivation(instance=obj),
         'id':num,
@@ -144,6 +163,10 @@ def progress_relief_edit(request,num):
 def progress_relief_delete(request,num):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
+    titles = get_movieTitles()
+    titlesNum = len(titles)
+    imgs = get_movieImgs()
+    highlights = get_movieHighlights()
 
     relief = Relief.objects.get(id=num)
     if (request.method == 'POST'):
@@ -152,11 +175,70 @@ def progress_relief_delete(request,num):
     params = {
         'data_undone':data_undone,
         'data_done':data_done,
+        'titles':titles,
+        'range':range(titlesNum),
+        'imgs':imgs,
+        'highlights':highlights,
         'obj':relief,
         'id':num,
         'delete_flag':1,
         }
     return render(request, 'forpis/progress/relief.html', params)
+
+def get_movieTitles():
+    # WebサイトのURLを指定
+    url = "https://vokka.jp/16136"
+    # Requestsを利用してWebページを取得する
+    r = requests.get(url)
+    # BeautifulSoupを利用してWebページを解析する
+    soup = BeautifulSoup(r.text, 'html.parser')
+    # soup.find_allを利用して、見出しのタイトルを取得する
+    titlesAll = soup.find_all("h2", class_="c-post-title--title")
+    titles = []
+
+    for t in titlesAll:
+        if '【' in t.getText():
+            titles.append(t.getText())
+    return titles
+
+def get_movieImgs():
+    # WebサイトのURLを指定
+    url = "https://vokka.jp/16136"
+    # Requestsを利用してWebページを取得する
+    r = requests.get(url)
+    # BeautifulSoupを利用してWebページを解析する
+    soup = BeautifulSoup(r.content,'lxml')
+    # soup.find_allを利用して、見出しのタイトルを取得する
+    srcset = soup.find_all("source" , blur="false")
+    imgs = []
+
+    for s in srcset:
+        imgs.append(s.get("srcset"))
+    return imgs
+
+def get_movieHighlights():
+    # WebサイトのURLを指定
+    url = "https://vokka.jp/16136"
+    # Requestsを利用してWebページを取得する
+    r = requests.get(url)
+    # BeautifulSoupを利用してWebページを解析する
+    soup = BeautifulSoup(r.text, 'html.parser')
+    # soup.find_allを利用して、見出しのタイトルを取得する
+    text = soup.find_all("p", class_="c-post-txt")
+    HighlightsAll = []
+    Highlights = []
+    d = '・・・'
+
+    for t in text:
+        HighlightsAll.append(t.getText())
+    for i in range(1,27,2):
+        if len(HighlightsAll[i]) < 300:
+            Highlights.append(HighlightsAll[i][0:301])
+        else:
+            Highlights.append(HighlightsAll[i][0:301] + d)
+    return Highlights
+
+
 
 def progress_earnmoney(request):
     return render(request, 'forpis/progress/earn.html')
