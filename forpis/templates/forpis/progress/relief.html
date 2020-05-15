@@ -324,7 +324,15 @@
                         <div class="movie">
                             <div class="movieTitle">{{title}}</div>
                                 <div class="movieDetail">
-                                    <div><img src="{{img}}" class="movieImgs"><div class="movieText">{{highlights}}</div></div>
+                                    <div>
+                                        <picture>
+                                            <source type="image/webp" srcset="{{img}}" class="movieImgs"/>
+                                            <img src="{% static 'forpis/image/each/wannado_header.png' %}" class="movieImgs"/>
+                                        </picture>
+                                        <div class="movieText">
+                                            {{highlights}}
+                                        </div>
+                                    </div>
                                     <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
                                 </div>
                         </div>
