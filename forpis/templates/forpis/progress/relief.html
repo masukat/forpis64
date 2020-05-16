@@ -319,16 +319,14 @@
             <div class="cp_actab-content">
                 {% for i in range %}
                     {% with title=titles|index:i %}
-                    {% with img=imgs|index:i %}
                     {% with highlights=highlights|index:i %}
                         <div class="movie">
                             <div class="movieTitle">{{title}}</div>
                                 <div class="movieDetail">
                                     <div>
-                                        <picture>
-                                            <source type="image/webp" srcset="{{img}}" class="movieImgs"/>
-                                            <img src="{% static 'forpis/image/each/wannado_header.png' %}" class="movieImgs"/>
-                                        </picture>
+                                        <div>
+                                            <img src= "../../../../forpis/static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs">                                              
+                                        </div>
                                         <div class="movieText">
                                             {{highlights}}
                                         </div>
@@ -336,7 +334,6 @@
                                     <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
                                 </div>
                         </div>
-                    {% endwith %}
                     {% endwith %}
                     {% endwith %}
                 {% endfor %}

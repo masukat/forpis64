@@ -106,7 +106,6 @@ def progress_relief(request):
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
     titles = get_movieTitles()
     titlesNum = len(titles)
-    imgs = get_movieImgs()
     highlights = get_movieHighlights()
 
     params = {
@@ -114,7 +113,6 @@ def progress_relief(request):
         'data_done':data_done,
         'titles':titles,
         'range':range(titlesNum),
-        'imgs':imgs,
         'highlights':highlights,
         'form':ReliefForm(),
         'form_motivation':ReliefForm_motivation(),
@@ -135,7 +133,6 @@ def progress_relief_edit(request,num):
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
     titles = get_movieTitles()
     titlesNum = len(titles)
-    imgs = get_movieImgs()
     highlights = get_movieHighlights()
 
     obj = Relief.objects.get(id=num)
@@ -151,7 +148,6 @@ def progress_relief_edit(request,num):
         'data_done':data_done,
         'titles':titles,
         'range':range(titlesNum),
-        'imgs':imgs,
         'highlights':highlights,
         'form':ReliefForm(instance=obj),
         'form_motivation':ReliefForm_motivation(instance=obj),
@@ -165,7 +161,6 @@ def progress_relief_delete(request,num):
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
     titles = get_movieTitles()
     titlesNum = len(titles)
-    imgs = get_movieImgs()
     highlights = get_movieHighlights()
 
     relief = Relief.objects.get(id=num)
@@ -177,7 +172,6 @@ def progress_relief_delete(request,num):
         'data_done':data_done,
         'titles':titles,
         'range':range(titlesNum),
-        'imgs':imgs,
         'highlights':highlights,
         'obj':relief,
         'id':num,
@@ -201,21 +195,6 @@ def get_movieTitles():
             titles.append(t.getText())
     return titles
 
-def get_movieImgs():
-    # WebサイトのURLを指定
-    url = "https://vokka.jp/16136"
-    # Requestsを利用してWebページを取得する
-    r = requests.get(url)
-    # BeautifulSoupを利用してWebページを解析する
-    soup = BeautifulSoup(r.content,'lxml')
-    # soup.find_allを利用して、見出しのタイトルを取得する
-    srcset = soup.find_all("source" , blur="false")
-    imgs = []
-
-    for s in srcset:
-        imgs.append(s.get("srcset"))
-    return imgs
-
 def get_movieHighlights():
     # WebサイトのURLを指定
     url = "https://vokka.jp/16136"
@@ -237,6 +216,7 @@ def get_movieHighlights():
         else:
             Highlights.append(HighlightsAll[i][0:301] + d)
     return Highlights
+
 
 
 

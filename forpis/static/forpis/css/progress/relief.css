@@ -308,6 +308,9 @@ button.return_button_update, button.return_button_delete {
     .movieLink {
       font-size: 11pt;
     }
+    .cp_actab input:checked ~ .cp_actab-content {
+      height: 300px;
+    }
 
     /*【テーブル】*/
     table th{
@@ -337,6 +340,9 @@ button.return_button_update, button.return_button_delete {
     #id_completiondate{
         width: 105px;
         font-size: 10pt;
+    }
+    .memo{
+        font-size: 8pt;
     }
 
     .fa-child:before {
