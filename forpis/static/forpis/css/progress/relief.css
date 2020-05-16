@@ -309,7 +309,7 @@ button.return_button_update, button.return_button_delete {
       font-size: 11pt;
     }
     .cp_actab input:checked ~ .cp_actab-content {
-      height: 300px;
+      height: 386px;
     }
 
     /*【テーブル】*/

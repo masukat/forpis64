@@ -324,9 +324,10 @@
                             <div class="movieTitle">{{title}}</div>
                                 <div class="movieDetail">
                                     <div>
-                                        <div>
-                                            <img src= "../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs">                                              
-                                        </div>
+                                        <picture>
+                                            <source srcset="../../../../forpis/static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"/>
+                                            <img src= "../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs">
+                                        </picture>
                                         <div class="movieText">
                                             {{highlights}}
                                         </div>
