@@ -109,7 +109,8 @@
         <div class="tab-content">
             <div class="explanation">
               外の世界を持とう。広い世界を持とう。</br>
-              ちょっと疲れてるくらいがちょうどいい。
+              ちょっと疲れてるくらいがちょうどいい。</br>
+              【週１の楽しみを見つける】
             </div>
             <div class="formtable">
                 <!-- 追加・更新画面 -->
@@ -145,11 +146,11 @@
                                   <td>{{form_motivation.motivation}}</td>
                                 </tr>
                                 <tr>
-                                    <th>分野</th>
+                                    <th>分野<span class="must_genre1">必須</span></th>
                                     <td>{{form.genre1}}</td>
                                 </tr>
                                 <tr>
-                                    <th>やりたいこと</th>
+                                    <th>やりたいこと<span class="must_plan">必須</span></th>
                                     <td>{{form.plan}}</td>
                                 </tr>
                                 <tr>
@@ -324,10 +325,7 @@
                             <div class="movieTitle">{{title}}</div>
                                 <div class="movieDetail">
                                     <div>
-                                        <picture>
-                                            <source srcset="../../../../forpis/static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"/>
-                                            <img src= "../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs">
-                                        </picture>
+                                        <div><img src="../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
                                         <div class="movieText">
                                             {{highlights}}
                                         </div>
@@ -355,9 +353,9 @@
             </div>
         </div>
         <!-- テーブル(idは非表示にするときに呼び出される) -->
-        <div class="edit-table_undone" align="center">
+        <div class="edit-table_done" align="center">
             <table>
-                <thead class="edit-table_thead_undone">
+                <thead class="edit-table_thead_done">
                     <tr>
                         <th id="delete_display_2">削除</th>
                         <th id="edit_display_2">編集</th>
@@ -368,7 +366,7 @@
                         <th id="completiondate_display_2">完了日</th>
                     </tr>
                 </thead>
-                <tbody class="edit-table_tbody_undone_study">
+                <tbody class="edit-table_tbody_done_study">
                 {% for plan in data_done %}
                     {% if plan.done %}
                         <tr class="donerow">

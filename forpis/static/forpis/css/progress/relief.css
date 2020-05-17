@@ -1,6 +1,9 @@
 /*【全体】*/
 body{
-  font-size: 12pt;
+  font-size: 14pt;
+}
+.body_wrap {
+  width: 60%;
 }
 
 /*【上】*/
@@ -17,6 +20,23 @@ body{
 }
 .iventName_recomend{
   font-size: 21pt;
+}
+
+/*【必須項目】*/
+.must_genre1, .must_plan{
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+    color: white;
+}
+.must_genre1{
+    right: 822px;
+    bottom: 125px;
+}
+.must_plan{
+    right: 822px;
+    bottom: 64px;
 }
 
 /*リスト*/
@@ -197,8 +217,8 @@ button.return_button_update, button.return_button_delete {
 [id^="genre1_display_"]{
     width: 92px;
 }
-#memo_display_2{
-    width: 252px;
+#memo_display_2 {
+    width: 419px;
 }
 #completiondate_display_2, .completiondate{
     width: 96px;
@@ -296,7 +316,7 @@ button.return_button_update, button.return_button_delete {
       display: inline-block;
     }
     .movieImgs{
-      width: 48%;
+      width: 50%;
       margin-right: 6px;
     }
     .movieText{
