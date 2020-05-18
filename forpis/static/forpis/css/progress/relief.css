@@ -222,6 +222,7 @@ button.return_button_update, button.return_button_delete {
 }
 #completiondate_display_2, .completiondate{
     width: 96px;
+    text-align: center;
 }
 
 /*------------------------------------------*
@@ -362,7 +363,7 @@ button.return_button_update, button.return_button_delete {
         font-size: 10pt;
     }
     .memo{
-        font-size: 8pt;
+        font-size: 0.7em;
     }
 
     .fa-child:before {
