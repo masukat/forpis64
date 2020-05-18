@@ -29,14 +29,13 @@ body{
     position: absolute;
     border-radius: 3px;
     color: white;
+    right: 824px;
 }
-.must_genre1{
-    right: 822px;
-    bottom: 125px;
+.must_genre1 {
+    bottom: 521px;
 }
-.must_plan{
-    right: 822px;
-    bottom: 64px;
+.must_plan {
+    bottom: 460px;
 }
 
 /*リスト*/
@@ -317,7 +316,7 @@ button.return_button_update, button.return_button_delete {
       display: inline-block;
     }
     .movieImgs{
-      width: 50%;
+      width: 52%;
       margin-right: 6px;
     }
     .movieText{
@@ -332,6 +331,13 @@ button.return_button_update, button.return_button_delete {
     .cp_actab input:checked ~ .cp_actab-content {
       height: 386px;
     }
+    .cp_actab label {
+      line-height: 2.2;
+      font-size: 11pt;
+    }
+    .cp_actab label::after {
+      line-height: 2;
+    }
 
     /*【テーブル】*/
     table th{
@@ -340,6 +346,16 @@ button.return_button_update, button.return_button_delete {
     .add-table_done {
         height: 85px;
         margin-bottom: 20px;
+    }
+    .must_genre1, .must_plan {
+        font-size: 11px;
+        right: 194px;
+    }
+    .must_genre1 {
+        bottom: 18px;
+    }
+    .must_plan {
+        bottom: -37px;
     }
     #id_done {
         width: 21px;
