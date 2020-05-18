@@ -315,27 +315,28 @@
         <div class="iventName_recomend">オススメ特集</div>
             <!-- 名作ランキング ---------------------------------------------------------------------------------------------------------------->
             <div class="cp_actab">
-            <input id="tab-one" type="checkbox" name="tabs">
-            <label for="tab-one">冬に観たい映画特集</label>
-            <div class="cp_actab-content">
-                {% for i in range %}
-                    {% with title=titles|index:i %}
-                    {% with highlights=highlights|index:i %}
-                        <div class="movie">
-                            <div class="movieTitle">{{title}}</div>
-                                <div class="movieDetail">
-                                    <div>
-                                        <div><img src="../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
-                                        <div class="movieText">
-                                            {{highlights}}
+                <input id="tab-one" type="checkbox" name="tabs">
+                <label for="tab-one">冬に観たい映画特集</label>
+                <div class="cp_actab-content">
+                    {% for i in range %}
+                        {% with title=titles|index:i %}
+                        {% with highlights=highlights|index:i %}
+                            <div class="movie">
+                                <div class="movieTitle">{{title}}</div>
+                                    <div class="movieDetail">
+                                        <div>
+                                            <div><img src="../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
+                                            <div class="movieText">
+                                                {{highlights}}
+                                            </div>
                                         </div>
+                                        <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
                                     </div>
-                                    <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
-                                </div>
-                        </div>
-                    {% endwith %}
-                    {% endwith %}
-                {% endfor %}
+                            </div>
+                        {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                </div>
             </div>
 
         <!-- 完了リスト ------------------------------------------------------------------------------------------------->
