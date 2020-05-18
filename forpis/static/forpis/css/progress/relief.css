@@ -348,14 +348,16 @@ button.return_button_update, button.return_button_delete {
         margin-bottom: 20px;
     }
     .must_genre1, .must_plan {
-        font-size: 11px;
-        right: 194px;
+        position: relative;
+        font-size: 13px;
     }
     .must_genre1 {
-        bottom: 18px;
+        bottom: 1px;
+        right: -3px;
     }
     .must_plan {
-        bottom: -37px;
+        bottom: 0px;
+        right: -18px;
     }
     #id_done {
         width: 21px;
