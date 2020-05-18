@@ -1,6 +1,9 @@
 /*【全体】*/
 body{
-  font-size: 12pt;
+  font-size: 14pt;
+}
+.body_wrap {
+  width: 60%;
 }
 
 /*【上】*/
@@ -17,6 +20,22 @@ body{
 }
 .iventName_recomend{
   font-size: 21pt;
+}
+
+/*【必須項目】*/
+.must_genre1, .must_plan{
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+    color: white;
+    right: 824px;
+}
+.must_genre1 {
+    bottom: 521px;
+}
+.must_plan {
+    bottom: 460px;
 }
 
 /*リスト*/
@@ -197,11 +216,12 @@ button.return_button_update, button.return_button_delete {
 [id^="genre1_display_"]{
     width: 92px;
 }
-#memo_display_2{
-    width: 252px;
+#memo_display_2 {
+    width: 419px;
 }
 #completiondate_display_2, .completiondate{
     width: 96px;
+    text-align: center;
 }
 
 /*------------------------------------------*
@@ -296,7 +316,7 @@ button.return_button_update, button.return_button_delete {
       display: inline-block;
     }
     .movieImgs{
-      width: 48%;
+      width: 52%;
       margin-right: 6px;
     }
     .movieText{
@@ -309,7 +329,14 @@ button.return_button_update, button.return_button_delete {
       font-size: 11pt;
     }
     .cp_actab input:checked ~ .cp_actab-content {
-      height: 300px;
+      height: 386px;
+    }
+    .cp_actab label {
+      line-height: 2.2;
+      font-size: 11pt;
+    }
+    .cp_actab label::after {
+      line-height: 2;
     }
 
     /*【テーブル】*/
@@ -319,6 +346,18 @@ button.return_button_update, button.return_button_delete {
     .add-table_done {
         height: 85px;
         margin-bottom: 20px;
+    }
+    .must_genre1, .must_plan {
+        position: relative;
+        font-size: 13px;
+    }
+    .must_genre1 {
+        bottom: 1px;
+        right: -3px;
+    }
+    .must_plan {
+        bottom: 0px;
+        right: -18px;
     }
     #id_done {
         width: 21px;
@@ -342,7 +381,7 @@ button.return_button_update, button.return_button_delete {
         font-size: 10pt;
     }
     .memo{
-        font-size: 8pt;
+        font-size: 0.7em;
     }
 
     .fa-child:before {
