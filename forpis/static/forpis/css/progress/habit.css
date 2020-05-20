@@ -82,7 +82,7 @@ ul.cp_list li.cp_list_li:after {
 /* :checked */
 .cp_actab input:checked ~ .cp_actab-content {
 	max-height: 33em;
-  width: 99.5%;
+  width: 99%;
   margin: 0 auto;
 }
 /* Icon */
