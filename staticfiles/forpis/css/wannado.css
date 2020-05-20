@@ -1,7 +1,7 @@
 /*【全体】*/
 body{
     color: white;
-    background-color: #FF9999;
+    background-color: #FF9997;
     padding-top: 105px;;
     font-size: 15pt;
     font-family: monospace;
@@ -346,6 +346,9 @@ label{
     body{
         padding-top: 51px;
     }
+    table{
+        margin-bottom: 17px;
+    }
     table tr th,td{
         font-size: 10pt;
     }
@@ -443,14 +446,8 @@ label{
         overflow: scroll;
         height: 300px;
     }
-    .edit-table_tbody_undone_habit{
-        height: 150px;
-    }
-    .edit-table_tbody_undone_book{
-        height: 135px;
-    }
-    .edit-table_tbody_undone_study{
-        height: 150px;
+    .edit-table_tbody_undone_study, .edit-table_tbody_undone_book, .edit-table_tbody_undone_hobby{
+        height: 183px;
     }
     .edit-table_tbody_done{
         display: block;
