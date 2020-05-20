@@ -438,16 +438,21 @@ label{
     .edit-table_undone{
         margin-bottom: 21px;
     }
-    .edit-table_thead_done, .edit-table_thead_undone{
+
+    [class^="edit-table_thead_undone"]{
         display: block;
     }
     [class^="edit-table_tbody_undone"]{
         display: block;
         overflow: scroll;
+        height: 183px;
+    }
+    .edit-table_tbody_undone{
         height: 300px;
     }
-    .edit-table_tbody_undone_study, .edit-table_tbody_undone_book, .edit-table_tbody_undone_hobby{
-        height: 183px;
+
+    .edit-table_thead_done{
+        display: block;
     }
     .edit-table_tbody_done{
         display: block;
