@@ -82,6 +82,8 @@ ul.cp_list li.cp_list_li:after {
 /* :checked */
 .cp_actab input:checked ~ .cp_actab-content {
 	max-height: 33em;
+  width: 99.5%;
+  margin: 0 auto;
 }
 /* Icon */
 .cp_actab label::after {
@@ -149,10 +151,10 @@ table th{
   border-color: white;
 }
 .add-table_done{
-    height: 128px;
+  height: 128px;
 }
 .add-table{
-    width: 102%;
+  width: 102%;
 }
 
 
