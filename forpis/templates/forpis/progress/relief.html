@@ -385,7 +385,7 @@
                             <td class="memo">
                                               {% if plan.memo is None %}
                                               {% else %}
-                                                  {{plan.memo}}
+                                                  {{plan.memo | linebreaksbr}}
                                               {% endif %}
                             </td>
                             <td class="completiondate">{% if plan.completiondate is None %}ー{% else %}{{plan.completiondate|date:"Y/m/d"}}{% endif %}</td>
