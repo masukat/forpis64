@@ -36,6 +36,18 @@ GENRE2_CHOISES=(
     ('他','他'),
 )
 
+DEADLINE_CHOISES=(
+    ('0','コロナ後'),
+    ('1','今月'),
+    ('2','5~6月'),
+    ('3','7~9月'),
+    ('4','10~12月'),
+    ('5','今年'),
+    ('6','3年以内'),
+    ('7','5年以内'),
+    ('8','いつか'),
+)
+
 class WannaDo_motivation(models.Model):
     motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
 
@@ -45,20 +57,24 @@ class WannaDo_genre1(models.Model):
 class WannaDo_genre2(models.Model):
     genre2 = models.CharField(max_length=100,blank=True,choices=GENRE2_CHOISES)
 
+class WannaDo_deadline(models.Model):
+    deadline = models.IntegerField(blank=True,null=True,choices=DEADLINE_CHOISES)
+
 class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
     genre2 = models.CharField(max_length=100,blank=True)
-    plan = models.CharField(max_length=500)
-    urllink = models.CharField(max_length=2000,blank=True)
-    tag1 = models.CharField(max_length=100,blank=True)
-    tag2 = models.CharField(max_length=100,blank=True)
-    tag3 = models.CharField(max_length=100,blank=True)
+    plan = models.TextField()
+    urllink = models.TextField(blank=True)
+    tag1 = models.TextField(blank=True)
+    tag2 = models.TextField(blank=True)
+    tag3 = models.TextField(blank=True)
     done = models.BooleanField()
     review = models.IntegerField(blank=True)
     motivation = models.IntegerField(blank=True)
     travelhour = models.IntegerField(blank=True)
     travelmin = models.IntegerField(blank=True)
     completiondate = models.DateField(blank=True)
+    deadline = models.IntegerField(blank=True,null=True)
     class Meta:
         db_table ="wannado"
 
