@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from ..models.wannado_models import WannaDo
-from ..forms.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1,WannaDoForm_genre2
+from ..forms.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1,WannaDoForm_genre2,WannaDoForm_deadline
 
 def wannado(request):
-    data_undone = WannaDo.objects.all().order_by('motivation','genre1','genre2').reverse()
+    data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
     params = {
         'data_undone':data_undone,
+        'data_genre1':data_genre1,
         'data_done':data_done,
         'form':WannaDoForm(),
         'form_motivation':WannaDoForm_motivation(),
         'form_genre1':WannaDoForm_genre1(),
         'form_genre2':WannaDoForm_genre2(),
+        'form_deadline':WannaDoForm_deadline(),
         'id':0,
         'delete_flag':0,
         }
@@ -23,15 +26,18 @@ def wannado(request):
         wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado_genre1 = WannaDoForm_genre1(request.POST, instance=obj)
         wannado_genre2 = WannaDoForm_genre2(request.POST, instance=obj)
+        wannado_deadline = WannaDoForm_deadline(request.POST, instance=obj)
         wannado.save()
         wannado_motivation.save()
         wannado_genre1.save()
         wannado_genre2.save()
-        return redirect(to='/forpis/wannado')
-    return render(request, 'forpis/wannado.html', params)
+        wannado_deadline.save()
+        return redirect(to='/forpis/progress/wannado')
+    return render(request, 'forpis/progress/wannado.html', params)
 
 def wannado_edit(request,num):
-    data_undone = WannaDo.objects.all().order_by('motivation','genre1','genre2').reverse()
+    data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
     obj = WannaDo.objects.get(id=num)
@@ -61,37 +67,43 @@ def wannado_edit(request,num):
         wannado_motivation = WannaDoForm_motivation(request.POST, instance=obj)
         wannado_genre1 = WannaDoForm_genre1(request.POST, instance=obj)
         wannado_genre2 = WannaDoForm_genre2(request.POST, instance=obj)
+        wannado_deadline = WannaDoForm_deadline(request.POST, instance=obj)
         wannado.save()
         wannado_motivation.save()
         wannado_genre1.save()
         wannado_genre2.save()
-        return redirect(to='/forpis/wannado')
+        wannado_deadline.save()
+        return redirect(to='/forpis/progress/wannado')
     params = {
         'data_undone':data_undone,
+        'data_genre1':data_genre1,
         'data_done':data_done,
         'form':WannaDoForm(instance=obj),
         'form_motivation':WannaDoForm_motivation(instance=obj),
         'form_genre1':WannaDoForm_genre1(instance=obj),
         'form_genre2':WannaDoForm_genre2(instance=obj),
+        'form_deadline':WannaDoForm_deadline(instance=obj),
         'id':num,
         'delete_flag':0,
         }
-    return render(request, 'forpis/wannado.html', params)
+    return render(request, 'forpis/progress/wannado.html', params)
 
 def wannado_delete(request,num):
-    data_undone = WannaDo.objects.all().order_by('motivation','genre1','genre2').reverse()
+    data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
     wannado = WannaDo.objects.get(id=num)
     if (request.method == 'POST'):
         wannado.delete()
-        return redirect(to='/forpis/wannado')
+        return redirect(to='/forpis/progress/wannado')
     params = {
         'data_undone':data_undone,
+        'data_genre1':data_genre1,
         'data_done':data_done,
         'obj':wannado,
         'id':num,
         'delete_flag':1,
         }
-    return render(request, 'forpis/wannado.html', params)
+    return render(request, 'forpis/progress/wannado.html', params)
 # Create your views here.
