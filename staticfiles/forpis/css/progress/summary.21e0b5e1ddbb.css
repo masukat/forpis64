@@ -1,0 +1,87 @@
+/*【上】*/
+h1{
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+.tab-content {
+    padding: 8px;
+}
+.summary {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #FFEEFF;
+    border-radius: 8px;
+}
+.summary .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -30px;
+    left: 4px;
+    padding: 0 7px;
+    line-height: 1;
+    font-size: 24px;
+    color: #FFEEFF;
+    font-weight: bold;
+}
+.summary .summary_list {
+    margin: 0;
+    padding: 0;
+}
+
+h4{
+  margin: 4px;
+  color: #FFEEFF;
+}
+
+/*リスト*/
+ol{
+  margin: 2px;
+}
+ol li{
+  margin-left: 1em;
+}
+
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 103%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* summaryCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    .body_wrap{
+      width: 101%;
+    }
+    .tab-content{
+      padding-top: 0;
+    }
+    ol{
+      margin-left: -14px;
+    }
+    ol li {
+      margin-left: 0;
+    }
+}

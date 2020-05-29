@@ -1,0 +1,663 @@
+/*【全体】*/
+body{
+  font-size: 14pt;
+}
+
+/*【tab】*/
+.tab-content {
+    padding-top: 0;
+}
+
+/*アコーディオンメニュー*/
+.tablist{
+  margin-top: 19px;
+}
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 2;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 0 0 1px 0;
+	background: #0099FF;
+  font-size: 13pt;
+}
+.cp_actab .thismonth{
+  line-height: 2.5;
+  background: #FF5192;
+  font-size: 14pt;
+  margin-top: 10px;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #F5F5DC;
+
+  width: 99%;
+  margin: 0 auto;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+	max-height: 39em;
+  width: 99%;
+  margin: 0 auto;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 2;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab label.thismonth::after{
+  top: 2px;
+  right: -2px;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
+
+/*リスト*/
+ul{
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.list{
+  counter-reset:li;
+  font: 14px/1.6 'arial narrow', sans-serif;
+  list-style: none;
+  padding:0;
+
+  padding-bottom: 8px;
+  font-family: arial unicode ms;
+  font-size: 11pt;
+}
+.list .genre_li{
+  position: relative;
+  font-weight: bold;
+  line-height: 28px;
+  padding-left: 40px;
+  margin: 10px 0;
+
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.list .genre_li:nth-child(9n+1){
+  border:dashed 1px #FFA79F;
+}
+.list .genre_li:nth-child(9n+4){
+  border:dashed 1px #fbaf5d;
+}
+.list .genre_li:nth-child(9n+7){
+  border:dashed 1px #9FCDFF;
+}
+.list .genre_li:nth-child(9n+9){
+  border:dashed 1px #AFEBB6;
+}
+.list .genre_li:before{
+  counter-increment: li;
+  content: counter(li);
+  position: absolute;
+  left: -1px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.list .genre_li:nth-child(9n+1):before{
+  background: #FFA79F;
+}
+.list .genre_li:nth-child(9n+4):before{
+  background: #fbaf5d;
+}
+.list .genre_li:nth-child(9n+7):before{
+  background: #9FCDFF;
+}
+.list .genre_li:nth-child(9n+9):before{
+  background: #AFEBB6;
+}
+
+.li_goal, .li_todo{
+  margin-left: 12px;
+}
+
+/*目標リストを矢印マークに*/
+.li_goal {
+	list-style-type:none;
+  padding-bottom: 5px;
+}
+.li_goal li {
+	position:relative;
+	padding: 0em 0.3em 0em 1.3em;
+  margin-left: -23px;
+}
+.li_goal li::before,.li_goal li::after {
+	position: absolute;
+	content: '';
+	display: inline-block;
+}
+.li_goal li::after {
+	top: 8.4px;
+	left: 0;
+	width: 9px;
+	height: 9px;
+	border-radius: 25%;
+	border-right: 3px solid #FF66CC;
+	border-bottom: 3px solid #FF66CC;
+	transform: rotate(-45deg);
+}
+.li_goal li::before {
+	top: 11px;
+	left: 0;
+	width: 9px;
+	height: 3px;
+	background-color: #FF66CC;
+	border-radius: 25%;
+}
+
+/*リストをチェックマークに*/
+.li_todo li{
+	list-style-type:none !important;
+	list-style-image:none !important;
+	margin: 5px 0px 5px -22px ;
+}
+
+.li_todo li{
+	position:relative;
+	padding-left:20px;
+}
+
+.li_todo li:after, .li_todo li:before{
+	content:'';
+	display:block;
+	position:absolute;
+	top:6px;
+	left:9px;
+	height:11px;
+	width:3px;
+	background:#aaa;
+	border-radius:10px;
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+}
+.li_todo li:before{
+	top:10px;
+	left:3px;
+	height:8px;
+	transform:rotate(-45deg);
+	-webkit-transform:rotate(-45deg);
+	-o-transform:rotate(-45deg);
+}
+
+/*矢印*/
+.arrow{
+  text-align: center;
+}
+
+/*margin-left*/
+.iventName, .checkbox {
+  margin-left: -114px;
+}
+
+/*タイトル*/
+.iventName{
+  margin-bottom: 9px;
+  font-size: 24pt;
+  color: #005FFF;
+}
+.iventName_add, .iventName_button{
+  font-size: 20pt;
+  margin-left: 64px;
+}
+.iventName_update, .iventName_delete{
+  font-size: 15pt;
+}
+
+/*テーブルボタン*/
+.return_button_update_div, .return_button_delete_div{
+  position: relative;
+}
+.return_button_update_div{
+  right: 336px;
+  top: -174px;
+}
+.return_button_delete_div{
+  right: 362px;
+  top: -174px;
+}
+button.return_button_update, button.return_button_delete {
+  left: 460px;
+  top: 165px;
+  position: absolute;
+}
+button.return_button_delete{
+  left: 519px;
+}
+
+/*目標*/
+.goal_study_div, .goal_book_div, .goal_hobby_div{
+  margin-left: -57px;
+  color: #005FFF;
+  font-size: 16pt;
+
+  background: #F3FFD8;
+  box-shadow: 0px 0px 0px 5px #F3FFD8;/*線の外側*/
+  border: dashed 2px #ffb03f;/*破線*/
+  border-radius: 9px;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+
+  margin-bottom: 9px;
+  display: inline-block;
+}
+.goal_study_ul, .goal_book_ul, .goal_hobby_ul{
+  margin: 0;
+  font-size: 13pt;
+}
+.goal_study_li, .goal_book_li, .goal_hobby_li{
+  line-height: 1.5;
+}
+
+/*テーブル*/
+table {
+  width: 120%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 32px;
+}
+table th{
+  background-color: #0000BB;
+  color: white;
+  width: 162px;
+}
+/*とりあえず*/
+td.genre2{
+  text-align: center;
+}
+td.deadline{
+  text-align: center;
+  font-size: 12pt;
+}
+.thismonthrow, .thisyearrow, .nextyearrow{
+  color: #666666;
+}
+.thismonthrow{
+  background: #FFFF99;
+}
+.thisyearrow{
+  background: wheat;
+}
+.nextyearrow{
+  background: #AAAAAA;
+}
+
+/*【delete】*/
+.delete-table th{
+  border-color: #444444;
+}
+
+/*【add】*/
+.add-table_done tr td, .add-table tr td{
+  border-color: white;
+  background: #75A9FF;
+}
+.add-table_done td, .add-table td {
+  width: 302px;
+}
+.add-table_done, .add-table{
+  width: 100%;
+}
+
+
+/*【inputタグ幅】*/
+#id_genre2{
+    width: 135px;
+}
+[id^="id_travel"]{
+    height: 25px;
+    margin-top: 4px;
+}
+#id_travelhour{
+    width: 36px;
+}
+#id_travelmin{
+    width: 62px;
+}
+#id_genre2, #id_deadline {
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+}
+#id_plan, #id_tag1, #id_urllink{
+    width: 297px;
+    height: 50px;
+    font-size: 12pt;
+    margin-bottom: -7px;
+}
+#id_tag1{
+    height: 88px;
+}
+
+
+/*【やりたいことリスト】*/
+.stoprow, .dayrow, .weekrow, .monthrow{
+    color: #666;
+}
+.stoprow{
+    background-color: #DCC2FF;
+}
+.dayrow{
+    background-color: #FFFFCC;
+}
+.weekrow{
+    background-color: #FFDBC9;
+}
+.monthrow{
+    background-color: #B1F9D0;
+}
+
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+[id^="genre1_display_"]{
+    width: 56px;
+}
+[id^="genre2_display_"]{
+    width: 80px;
+}
+[id^="tag1_display_"]{
+    width: 370px;
+}
+[id^="deadline_display_"]{
+    width: 73px;
+}
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
+    text-align: center;
+}
+.completiondate{
+  width: 136px;
+  text-align: right;
+}
+.habit{
+    width: 360px;
+}
+.edit-table_undone {
+    margin-bottom: 20px;
+}
+
+/*【必須項目】*/
+.th_motivation, .th_genre1, .th_genre2, .th_plan{
+    position: relative;
+}
+[class^="must_"]{
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+    left: 135px;
+}
+.must_motivation{
+    bottom: 4px;
+}
+.must_genre1{
+    bottom: 4px;
+}
+.must_genre2{
+    bottom: 3px;
+}
+.must_plan{
+    bottom: 18px;
+}
+
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 115%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    body, table th, table td, [id^="id_"]{
+        font-family: monospace;
+    }
+    table th{
+        width: 89px;
+        font-size: 10pt;
+    }
+    table td{
+        font-size: 10pt;
+    }
+    .add-table_done td, .add-table td {
+        width: 177px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
+
+
+/*------------------------------------------*
+* habitCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【全体】*/
+    .body {
+        width: 86%;
+        font-size: 10pt;
+    }
+    /*【上】*/
+    ul.cp_list {
+        padding: 0;
+        width: 109%;
+        font-family: monospace;
+    }
+    /*【アコーディオンメニュー】*/
+    .cp_actab {
+      width: 112%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .cp_actab label{
+        font-size: 11pt;
+    }
+    .cp_actab .thismonth {
+        font-size: 11pt;
+    }
+    .cp_actab input:checked ~ .cp_actab-content {
+        max-height: 38em;
+    }
+
+    /*【リスト】*/
+    .arrow {
+      font-size: 0.5pt;
+    }
+    .list {
+      font-size: 10pt;
+    }
+    .li_goal, .li_todo {
+      margin-left: 0px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .li_goal li {
+      margin-left: -33px;
+    }
+    .li_todo li {
+      margin-left: -33px !important;
+      margin: 5px 0px -5px -22px;
+    }
+    .list .genre_li {
+      line-height: 20px;
+      padding-bottom: 0px;
+      margin-left: 3px;
+      margin-right: 0px;
+    }
+    .list .genre_li:before {
+      line-height: 21px;
+      height: 21px;
+    }
+    .tablist {
+      margin-bottom: 20px;
+    }
+    /*【タブ】*/
+    .tab-content {
+      padding-top: 0;
+    }
+    /*【目標枠】*/
+    .iventName {
+        font-size: 17pt;
+        margin-left: -13px;
+    }
+    .goal_study_div, .goal_book_div, .goal_hobby_div {
+        font-size: 11pt;
+        margin-left: -5px;
+    }
+    .goal_study_ul, .goal_book_ul, .goal_hobby_ul {
+        font-size: 9pt;
+        padding-left: 10px;
+    }
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 514px;
+        top: -172px;
+    }
+    .return_button_delete_div {
+        right: 548px;
+        top: -173px;
+    }
+    button.return_button_update{
+        height: 28px;
+        font-size: 13px;
+        padding: 5px 7px;
+
+        left: 513px;
+        top: 163px;
+    }
+    button.return_button_delete{
+        height: 30px;
+        font-size: 14px;
+        padding: 5px 9px;
+        left: 542px;
+    }
+    /*【テーブル】*/
+    table {
+        width: 105%;
+        margin-bottom: 13px;
+    }
+    .edit-table_undone {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    .add-table {
+        width: 103%;
+        font-family: monospace;
+    }
+    .add-table_done {
+        margin-bottom: 42px;
+    }
+
+    .fa-child:before {
+        font-size: 19px;
+    }
+    #id_motivation {
+        width: 48px;
+    }
+    #id_motivation, #id_deadline, #id_genre1, #id_genre2, #id_plan, #id_tag1, #id_urllink, #id_completiondate{
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    #id_plan, #id_tag1, #id_urllink {
+        width: 170px;
+    }
+    #id_completiondate{
+        width: 132px;
+    }
+    [id^="motivation_display_"], [id^="review_display_"]{
+        width: 32px;
+    }
+    td.deadline {
+        font-size: 9pt;
+    }
+    /*【必須項目】*/
+    .must_motivation, .must_genre1, .must_genre2, .must_plan{
+        left: 65px;
+        bottom: 5px;
+        font-size: 12px;
+    }
+    .must_plan{
+        left: 59px;
+        bottom: 3px;
+    }
+    .checkbox {
+        margin-left: 0px;
+    }
+}

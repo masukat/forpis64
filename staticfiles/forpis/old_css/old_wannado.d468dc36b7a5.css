@@ -1,0 +1,627 @@
+/*【全体】*/
+body{
+    color: white;
+    background-color: #FF9997;
+    padding-top: 105px;;
+    font-size: 15pt;
+    font-family: monospace;
+}
+.undonerow{
+    color: #666;
+    background-color: #eee;
+}
+.donerow{
+    color: black;
+    background-color: #C0C0C0;
+    opacity:0.7;
+}
+table{
+    width: 99%;
+    margin-bottom: 38px;
+}
+table tr th{
+    background-color: #FF69A3;
+    color: white;
+    border-width: 2px;
+}
+table tr td{
+    border-width: 2px;
+}
+
+/*【上】*/
+.headerImg{
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: #FF9997;
+}
+.titleImg{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: 489px;
+    height: 139px;
+    width: 46%
+}
+h1 {
+  position: relative;
+  padding: 0.1em;
+  background: #FFCC99;
+  margin-left: 6px;
+  margin-right: 6px;
+
+  font-family: Comic Sans MS;
+  font-size: 34pt;
+  color: #FF0461;
+  text-align: left;
+
+  box-shadow: 0px 0px 0px 5px #FFCC99;
+  border: dashed 2px #FF0461;
+}
+
+h1:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #FFCC99;
+  width: 0;
+  height: 0;
+}
+.iventName{
+    font-size: 30pt;
+    position: relative;/*相対位置*/
+    line-height: 1.4;/*行高*/
+    color: #555555;/*文字色*/
+}
+
+/*【ボタン】*/
+button.return_button {
+  display: inline-block;
+  max-width: 220px;
+  height: 40px;
+  text-align: left;
+  background-color: #9ec34b;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border-bottom: 4px solid #84a01f;
+}
+button.reuturn_button:active {
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+
+
+
+/*【add】*/
+/*全体*/
+.add-table_done{
+    display: flex;
+    height: 60px;
+}
+.add-table div.tr, div.done_tr {
+    position:relative;
+    margin: 3px;
+}
+
+.add-table div.tr{
+    float: left;
+}
+
+
+/*【delete】*/
+[class^="delete-table"]{
+    color: black;
+}
+.delete-table_done{
+    display: flex;
+    height: 60px;
+}
+.delete-table div.tr, div.done_tr {
+    position:relative;
+    margin: 3px;
+}
+.delete-table div.tr{
+    float: left;
+}
+[class^="delete_th_"]{
+    font-size: 20px;
+    background-color: #996600;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    height: 30px;
+}
+.delete_th_motivation{
+    background-color: #996600;
+    color: white;
+}
+
+/*done*/
+[class^="done_th_delete"]{
+    font-size: 20px;
+    background-color: #996600;
+    color: white;
+    border-radius: 2px;
+    width: 63px;
+    text-align: center;
+}
+.done_th_delete_completiondate{
+    width: 130px;
+}
+.done_th, [class^="th_"]{
+    font-size: 20px;
+    background-color: #FF69A3;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    height: 31px;
+}
+.done_th{
+    background-color: #FF69A3;
+}
+.done_th_completiondate{
+    height: 31px;
+    width: 172px;
+    text-align: center;
+    background-color: #FF69A3;
+    color: white;
+}
+.done_td_delete{
+    text-align: center;
+}
+.done_td{
+    display: flex;
+}
+
+/*th*/
+.th_genre_1{
+    width: 63px;
+}
+.th_motivation{
+    height: 29px;
+    padding: 1px;
+    background-color: #FF69A3;
+    color: white;
+}
+
+/*float*/
+.delete-table_1{
+    text-align: center;
+}
+.delete-table_1, .delete-table_2, .delete-table_input{
+    float: left;
+}
+.delete-table_2{
+    width: 645px;
+}
+.delete-table_input{
+    width: 100px;
+    height: 60px;
+    position: relative;
+}
+.delete_edit_check{
+    font-size: 20px;
+    color: red;
+}
+.add-table_1, .add-table_2, .add-table_input{
+    float: left;
+}
+.add-table_2, .delete-table_2{
+    width: 383px;
+}
+.add-table_input{
+    width: 100px;
+    height: 63px;
+    position: relative;
+}
+
+
+/*input*/
+form{
+    display:inline-block;
+    width: 100%;
+    margin-bottom: 43px;
+}
+input{
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+.tr_input{
+    font-size: 11pt;
+    position: absolute;
+    bottom: 0px;
+}
+.tr_input_delete{
+    font-size: 11pt;
+    position: absolute;
+    bottom: 0px;
+}
+label{
+    display: none;
+}
+/*【inputタグ幅】*/
+.fa-child:before {
+    font-size: 27px;
+}
+#id_motivation, #id_genre1, #id_genre2{
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+}
+#id_done{
+    width: 40px;
+}
+#id_motivation, .td_id_motivation, #id_travelhour, .td_id_travelhour{
+    width: 36px;
+}
+#id_genre1, .td_id_genre1, .th_genre1{
+    width: 65px;
+}
+#id_travelmin, .td_id_travelmin{
+    width: 55px;
+}
+#id_review, .td_id_review{
+    width: 62px;
+}
+#id_review, .td_id_review, #id_completiondate{
+    margin-top: 2px;
+}
+#id_genre2, .td_id_genre2{
+    width: 135px;
+}
+#id_plan, .td_id_plan, #id_tag1, .td_id_tag1, #id_urllink, .td_id_urllink{
+    width: 266px;
+}
+.td_id_urllink{
+    overflow:hidden;
+}
+
+[id^="delete_display_"], [id^="edit_display_"]{
+    width: 43px;
+}
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+[id^="hour_display_"]{
+    width: 34px;
+}
+[id^="min_display_"]{
+    width: 45px;
+}
+[id^="genre1_display_"]{
+    width: 116px;
+}
+#genre1_display_1{
+    width: 110px;
+}
+[id^="genre2_display_"]{
+    width: 130px;
+}
+
+.delete, .done, .motivation, .review, .genre1, .genre2, .travelhour, .travelmin, .urlLink, .edit{
+    text-align: center;
+}
+.completiondate{
+  width: 136px;
+  text-align: right;
+}
+.genre2{
+    font-size: 20px;
+}
+.plan{
+    width: 360px;
+}
+
+
+/*【レスポンシブ】*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    .headerImg{
+        right:2px;
+    }
+
+    .iventName {
+        font-size: 20pt;
+    }
+    .titleImg{
+        width: 100%;
+        height: auto;
+    }
+    h1{
+        font-family: Verdana;
+        font-size: 16pt;
+        padding: 0em 0.4em;
+    }
+
+    /*【全体】*/
+    body{
+        padding-top: 51px;
+    }
+    table{
+        margin-bottom: 17px;
+    }
+    table tr th,td{
+        font-size: 10pt;
+    }
+
+    /*【check】*/
+    .checkbox{
+        font-size: 11pt;
+        color: #6e594f;
+    }
+    .genre1_time_tag1_check{
+        font-size: 13px;
+    }
+    .delete_edit_check{
+        font-size: 16px;
+    }
+
+    /*【done】*/
+    .done_th_delete {
+        font-size: 17px;
+    }
+    .done_th_delete_completiondate {
+        font-size: 17px;
+    }
+    .done_th, [class^="th_"]{
+        font-size: 12pt;
+        height: 23px;
+        width: 32px;
+        font-weight: bold;
+    }
+    /*【delete】*/
+    [class^="delete-table"]{
+        font-size: 13pt;
+        color: black;
+    }
+    .delete-table div.tr, div.done_tr{
+        margin: 1px;
+    }
+    [class^="delete_th_"]{
+        font-size: 17px;
+        height: 30px;
+    }
+    .delete_th_urllink{
+        width: 127px;
+    }
+    .delete_th_motivation{
+        height: 30px;
+    }
+    .delete_th_plan{
+        font-size: 11pt;
+    }
+    .delete-table_1{
+        width: 305px;
+        margin-bottom: 1px;
+    }
+    .delete-table_2{
+        height: 77px;
+    }
+    .delete-table_3{
+        width: 300px;
+    }
+    .delete-table_input{
+        margin-bottom: 10px;
+    }
+    /*【add】*/
+    .add-table div.tr, div.done_tr{
+        margin: 1px;
+    }
+    .add-table_done{
+        height: 57px;
+    }
+    .add-table_1{
+        width: 305px;
+        margin-bottom: 1px;
+    }
+    .add-table_2{
+        width: 300px;
+        margin-bottom: 1px;
+    }
+    .add-table_3{
+        width: 300px;
+    }
+    .add-table_input{
+        height: 25px;
+    }
+
+    /*【edit】*/
+    .edit-table_undone{
+        margin-bottom: 21px;
+    }
+
+    [class^="edit-table_thead_undone"]{
+        display: block;
+    }
+    [class^="edit-table_tbody_undone"]{
+        display: block;
+        overflow: scroll;
+        height: 183px;
+    }
+    .edit-table_tbody_undone{
+        height: 300px;
+    }
+
+    .edit-table_thead_done{
+        display: block;
+    }
+    .edit-table_tbody_done{
+        display: block;
+        overflow: scroll;
+        height: 150px;
+    }
+    /*カレンダー*/
+    #ui-datepicker-div{
+      height: 245px;
+      width: 11em;
+    }
+
+
+    .td_id_tag1{
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+    .th_plan{
+        font-size: 11pt;
+    }
+    .fas fa-child{
+        font-size: 1pt;
+    }
+    .fa-child:before {
+        font-size: 21px;
+    }
+    /*input*/
+    [id$="_display"]{
+      height: 46px;
+    }
+    [id^="id_"]{
+        height: 28px;
+        margin-top: 2px;
+    }
+    #id_done{
+        width: 23px;
+    }
+    #id_motivation, .th_motivation, .td_id_motivation, #id_travelhour, .th_travelhour, .td_id_travelhour{
+        width: 53px;
+    }
+    #id_motivation{
+        margin-left: 0px;
+        font-size: 16px;
+    }
+    #id_review{
+        width: 29px;
+    }
+    .th_review, .td_id_review, #id_genre1, .th_genre1, .td_id_genre1, #id_travelmin, .th_travelmin, .td_id_travelmin{
+        width: 73px;
+    }
+    #id_completiondate{
+        width: 95px;
+    }
+    .done_th_completiondate{
+        font-size: 12pt;
+        height: 23px;
+        width: 95px;
+        font-weight: bold;
+    }
+    #id_genre2, .th_genre2, .td_id_genre2{
+        width: 167px;
+    }
+    #id_urllink, .th_urllink, .td_id_urllink, .delete_th_urllink{
+        width: 120px;
+    }
+    #id_plan, .th_plan, .td_id_plan{
+        width: 167px;
+    }
+    #id_travelhour, .td_id_travelhour{
+        margin-left: 0px;
+    }
+    #id_tag1, .th_tag1, .td_id_tag1{
+        width: 175px;
+    }
+    [class^="th_"]{
+        height: 21px;
+    }
+    .th_travelhour{
+        width: 54px;
+    }
+    .th_motivation{
+        height: 19px;
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 54px;
+    }
+    /*人マークがあるから幅分けないといけない*/
+    [id^="delete_display_"]{
+        width: 26px;
+    }
+    [id^="edit_display_"]{
+        width: 32px;
+    }
+    [id^="motivation_display_"]{
+        width: 26px;
+    }
+    #motivation_display_1{
+        width: 20px;
+    }
+    .motivation{
+        width: 34px;
+        font-size: 14px;
+    }
+    [id^="review_display_"]{
+        width: 30px;
+    }
+    .review{
+        width: 34px;
+    }
+    .genre2{
+        width: 133px;
+        font-size: 14px;
+    }
+    [id^="genre2_display_"]{
+        width: 156px;
+        font-size: 14px;
+    }
+    #genre1_display_1 {
+        width: 118px;
+    }
+    #genre2_display_1{
+        width: 125px;
+    }
+    .plan, [id^="plan_display_"]{
+        width: 290px;
+    }
+    #tag1_display_1{
+        width: 125px;
+    }
+    /*これは完璧！*/
+    #tag1_display_2{
+        width: 137px;
+    }
+    [id^="hour_display_"]{
+        width: 18px;
+    }
+
+    /*【やったことリスト】*/
+    #delete_display_2{
+        width: 27px;
+    }
+    #edit_display_2{
+        width: 33px;
+    }
+    .delete{
+        width: 30px;
+    }
+    .edit{
+        width: 31px;
+    }
+    .plan{
+        font-size: 14px;
+    }
+    .tag{
+        width: 83px;
+    }
+    .travelmin{
+        width: 54px;
+    }
+    .genre1{
+      width: 190px;
+      font-size: 14px;
+    }
+    #completiondate_display_2{
+        width: 190px;
+    }
+    .completiondate{
+        width: 88px;
+        font-size: 12px;
+    }
+
+}
