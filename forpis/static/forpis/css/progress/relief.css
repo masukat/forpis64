@@ -188,6 +188,18 @@ ul.cp_list li.cp_list_li:after {
 }
 
 /*テーブルボタン*/
+.checkbox{
+  margin-left: -188px;
+}
+table {
+    width: 153%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.add-table,.add-table_done{
+  width: 99%;
+}
 .return_button_update_div{
   right: 2px;
   top: -11px;
@@ -351,15 +363,21 @@ button.return_button_update, button.return_button_delete {
     }
 
     /*【テーブル】*/
+    table {
+        width: 100%;
+    }
     table th{
         font-size: 11pt;
+    }
+    .checkbox {
+        margin-left: 0;
     }
     .add-table_done {
         height: 85px;
         margin-bottom: 20px;
     }
     .must_genre1, .must_plan {
-        font-size: 11px;
+        font-size: 10px;
     }
     .must_genre1, .must_plan{
         right: 2px;
@@ -390,9 +408,6 @@ button.return_button_update, button.return_button_delete {
     #id_completiondate{
         width: 105px;
         font-size: 10pt;
-    }
-    .memo{
-        font-size: 0.7em;
     }
 
     .fa-child:before {

@@ -97,7 +97,7 @@
   </script>
 <div class="body">
     <div class="body_wrap">
-        <!-- navi ------------------------------------------------------------------------------------------------------>
+<!-- navi ------------------------------------------------------------------------------------------------------>
         <div class="tabnav">
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">やりたいこと</button>
@@ -106,7 +106,7 @@
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑵稼ぐ力</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
         </div>
-        <!-- ストレス発散法 ---------------------------------------------------------------------------------------------------->
+<!-- ストレス発散法 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
             <div class="explanation">
               外の世界を持とう。広い世界を持とう。</br>
@@ -114,6 +114,7 @@
               【週１の楽しみを見つける】
             </div>
 
+<!-- 追加・更新・削除画面 ----------------------------------------------------------------------------------------------------------------------------------------->
             <div class="formtable">
                 <!-- 追加・更新画面 --------------------------------------------------------------------------------------------->
                 {% if delete_flag == 0 %}
@@ -253,7 +254,35 @@
                 {% endif %}
             </div>
 
-        <!-- 未完了リスト ------------------------------------------------------------------------------------------------->
+<!-- おすすめ特集 ------------------------------------------------------------------------------------------------------------------>
+            <div class="iventName_recomend">オススメ特集</div>
+                <!-- 名作ランキング ---------------------------------------------------------------------------------------------------------------->
+                <div class="cp_actab">
+                    <input id="tab-one" type="checkbox" name="tabs">
+                    <label for="tab-one">冬に観たい映画特集</label>
+                    <div class="cp_actab-content">
+                        {% for i in range %}
+                            {% with title=titles|index:i %}
+                            {% with highlights=highlights|index:i %}
+                                <div class="movie">
+                                    <div class="movieTitle">{{title}}</div>
+                                        <div class="movieDetail">
+                                            <div>
+                                                <div><img src="../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
+                                                <div class="movieText">
+                                                    {{highlights}}
+                                                </div>
+                                            </div>
+                                            <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
+                                        </div>
+                                </div>
+                            {% endwith %}
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+<!-- 未完了リスト ------------------------------------------------------------------------------------------------->
         <!-- 初期状態で列非表示 -->
         <div class="checkbox">
             <div class="delete_edit_check">
@@ -313,35 +342,7 @@
             </table>
         </div>
 
-        <!-- おすすめ特集 ------------------------------------------------------------------------------------------------------------------>
-        <div class="iventName_recomend">オススメ特集</div>
-            <!-- 名作ランキング ---------------------------------------------------------------------------------------------------------------->
-            <div class="cp_actab">
-                <input id="tab-one" type="checkbox" name="tabs">
-                <label for="tab-one">冬に観たい映画特集</label>
-                <div class="cp_actab-content">
-                    {% for i in range %}
-                        {% with title=titles|index:i %}
-                        {% with highlights=highlights|index:i %}
-                            <div class="movie">
-                                <div class="movieTitle">{{title}}</div>
-                                    <div class="movieDetail">
-                                        <div>
-                                            <div><img src="../../../../forpis/static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
-                                            <div class="movieText">
-                                                {{highlights}}
-                                            </div>
-                                        </div>
-                                        <div class="movieLink_div"><a href="https://vokka.jp/16136" class="movieLink">>>詳細はこちら</a></div>
-                                    </div>
-                            </div>
-                        {% endwith %}
-                        {% endwith %}
-                    {% endfor %}
-                </div>
-            </div>
-
-        <!-- 完了リスト ------------------------------------------------------------------------------------------------->
+<!-- 完了リスト ------------------------------------------------------------------------------------------------->
         <!-- 初期状態で列非表示 -->
         <div class="checkbox">
             <div class="delete_edit_check">
@@ -398,7 +399,7 @@
             </table>
         </div>
 
-        <!-- ハンバーガーメニュー ---------------------------------------------------------------------------------------------------------------->
+<!-- ハンバーガーメニュー ---------------------------------------------------------------------------------------------------------------->
         <div id="navArea">
           <nav>
             <div class="inner">
