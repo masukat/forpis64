@@ -75,6 +75,9 @@ ul.cp_list li.cp_list_li:after {
 	transition: max-height 0.35s;
 	color: #333333;
 	background: #ffdbb8;
+
+  width: 99%;
+  margin: 0 auto;
 }
 .cp_actab .cp_actab-content p {
 	margin: 1em;
@@ -134,7 +137,7 @@ button.return_button_delete{
 
 /*テーブル*/
 table {
-  width: 115%;
+  width: 101%;
 }
 table th{
   background-color: #0000BB;
@@ -213,9 +216,6 @@ table th{
 #memo_display_1{
     width: 370px;
 }
-.th_genre1, .th_habit{
-    position: relative;
-}
 .delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
     text-align: center;
 }
@@ -231,6 +231,9 @@ table th{
 }
 
 /*【必須項目】*/
+.th_genre1, .th_habit{
+    position: relative;
+}
 .must_genre1, .must_habit{
     background: #FF1A00;
     font-size: 13px;
@@ -257,7 +260,7 @@ table th{
         padding-top: 31px;
     }
     .body_wrap{
-        width: 103%;
+        width: 116%;
         margin-left: 0;
     }
     .iventName_add, .iventName_button {
@@ -317,7 +320,7 @@ table th{
     /*【上】*/
     ul.cp_list {
         padding: 0;
-        width: 109%;
+        width: 100%;
         font-family: monospace;
     }
     /*【アコーディオンメニュー】*/
@@ -327,6 +330,7 @@ table th{
     /*【タブ】*/
     .tab-content {
         padding-top: 0;
+        padding: 0;
     }
     /*【ボタン】*/
     .return_button_update_div {
@@ -353,7 +357,7 @@ table th{
         margin-bottom: 20px;
     }
     .add-table {
-        width: 115%;
+        width: 101%;
         font-family: monospace;
     }
     .add-table_done {
@@ -381,7 +385,7 @@ table th{
     }
     /*【必須項目】*/
     .must_genre1, .must_habit{
-        left: 59px;
+        left: 68px;
         bottom: 5px;
         font-size: 12px;
     }

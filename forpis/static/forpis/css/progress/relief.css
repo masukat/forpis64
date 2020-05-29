@@ -2,9 +2,6 @@
 body{
   font-size: 14pt;
 }
-.body_wrap {
-  width: 60%;
-}
 
 /*【上】*/
 .explanation{
@@ -23,19 +20,22 @@ body{
 }
 
 /*【必須項目】*/
+.th_genre1, .th_plan{
+    position: relative;
+}
 .must_genre1, .must_plan{
     background: #FF1A00;
     font-size: 13px;
     position: absolute;
     border-radius: 3px;
     color: white;
-    right: 824px;
+    right: 10px;
 }
 .must_genre1 {
-    bottom: 521px;
+    bottom: 4px;
 }
 .must_plan {
-    bottom: 460px;
+    bottom: 1px;
 }
 
 /*リスト*/
@@ -238,7 +238,7 @@ button.return_button_update, button.return_button_delete {
         padding-top: 31px;
     }
     .body_wrap{
-        width: 103%;
+        width: 100%;
         margin-left: 0;
     }
     .iventName_add, .iventName_button {
@@ -314,6 +314,11 @@ button.return_button_update, button.return_button_delete {
         top: 6px;
     }
 
+    /*【全体】*/
+    .tab-content {
+      padding: 2px;
+    }
+
     /*【movie】*/
     .movie {
       display: inline-block;
@@ -351,16 +356,16 @@ button.return_button_update, button.return_button_delete {
         margin-bottom: 20px;
     }
     .must_genre1, .must_plan {
-        position: relative;
         font-size: 13px;
     }
+    .must_genre1, .must_plan{
+        right: 2px;
+    }
     .must_genre1 {
-        bottom: 1px;
-        right: -3px;
+        bottom: 5px;
     }
     .must_plan {
         bottom: 0px;
-        right: -18px;
     }
     #id_done {
         width: 21px;
