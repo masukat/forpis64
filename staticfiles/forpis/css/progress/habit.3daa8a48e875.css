@@ -1,0 +1,398 @@
+/*【全体】*/
+body{
+  font-size: 14pt;
+}
+
+/*【tab】*/
+.tab-content {
+    padding-top: 0;
+}
+
+/*リスト*/
+ul.cp_list {
+	padding: 0.5em;
+	list-style: none;
+  padding-top: 0;
+}
+ul.cp_list li.cp_list_li {
+	position: relative;
+	padding: 0.5em 1em 0.5em 1.7em;
+	margin-bottom:5px;
+	border-bottom: 1px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after,
+ul.cp_list li.cp_list_li:before {
+	content:'';
+	position: absolute;
+	transform: rotate(45deg);
+}
+ul.cp_list li.cp_list_li:before {
+	top: 0.7em;
+	left: 0.2em;
+	width: 12px;
+	height: 12px;
+	border:2px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after {
+	top: 0.9em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(255,143,0,0.5);
+	transform: rotate(60deg);
+}
+.cp_list_li_child {
+    margin-left: 2px;
+}
+
+/*アコーディオンメニュー*/
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 2.5;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 0 0 1px 0;
+	background: #0066FF;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #ffdbb8;
+
+  width: 99%;
+  margin: 0 auto;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+	max-height: 33em;
+  width: 99%;
+  margin: 0 auto;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 2.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
+
+/*タイトル*/
+.iventName_add, .iventName_button{
+  font-size: 20pt;
+  margin-left: 64px;
+}
+.iventName_update, .iventName_delete{
+  font-size: 15pt;
+}
+
+/*テーブルボタン*/
+.return_button_update_div{
+  right: 336px;
+  top: -174px;
+}
+.return_button_delete_div{
+  right: 362px;
+  top: -174px;
+}
+button.return_button_update, button.return_button_delete {
+  left: 504px;
+  top: 165px;
+}
+button.return_button_delete{
+  left: 552px;
+}
+
+
+/*テーブル*/
+table {
+  width: 101%;
+}
+table th{
+  background-color: #0000BB;
+  color: white;
+}
+
+/*【delete】*/
+.delete-table th{
+  border-color: #444444;
+}
+
+/*【add】*/
+.add-table_done tr td, .add-table tr td{
+  border-color: white;
+}
+.add-table_done{
+  height: 128px;
+}
+.add-table{
+  width: 102%;
+}
+
+
+/*【inputタグ幅】*/
+#id_number{
+    width: 48px;
+}
+#id_genre2{
+    width: 135px;
+}
+#id_habit{
+    width: 266px;
+    height: 50px;
+    font-size: 12pt;
+    margin-bottom: -7px;
+}
+
+
+/*【check】*/
+.checkbox{
+    margin-left: -67px;
+}
+/*【やりたいことリスト】*/
+.edit-table_undone{
+    margin-left: -71px;
+}
+.stoprow, .dayrow, .weekrow, .monthrow{
+    color: #666;
+}
+.stoprow{
+    background-color: #DCC2FF;
+}
+.dayrow{
+    background-color: #FFFFCC;
+}
+.weekrow{
+    background-color: #FFDBC9;
+}
+.monthrow{
+    background-color: #B1F9D0;
+}
+
+[id^="motivation_display_"], [id^="review_display_"]{
+    width: 43px;
+}
+#id_frequency, #id_division{
+    font-size: 12pt;
+    font-family: arial unicode ms;
+}
+#division_display_1, #number_display_1{
+    width: 50px;
+}
+#genre1_display_1{
+    width: 92px;
+}
+#memo_display_1{
+    width: 370px;
+}
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
+    text-align: center;
+}
+.completiondate{
+  width: 136px;
+  text-align: right;
+}
+.habit{
+    width: 360px;
+}
+.edit-table_undone {
+    margin-bottom: 20px;
+}
+
+/*【必須項目】*/
+.th_genre1, .th_habit{
+    position: relative;
+}
+.must_genre1, .must_habit{
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+}
+.must_genre1{
+    left: 87px;
+    bottom: 4px;
+}
+.must_habit{
+    left: 88px;
+    bottom: 1px;
+}
+
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 116%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    body, table th, table td, [id^="id_"]{
+        font-family: monospace;
+    }
+    table th{
+        width: 96px;
+        font-size: 10pt;
+    }
+    table td{
+        font-size: 10pt;
+    }
+    .add-table_done td, .add-table td {
+        width: 167px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
+
+
+/*------------------------------------------*
+* habitCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【全体】*/
+    .body {
+        width: 86%;
+        font-size: 10pt;
+    }
+    /*【上】*/
+    ul.cp_list {
+        padding: 0;
+        width: 100%;
+        font-family: monospace;
+    }
+    /*【アコーディオンメニュー】*/
+    .cp_actab input:checked ~ .cp_actab-content {
+        max-height: 45em;
+    }
+    /*【タブ】*/
+    .tab-content {
+        padding-top: 0;
+        padding: 0;
+    }
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 514px;
+        top: -172px;
+    }
+    .return_button_delete_div {
+        right: 548px;
+        top: -173px;
+    }
+    button.return_button_update{
+        height: 28px;
+        font-size: 13px;
+        padding: 5px 7px;
+    }
+    button.return_button_delete{
+        height: 30px;
+        font-size: 14px;
+        padding: 5px 9px;
+    }
+    /*【テーブル】*/
+    .edit-table_undone {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    .add-table {
+        width: 101%;
+        font-family: monospace;
+    }
+    .add-table_done {
+        margin-bottom: 42px;
+    }
+
+    .fa-child:before {
+        font-size: 19px;
+    }
+    #id_motivation {
+        width: 48px;
+    }
+    #id_motivation, #id_frequency, #id_division, #id_number, #id_genre1{
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    #id_habit, #id_memo{
+        width: 178px;
+        font-size: 10pt;
+        height: 45px;
+        margin-bottom: -3px;
+    }
+    [id^="motivation_display_"], [id^="review_display_"]{
+        width: 32px;
+    }
+    /*【必須項目】*/
+    .must_genre1, .must_habit{
+        left: 68px;
+        bottom: 5px;
+        font-size: 12px;
+    }
+    .must_habit {
+        bottom: 2px;
+    }
+    .checkbox {
+        margin-left: 0px;
+    }
+}

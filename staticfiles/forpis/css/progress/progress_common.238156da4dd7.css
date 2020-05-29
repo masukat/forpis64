@@ -1,0 +1,45 @@
+/*------------------------------------------*
+* body/tab系CSS
+*------------------------------------------*/
+/*【全体】*/
+body{
+    color: white;
+    background-color: #99CCFF;
+    padding-top: 14px;
+    font-size: 15pt;
+    font-family: arial unicode ms;
+}
+.body {
+    text-align: center;
+}
+.body_wrap{
+    width: 56%;
+    margin-left: 389px;
+    text-align: left;
+    margin:  0 auto;
+}
+
+/*【tab】*/
+.tab-content {
+    border-top: 3px solid DeepSkyBlue;
+    padding: 10px;
+}
+.tab-checked, .tab {
+    background: DeepSkyBlue;
+    border: deepskyblue;
+    color: White;
+    padding: 3px 12px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 19px;
+}
+.tab {
+    background: LightGray;
+    border: LightGray;
+}
+
+@media screen and (max-width: 480px){
+    /*【全体】*/
+    .tabnav {
+        font-family: monospace;      
+    }

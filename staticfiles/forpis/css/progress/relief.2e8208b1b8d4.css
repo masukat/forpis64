@@ -1,0 +1,401 @@
+/*【全体】*/
+body{
+  font-size: 14pt;
+}
+
+/*【上】*/
+.explanation{
+  margin-bottom: 12px;
+}
+
+/*タイトル*/
+.iventName_add, .iventName_button{
+  font-size: 20pt;
+}
+.iventName_update, .iventName_delete{
+  font-size: 15pt;
+}
+.iventName_recomend{
+  font-size: 21pt;
+}
+
+/*【必須項目】*/
+.th_genre1, .th_plan{
+    position: relative;
+}
+.must_genre1, .must_plan{
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+    color: white;
+    right: 10px;
+}
+.must_genre1 {
+    bottom: 4px;
+}
+.must_plan {
+    bottom: 1px;
+}
+
+/*リスト*/
+ul.cp_list {
+	padding: 0.5em;
+	list-style: none;
+  padding-top: 0;
+}
+ul.cp_list li.cp_list_li {
+	position: relative;
+	padding: 0.5em 1em 0.5em 1.7em;
+	margin-bottom:5px;
+	border-bottom: 1px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after,
+ul.cp_list li.cp_list_li:before {
+	content:'';
+	position: absolute;
+	transform: rotate(45deg);
+}
+ul.cp_list li.cp_list_li:before {
+	top: 0.7em;
+	left: 0.2em;
+	width: 12px;
+	height: 12px;
+	border:2px solid rgba(255,143,0,1);
+}
+ul.cp_list li.cp_list_li:after {
+	top: 0.9em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(255,143,0,0.5);
+	transform: rotate(60deg);
+}
+.cp_list_li_child {
+    margin-left: 2px;
+}
+
+/*アコーディオンメニュー*/
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 2.5;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 6px 0 1px 0;
+	background: #5D99FF;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #fcd9ec;
+  margin-bottom: 24px;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+  max-height: 29em;
+  overflow: scroll;
+  width: 99%;
+  margin: 0 auto;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 2.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
+
+/*スクレイピング画像*/
+.movie{
+  height: 233px;
+}
+.movieTitle{
+  clear: left;
+}
+.movieDetail{
+  margin-left: 10px;
+  margin-right: 11px;
+}
+.movieImgs{
+  width: 18%;
+  float: left;
+}
+.movieLink_div{
+  text-align: right;
+}
+.movieLink{
+  color: #2C7CFF;
+}
+
+.movieTitle {
+	position: relative;
+	padding: 0.5em 1em 0.4em 1.7em;
+	margin-bottom:5px;
+	border-bottom: 2px solid rgba(105,202,255,0.6);
+}
+.movieTitle:after,
+.movieTitle:before {
+	content:'';
+	position: absolute;
+	transform: rotate(45deg);
+}
+.movieTitle:before {
+	top: 0.7em;
+	left: 0.2em;
+	width: 12px;
+	height: 12px;
+	border: 2px solid rgba(33,155,255,1);
+}
+.movieTitle:after {
+	top: 0.9em;
+	left: 0.7em;
+	width: 14px;
+	height: 14px;
+	background: rgba(105,202,255,0.6);
+	transform: rotate(60deg);
+}
+
+/*テーブルボタン*/
+.return_button_update_div{
+  right: 2px;
+  top: -11px;
+}
+.return_button_delete_div{
+  left: 43px;
+  top: -11px;
+}
+button.return_button_update, button.return_button_delete {
+  height: 40px;
+  padding: 8px 24px;
+}
+
+/*【inputタグ幅】*/
+#id_plan, #id_urllink, #id_memo{
+    width: 266px;
+    height: 50px;
+    font-size: 13pt;
+    margin-bottom: -7px;
+}
+
+/*【やりたいことリスト】*/
+.edit-table_undone{
+    margin-bottom: 20px;
+}
+[id^="genre1_display_"]{
+    width: 92px;
+}
+#memo_display_1 {
+    width: 460px;
+}
+#memo_display_2 {
+    width: 419px;
+}
+#completiondate_display_2, .completiondate{
+    width: 96px;
+    text-align: center;
+}
+
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 100%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab{
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    body, table th, table td, [id^="id_"]{
+        font-family: monospace;
+    }
+    table th{
+        width: 96px;
+        font-size: 10pt;
+    }
+    table td{
+        font-size: 10pt;
+    }
+    .add-table_done td, .add-table td {
+        width: 167px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
+
+
+/*------------------------------------------*
+* reliefCSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        width: 188px;
+        right: 91px;
+        top: -7px;
+    }
+    .return_button_delete_div {
+        width: 198px;
+        left: -123px;
+        top: -8px;
+    }
+    button.return_button_update, button.return_button_delete {
+        max-width: 135px;
+        height: 28px;
+        font-size: 13px;
+        padding: 4px 7px;
+        right: -10px;
+        top: 4px;
+    }
+    button.return_button_delete {
+        height: 27px;
+        top: 6px;
+    }
+
+    /*【全体】*/
+    .tab-content {
+      padding: 2px;
+    }
+
+    /*【movie】*/
+    .movie {
+      display: inline-block;
+    }
+    .movieImgs{
+      width: 52%;
+      margin-right: 6px;
+    }
+    .movieText{
+      font-size: 11pt;
+    }
+    .movieLink_div {
+      margin-bottom: 10px;
+    }
+    .movieLink {
+      font-size: 11pt;
+    }
+    .cp_actab input:checked ~ .cp_actab-content {
+      height: 386px;
+    }
+    .cp_actab label {
+      line-height: 2.2;
+      font-size: 11pt;
+    }
+    .cp_actab label::after {
+      line-height: 2;
+    }
+
+    /*【テーブル】*/
+    table th{
+        font-size: 11pt;
+    }
+    .add-table_done {
+        height: 85px;
+        margin-bottom: 20px;
+    }
+    .must_genre1, .must_plan {
+        font-size: 11px;
+    }
+    .must_genre1, .must_plan{
+        right: 2px;
+    }
+    .must_genre1 {
+        bottom: 5px;
+    }
+    .must_plan {
+        bottom: 0px;
+    }
+    #id_done {
+        width: 21px;
+        margin-top: 4px;
+        margin-bottom: 0px;
+    }
+    #id_review, #id_motivation, #id_genre1 {
+        font-size: 10pt;
+    }
+    #id_motivation {
+        width: 52px;
+    }
+    #id_plan, #id_urllink, #id_memo {
+        width: 159px;
+        height: 39px;
+        font-size: 10pt;
+        margin-bottom: -3px;
+    }
+    #id_completiondate{
+        width: 105px;
+        font-size: 10pt;
+    }
+    .memo{
+        font-size: 0.7em;
+    }
+
+    .fa-child:before {
+        font-size: 19px;
+    }
+    [id^="motivation_display_"], [id^="review_display_"]{
+        width: 49px;
+    }
+}
