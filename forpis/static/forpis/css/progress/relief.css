@@ -388,9 +388,6 @@ button.return_button_update, button.return_button_delete {
     .must_plan {
         bottom: 0px;
     }
-    #tag_display_1 {
-        width: 20px;
-    }
     #id_done {
         width: 21px;
         margin-top: 4px;

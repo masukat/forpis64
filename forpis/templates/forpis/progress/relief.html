@@ -292,7 +292,7 @@
             </div>
             <div class="memo_check">
                 他項目:
-                <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'tag_display_1')">memo
+                <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
             </div>
         </div>
         <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -305,6 +305,7 @@
                         <th id="motivation_display_1"><i class="fas fa-child"></th>
                         <th id="genre1_display_1">分野</th>
                         <th id="plan_display_1">やりたいこと</th>
+                        <th id="memo_display_1">メモ</th>
                     </tr>
                 </thead>
                 <tbody class="edit-table_tbody_undone_study">
@@ -326,6 +327,12 @@
                                                   {{plan.plan}}
                                               {% else %}
                                                   <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
+                                              {% endif %}
+                            </td>
+                            <td class="memo">
+                                              {% if plan.memo is None %}
+                                              {% else %}
+                                                  {{plan.memo | linebreaksbr}}
                                               {% endif %}
                             </td>
                         </tr>
