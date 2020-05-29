@@ -375,7 +375,7 @@ td.deadline{
     font-size: 12pt;
     margin-bottom: -7px;
 }
-#id_tag1{
+#id_plan, #id_tag1{
     height: 88px;
 }
 
@@ -490,8 +490,10 @@ td.deadline{
     body, table th, table td, [id^="id_"]{
         font-family: monospace;
     }
-    table th{
+    .add-table th, .add-table_done th{
         width: 34%;
+    }
+    table th{
         font-size: 10pt;
     }
     table td{
@@ -517,9 +519,6 @@ td.deadline{
         font-size: 10pt;
     }
     /*【上】*/
-    .tablist{
-        font-family: monospace;
-    }
     ul.cp_list {
         padding: 0;
         width: 109%;
@@ -527,9 +526,9 @@ td.deadline{
     }
     /*【アコーディオンメニュー】*/
     .cp_actab {
-      width: 112%;
-      left: 50%;
-      transform: translateX(-50%);
+        width: 106%;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .cp_actab label{
         font-size: 11pt;
@@ -552,6 +551,7 @@ td.deadline{
       margin-left: 0px;
       margin-top: 0;
       margin-bottom: 0;
+      font-family: monospace;
     }
     .li_goal li {
       margin-left: -33px;
@@ -565,6 +565,7 @@ td.deadline{
       padding-bottom: 0px;
       margin-left: 3px;
       margin-right: 0px;
+      font-family: monospace;
     }
     .list .genre_li:before {
       line-height: 21px;
@@ -665,8 +666,7 @@ td.deadline{
         font-size: 12px;
     }
     .must_plan{
-        left: 59px;
-        bottom: 3px;
+        bottom: 17px;
     }
     .checkbox {
         margin-left: 0px;
