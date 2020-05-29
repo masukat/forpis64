@@ -334,6 +334,10 @@ td.deadline{
 }
 
 /*【add】*/
+.add-table_done {
+  height: 96px;
+  margin-bottom: 20px;
+}
 .add-table_done tr td, .add-table tr td{
   border-color: white;
   background: #75A9FF;
@@ -462,6 +466,7 @@ td.deadline{
     }
     .iventName_add, .iventName_button {
         font-size: 14pt;
+        margin-left: 0;
     }
     /*【タブ】*/
     .tab-checked, .tab{
@@ -486,14 +491,11 @@ td.deadline{
         font-family: monospace;
     }
     table th{
-        width: 89px;
+        width: 34%;
         font-size: 10pt;
     }
     table td{
         font-size: 10pt;
-    }
-    .add-table_done td, .add-table td {
-        width: 177px;
     }
     .tr_input, .tr_input_delete {
         font-size: 10pt;
@@ -515,6 +517,9 @@ td.deadline{
         font-size: 10pt;
     }
     /*【上】*/
+    .tablist{
+        font-family: monospace;
+    }
     ul.cp_list {
         padding: 0;
         width: 109%;
@@ -609,6 +614,12 @@ td.deadline{
         left: 542px;
     }
     /*【テーブル】*/
+    form {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 107%;
+    }
     table {
         width: 105%;
         margin-bottom: 13px;
@@ -618,11 +629,11 @@ td.deadline{
         margin-bottom: 20px;
     }
     .add-table {
-        width: 103%;
         font-family: monospace;
     }
     .add-table_done {
-        margin-bottom: 42px;
+        height: 80px;
+        margin-bottom: 29px;
     }
 
     .fa-child:before {
@@ -636,7 +647,7 @@ td.deadline{
         font-family: monospace;
     }
     #id_plan, #id_tag1, #id_urllink {
-        width: 170px;
+        width: 177px;
     }
     #id_completiondate{
         width: 132px;
