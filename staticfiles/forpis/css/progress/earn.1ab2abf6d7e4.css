@@ -1,0 +1,58 @@
+/*------------------------------------------*
+* body系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【上】*/
+    body{
+        font-size: 12pt;
+        font-family: monospace;
+        padding-top: 31px;
+    }
+    .body_wrap{
+        width: 103%;
+        margin-left: 0;
+    }
+    .iventName_add, .iventName_button {
+        font-size: 14pt;
+    }
+    /*【タブ】*/
+    .tab-checked, .tab {
+        display: block;
+        padding: 0px 9px;
+        font-size: 15px;
+        margin: 3px;
+        width: 143px;
+        text-align: left;
+        height: 24px;
+    }
+}
+
+/*------------------------------------------*
+* table系CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    /*【ボタン】*/
+    .return_button_update_div {
+        right: 508px;
+        top: -174px;
+    }
+    /*【テーブル】*/
+    table th{
+        width: 96px;
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    table td{
+        font-size: 10pt;
+        font-family: monospace;
+    }
+    .add-table_done td, .add-table td {
+        width: 167px;
+    }
+    .tr_input, .tr_input_delete {
+        font-size: 10pt;
+    }
+    .delete_edit_check, .memo_check{
+        font-size: 15px;
+    }
+}
