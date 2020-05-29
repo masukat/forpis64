@@ -100,10 +100,11 @@
         <!-- navi ------------------------------------------------------------------------------------------------------>
         <div class="tabnav">
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">①習慣</button>
-            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">②ストレス発散法</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">③稼ぐ力</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">④人を大切に</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">やりたいこと</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑴習慣</button>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑴ストレス発散法</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑵稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
         </div>
         <!-- ストレス発散法 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
@@ -112,8 +113,9 @@
               ちょっと疲れてるくらいがちょうどいい。</br>
               【週１の楽しみを見つける】
             </div>
+
             <div class="formtable">
-                <!-- 追加・更新画面 -->
+                <!-- 追加・更新画面 --------------------------------------------------------------------------------------------->
                 {% if delete_flag == 0 %}
                     {% if id == 0 %}
                         <div class="iventName_add">楽しみ・ストレス発散</div>
@@ -146,11 +148,11 @@
                                   <td>{{form_motivation.motivation}}</td>
                                 </tr>
                                 <tr>
-                                    <th>分野<span class="must_genre1">必須</span></th>
+                                    <th class="th_genre1">分野<span class="must_genre1">必須</span></th>
                                     <td>{{form.genre1}}</td>
                                 </tr>
                                 <tr>
-                                    <th>やりたいこと<span class="must_plan">必須</span></th>
+                                    <th class="th_plan">やりたいこと<span class="must_plan">必須</span></th>
                                     <td>{{form.plan}}</td>
                                 </tr>
                                 <tr>
@@ -325,7 +327,7 @@
                                 <div class="movieTitle">{{title}}</div>
                                     <div class="movieDetail">
                                         <div>
-                                            <div><img src="../../../../static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
+                                            <div><img src="../../../../forpis/static/forpis/image/each/progress/wintermovie/{{i}}.jpg" class="movieImgs"></div>
                                             <div class="movieText">
                                                 {{highlights}}
                                             </div>

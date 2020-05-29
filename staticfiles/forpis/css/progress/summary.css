@@ -1,6 +1,10 @@
 /*【上】*/
 h1{
   margin-bottom: 0px;
+  margin-top: 5px;
+}
+.tab-content {
+    padding: 8px;
 }
 .summary {
     position: relative;

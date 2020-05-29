@@ -42,10 +42,11 @@
         <!-- navi ------------------------------------------------------------------------------------------------------>
         <div class="tabnav">
             <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">①習慣</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">②ストレス発散法</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">③稼ぐ力</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">④人を大切に</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">やりたいこと</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑴習慣</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑴ストレス発散法</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑵稼ぐ力</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
         </div>
         <!-- 概要 ------------------------------------------------------------------------------------------------------->
         <div class="tab-content">
@@ -66,8 +67,8 @@
             <p>
               <h4>①のために必要なこと：</h4>
               <ol>
-                <li>日々、ストレス解消法を身につける</li>
                 <li>マインド(怒りの)コントロールする方法を身につける</li>
+                <li>日々、ストレス解消法を身につける</li>
                 <li>精神は身体から。身体を鍛える。</li>
               </ol>
             </p>
