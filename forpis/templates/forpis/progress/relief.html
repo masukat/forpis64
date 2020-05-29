@@ -330,11 +330,11 @@
                                               {% endif %}
                             </td>
                             <td class="memo">
-                              {% if plan.motivation is None %}
-                                  ー
-                              {% else %}
-                                  {{plan.motivation}}
-                              {% endif %}
+                                              {% if plan.memo is None %}
+
+                                              {% else %}
+                                                  {{plan.memo | linebreaksbr}}
+                                              {% endif %}
                             </td>
                         </tr>
                     {% endif %}
