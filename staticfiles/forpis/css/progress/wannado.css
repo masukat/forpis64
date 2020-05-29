@@ -153,14 +153,17 @@ ul{
   background: #AFEBB6;
 }
 
+/*目標リストを矢印マークに*/
 .li_goal, .li_todo{
   margin-left: 12px;
+  font-weight: 1000;
 }
-
-/*目標リストを矢印マークに*/
 .li_goal {
 	list-style-type:none;
   padding-bottom: 5px;
+}
+.li_goal li,  .li_todo li{
+  font-weight: 100;
 }
 .li_goal li {
 	position:relative;
@@ -469,11 +472,14 @@ td.deadline{
         margin-left: 0;
     }
     /*【タブ】*/
-    .tab-checked, .tab{
+    .tab-checked, .tab {
         display: block;
         padding: 0px 9px;
         font-size: 15px;
         margin: 3px;
+        width: 143px;
+        text-align: left;
+        height: 24px;
     }
 }
 
@@ -548,7 +554,7 @@ td.deadline{
       font-size: 10pt;
     }
     .li_goal, .li_todo {
-      margin-left: 0px;
+      margin-left: 4px;
       margin-top: 0;
       margin-bottom: 0;
       font-family: monospace;
@@ -561,15 +567,17 @@ td.deadline{
       margin: 5px 0px -5px -22px;
     }
     .list .genre_li {
-      line-height: 20px;
+      line-height: 25px;
       padding-bottom: 0px;
       margin-left: 3px;
-      margin-right: 0px;
+      margin-right: 3px;
+      margin-bottom: 3px;
       font-family: monospace;
+      font-size: 10.5pt;
     }
     .list .genre_li:before {
-      line-height: 21px;
-      height: 21px;
+      line-height: 28px;
+      height: 28px;
     }
     .tablist {
       margin-bottom: 20px;
