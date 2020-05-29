@@ -564,7 +564,7 @@ td.deadline{
       line-height: 20px;
       padding-bottom: 0px;
       margin-left: 3px;
-      margin-right: 0px;
+      margin-right: 3px;
       font-family: monospace;
     }
     .list .genre_li:before {
