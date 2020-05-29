@@ -37,3 +37,9 @@ body{
     background: LightGray;
     border: LightGray;
 }
+
+@media screen and (max-width: 480px){
+    /*【全体】*/
+    .tabnav {
+        font-family: monospace;      
+    }
