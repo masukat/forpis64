@@ -325,7 +325,7 @@ table th{
     }
     /*【アコーディオンメニュー】*/
     .cp_actab input:checked ~ .cp_actab-content {
-        max-height: 38em;
+        max-height: 45em;
     }
     /*【タブ】*/
     .tab-content {
