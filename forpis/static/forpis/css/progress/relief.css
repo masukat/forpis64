@@ -231,7 +231,7 @@ button.return_button_update, button.return_button_delete {
 [id^="genre1_display_"]{
     width: 92px;
 }
-#memo_display_1 {
+#memo_display_1, #memo_display_3 {
     width: 460px;
 }
 #memo_display_2 {
