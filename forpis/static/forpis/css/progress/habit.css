@@ -137,7 +137,10 @@ button.return_button_delete{
 
 /*テーブル*/
 table {
-  width: 101%;
+  width: 125%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 table th{
   background-color: #0000BB;
@@ -181,9 +184,6 @@ table th{
     margin-left: -67px;
 }
 /*【やりたいことリスト】*/
-.edit-table_undone{
-    margin-left: -71px;
-}
 .stoprow, .dayrow, .weekrow, .monthrow{
     color: #666;
 }
@@ -231,10 +231,10 @@ table th{
 }
 
 /*【必須項目】*/
-.th_genre1, .th_habit{
+.th_genre1, .th_habit, .th_motivation{
     position: relative;
 }
-.must_genre1, .must_habit{
+.must_genre1, .must_habit, .must_motivation{
     background: #FF1A00;
     font-size: 13px;
     position: absolute;
@@ -247,6 +247,10 @@ table th{
 .must_habit{
     left: 88px;
     bottom: 1px;
+}
+.must_motivation{
+    left: 88px;
+    bottom: 4px;
 }
 
 /*------------------------------------------*
@@ -355,8 +359,10 @@ table th{
         padding: 5px 9px;
     }
     /*【テーブル】*/
+    table {
+        width: 101%;
+    }
     .edit-table_undone {
-        margin-left: 0;
         margin-bottom: 20px;
     }
     .add-table {
@@ -387,7 +393,7 @@ table th{
         width: 32px;
     }
     /*【必須項目】*/
-    .must_genre1, .must_habit{
+    .must_genre1, .must_habit, .must_motivation{
         left: 68px;
         bottom: 5px;
         font-size: 12px;

@@ -101,7 +101,7 @@
 </script>
 <div class="body">
     <div class="body_wrap">
-        <!-- navi ------------------------------------------------------------------------------------------------------>
+<!-- navi ------------------------------------------------------------------------------------------------------------------------------------------------->
         <div class="tabnav">
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">やりたいこと</button>
@@ -110,7 +110,7 @@
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑵稼ぐ力</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
         </div>
-        <!-- １、習慣 ---------------------------------------------------------------------------------------------------->
+<!-- １、習慣 ----------------------------------------------------------------------------------------------------------------------------------------------->
         <div class="tab-content">
 
           <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -125,7 +125,7 @@
                           <li class="cp_list_li">意思</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and '意思' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '意思' in habit.genre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -133,7 +133,7 @@
                           <li class="cp_list_li">喧嘩</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and '喧嘩' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -141,7 +141,7 @@
                           <li class="cp_list_li">行動</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and '行動' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '行動' in habit.genre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -149,7 +149,7 @@
                           <li class="cp_list_li">他</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -161,48 +161,48 @@
                   <input id="tab-two" type="checkbox" name="tabs">
                   <label for="tab-two">毎日</label>
                   <div class="cp_actab-content">
-                    <div class="cp_list_li_child">
-                        <li class="cp_list_li">意思</li>
-                            {% for habit in data_habit %}
-                                <ul>
-                                    {% if habit.frequency == 1 and '意思' in habit.genre1 %}
-                                        <li >{{habit.habit}}</li>
-                                    {% endif %}
-                                </ul>
-                            {% endfor %}
-                        <li class="cp_list_li">喧嘩</li>
-                            {% for habit in data_habit %}
-                                <ul>
-                                    {% if habit.frequency == 1 and '喧嘩' in habit.genre1 %}
-                                        <li >{{habit.habit}}</li>
-                                    {% endif %}
-                                </ul>
-                            {% endfor %}
-                        <li class="cp_list_li">行動</li>
-                            {% for habit in data_habit %}
-                                <ul>
-                                    {% if habit.frequency == 1 and '行動' in habit.genre1 %}
-                                        <li >{{habit.habit}}</li>
-                                    {% endif %}
-                                </ul>
-                            {% endfor %}
-                        <li class="cp_list_li">向上</li>
-                            {% for habit in data_habit %}
-                                <ul>
-                                    {% if habit.frequency == 1 and '向上' in habit.genre1 %}
-                                        <li >{{habit.habit}}</li>
-                                    {% endif %}
-                                </ul>
-                            {% endfor %}
-                        <li class="cp_list_li">他</li>
-                            {% for habit in data_habit %}
-                                <ul>
-                                    {% if habit.frequency == 1 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
-                                        <li >{{habit.habit}}</li>
-                                    {% endif %}
-                                </ul>
-                            {% endfor %}
-                    </div>
+                      <div class="cp_list_li_child">
+                          <li class="cp_list_li">意思</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">喧嘩</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">行動</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '行動' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">向上</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '向上' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">他</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                      </div>
                   </div>
 
                   <div class="cp_actab">
@@ -211,7 +211,7 @@
                   <div class="cp_actab-content">
                       {% for habit in data_habit %}
                           <ul>
-                              {% if habit.frequency == 2 %}
+                              {% if habit.frequency == 2 and habit.motivation == 5 %}
                                   <li >{{habit.habit}}</li>
                               {% endif %}
                           </ul>
@@ -224,7 +224,7 @@
                   <div class="cp_actab-content">
                       {% for habit in data_habit %}
                           <ul>
-                              {% if habit.frequency == 3 %}
+                              {% if habit.frequency == 3 and habit.motivation == 5 %}
                                   <li >{{habit.habit}}</li>
                               {% endif %}
                           </ul>
@@ -234,7 +234,7 @@
               </ul>
           </div>
 
-          <!-- 追加・更新・削除画面 ----------------------------------------------------------------------------------------------------------------------------------------->
+<!-- 追加・更新・削除画面 ----------------------------------------------------------------------------------------------------------------------------------------->
                       <div class="formtable">
                           <!-- 追加・更新画面 -->
                           {% if delete_flag == 0 %}
@@ -249,7 +249,7 @@
                                       <!-- 追加・更新欄 -->
                                       <table class="add-table">
                                           <tr>
-                                              <th><i class="fas fa-child"></i></th>
+                                              <th class="th_motivation"><i class="fas fa-child"></i><span class="must_motivation">必須</span></th>
                                               <td>{{form_motivation.motivation}}</td>
                                           </tr>
                                           <tr>
@@ -467,7 +467,7 @@
               </table>
            </div>
 
-            <!-- ハンバーガーメニュー ---------------------------------------------------------------------------------------------------------------->
+<!-- ハンバーガーメニュー ------------------------------------------------------------------------------------------------------------------------------------->
             <div id="navArea">
               <nav>
                 <div class="inner">
