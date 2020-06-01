@@ -248,7 +248,7 @@ button.return_button_update, button.return_button_delete {
 @media screen and (max-width: 480px){
     /*【上】*/
     body{
-        font-size: 12pt;
+        font-size: 11pt;
         font-family: monospace;
         padding-top: 31px;
     }
