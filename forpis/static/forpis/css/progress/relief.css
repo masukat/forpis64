@@ -370,10 +370,13 @@ button.return_button_update, button.return_button_delete {
         width: 100%;
     }
     table th{
-        font-size: 11pt;
+        font-size: 9pt;
     }
     .checkbox {
         margin-left: 0;
+    }
+    .add-table_done th, .add-table th{
+        font-size: 11pt;
     }
     .add-table_done {
         height: 85px;
@@ -419,5 +422,11 @@ button.return_button_update, button.return_button_delete {
     }
     [id^="motivation_display_"], [id^="review_display_"]{
         width: 49px;
+    }
+    [id^="delete_display_"]{
+        width: 55px;
+    }
+    [id^="edit_display_"] {
+        width: 45px;
     }
 }
