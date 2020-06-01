@@ -162,22 +162,6 @@
                   <label for="tab-two">毎日</label>
                   <div class="cp_actab-content">
                       <div class="cp_list_li_child">
-                          <li class="cp_list_li">意思</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
-                          <li class="cp_list_li">喧嘩</li>
-                              {% for habit in data_habit %}
-                                  <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
-                                          <li >{{habit.habit}}</li>
-                                      {% endif %}
-                                  </ul>
-                              {% endfor %}
                           <li class="cp_list_li">行動</li>
                               {% for habit in data_habit %}
                                   <ul>
@@ -190,6 +174,22 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and '向上' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">意思</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.genre1 %}
+                                          <li >{{habit.habit}}</li>
+                                      {% endif %}
+                                  </ul>
+                              {% endfor %}
+                          <li class="cp_list_li">喧嘩</li>
+                              {% for habit in data_habit %}
+                                  <ul>
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
