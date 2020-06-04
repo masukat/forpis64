@@ -81,7 +81,7 @@ ul.cp_list li.cp_list_li:after {
 /*アコーディオンメニュー*/
 .cp_actab {
 	position: relative;
-	overflow: hidden;	
+	overflow: hidden;
 	margin: 0 auto;
 	color: #ffffff;
 }
@@ -353,6 +353,9 @@ button.return_button_update, button.return_button_delete {
     .movieLink {
       font-size: 11pt;
     }
+    .cp_actab {
+      width: 100%;
+    }
     .cp_actab input:checked ~ .cp_actab-content {
       height: 386px;
     }
@@ -371,7 +374,7 @@ button.return_button_update, button.return_button_delete {
     table th{
         font-size: 9pt;
     }
-    .checkbox {
+    .checkbox, .iventName_recomend {
         margin-left: 0;
     }
     .add-table_done th, .add-table th{
