@@ -81,8 +81,7 @@ ul.cp_list li.cp_list_li:after {
 /*アコーディオンメニュー*/
 .cp_actab {
 	position: relative;
-	overflow: hidden;
-	width: 100%;
+	overflow: hidden;	
 	margin: 0 auto;
 	color: #ffffff;
 }
@@ -191,11 +190,11 @@ ul.cp_list li.cp_list_li:after {
 }
 
 /*テーブルボタン*/
-.checkbox{
-  margin-left: -188px;
+.checkbox, .iventName_recomend{
+  margin-left: -75px;
 }
-table {
-    width: 153%;
+table, .cp_actab {
+    width: 117%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -225,7 +224,7 @@ button.return_button_update, button.return_button_delete {
 }
 
 /*【やりたいことリスト】*/
-.edit-table_undone{
+.edit-table_undone, .edit-table_done{
     margin-bottom: 20px;
 }
 [id^="genre1_display_"]{
