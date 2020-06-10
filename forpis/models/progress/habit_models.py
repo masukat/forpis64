@@ -50,7 +50,7 @@ class Habit_division(models.Model):
     division = models.CharField(blank=True,max_length=100,choices=DIVISION_CHOISES)
 
 class Habit_habitgenre1(models.Model):
-    habitgenre1 = models.CharField(max_length=100,choices=HABITGENRE1_CHOISES)
+    habitgenre1 = models.CharField(max_length=100,default='意思',choices=HABITGENRE1_CHOISES)
 
 class Habit(models.Model):
     motivation = models.IntegerField(null=True,blank=True)
