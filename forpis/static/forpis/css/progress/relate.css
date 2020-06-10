@@ -1,3 +1,170 @@
+table {
+    border-collapse: collapse;
+    width: 118%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+table th {
+    width: 139px;
+}
+form{
+    width: 98%;
+}
+
+.iventName_thanks{
+    font-size: 21pt;
+    margin-left: -76px;
+}
+.fa-seedling:before{
+    color: green;
+}
+.fa-candy-cane:before{
+    color: red;
+}
+.iventName_button, .iventName_update{
+    font-size: 24pt;
+}
+.return_button_delete_div {
+    right: -131px;
+    top: 3px;
+}
+.return_button_update_div {
+    right: -109px;
+    top: 3px;
+}
+
+.div_add-table_thanks, .div_add-table_plan {
+    float: left;
+}
+.div_add-table_plan {
+    margin-left: 25px;
+}
+.add-table_plan th{
+    background-color: #FFF7CF;
+    color: #F24691;
+    border-color: #666666;
+}
+.add-table_plan td{
+    border-color: #666666;
+}
+.add-table, .add-table_done {
+    width: 99%;
+}
+.add-table_done tr th, .add-table tr th {
+    width: 158px;
+}
+[class^="add-table"] {
+    width: 102%;
+}
+[class^="add-table"] tr td {
+    border-right: #666666;
+    width: 269px;
+    text-align: left;
+}
+
+.edit-table_thanks, .edit-table_plan{
+    margin-bottom: 27px;
+}
+.add-table_thanks th, .edit-table_thanks th, .delete-table_thanks th{
+    background-color: #ffadcc;
+    color: #666666;
+    border-color: #555555;
+}
+.edit-table_thanks td ,.delete-table_thanks td{
+    color: #666666;
+    border-color: #555555;
+    background-color: #ffe3f1;
+}
+.edit-table_plan th ,.delete-table_plan th{
+    background-color: #FFCC99;
+    color: #666666;
+    border-color: #666666;
+}
+.edit-table_plan td, .delete-table_plan td{
+    background-color: #FFF7CF;
+    color: #666666;
+}
+
+
+.div_delete-table_thanks, .div_delete-table_plan{
+    float: left;
+    width: 44%;
+}
+.delete-table_thanks, .delete-table_plan{
+    width: 115%;
+}
+.div_delete-table_plan{
+    margin-left: 90px;
+}
+
+.tr_input_delete_div {
+    width: 416px;
+}
+
+
+[id^="delete_display_"], [id^="edit_display_"], [id^="thanksreview_display_"], [id^="motivation_display_"] {
+    width: 21px;
+}
+[id^="name_display_"], [id^="thanksgenre1_display_"], [id^="plangenre1_display_"], [id^="thanksdate_display_"] ,[id^="plandate_display_"]{
+    width: 55px;
+}
+[id^="thanks_display_"], [id^="plan_display_"], [id^="thanksmemo_display_"], [id^="planmemo_display_"]{
+    width: 198px;
+}
+
+/*【inputタグ幅】*/
+#id_thanksreview {
+    width: 62px;
+}
+#id_name, #id_thanksdate, #id_thanksgenre1, #id_completiondate, #id_planreview, #id_plandate, #id_plangenre1{
+    background-color: white;
+    font-size: 16px;
+    height: 26px;
+    width: 108px;
+}
+#id_thanks, #id_thanksmemo, #id_thanksurllink, #id_planurllink, #id_planmemo {
+    width: 266px;
+    height: 50px;
+    font-size: 12pt;
+    margin-bottom: -7px;
+}
+
+.name, .thanksgenre1, .thanksdate, .thanksreview, .plangenre1, .plandate, .motivation{
+    text-align: center;
+}
+
+/*【必須項目】*/
+.th_name, .th_genre1, .th_thanks, .th_motivation{
+    position: relative;
+}
+.must_name, .must_genre1, .must_thanks, .must_motivation{
+    color: white;
+    background: #FF1A00;
+    font-size: 13px;
+    position: absolute;
+    border-radius: 3px;
+}
+.must_name{
+    left: 98px;
+    bottom: 5px;
+}
+.must_genre1{
+    left: 87px;
+    bottom: 4px;
+}
+.must_thanks{
+    left: 88px;
+    bottom: 1px;
+}
+.must_motivation{
+    left: 88px;
+    bottom: 1px;
+}
+
+.checkbox{
+    margin-left: -74px;
+}
 /*------------------------------------------*
 * body系CSS
 *------------------------------------------*/
@@ -56,5 +223,54 @@
     }
     .delete_edit_check, .memo_check{
         font-size: 15px;
+    }
+}
+
+/*------------------------------------------*
+* relate.CSS
+*------------------------------------------*/
+@media screen and (max-width: 480px){
+    form {
+        width: 105%;
+        margin-left: -8px;
+    }
+    .div_add-table_plan {
+        margin-left: 1px;
+    }
+    [class^="add-table"] tr td {
+        width: 174px;
+    }
+
+    .must_name {
+        left: 68px;
+        bottom: 6px;
+        font-size: 9pt;
+    }
+    #id_name, #id_thanksgenre1, #id_plangenre1 {
+        font-size: 15px;
+    }
+    #id_thanksdate, #id_plandate, #id_completiondate, #id_thanksreview, #id_planreview, #id_motivation{
+        font-size: 13px;
+    }
+    #id_thanks, #id_plan, #id_thanksmemo, #id_planmemo, #id_thanksurllink, #id_planurllink {
+        width: 172px;
+        height: 45px;
+        font-size: 11pt;
+        margin-bottom: -4px;
+    }
+
+    .iventName_thanks {
+        font-size: 17pt;
+        margin-left: -9px;
+    }
+    .delete_edit_check, .memo_check {
+        font-size: 14px;
+    }
+    .checkbox {
+        margin-left: -5px;
+    }
+
+    table {
+        width: 103%;
     }
 }
