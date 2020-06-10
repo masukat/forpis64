@@ -9,7 +9,7 @@ table th {
     width: 139px;
 }
 form{
-    width: 98%;
+    width: 100%;
 }
 
 .iventName_thanks{
@@ -237,6 +237,9 @@ form{
     .div_add-table_plan {
         margin-left: 1px;
     }
+    [class^="add-table"] {
+        width: 104%;
+    }
     [class^="add-table"] tr td {
         width: 174px;
     }
@@ -257,6 +260,9 @@ form{
         height: 45px;
         font-size: 11pt;
         margin-bottom: -4px;
+    }
+    #id_motivation {
+        width: 52px;
     }
 
     .iventName_thanks {
