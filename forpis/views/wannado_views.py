@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from ..models.wannado_models import WannaDo
-from ..forms.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1,WannaDoForm_genre2,WannaDoForm_deadline
+from ..models.progress.wannado_models import WannaDo
+from ..forms.progress.wannado_forms import WannaDoForm,WannaDoForm_motivation,WannaDoForm_genre1,WannaDoForm_genre2,WannaDoForm_deadline
 
 def wannado(request):
     data_undone = WannaDo.objects.all().order_by('genre1','deadline')

@@ -2,19 +2,85 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from ..models.progress.habit_models import Habit
-from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitForm_frequency,HabitForm_division,HabitForm_genre1
+from ..forms.progress.habit_forms import HabitForm,HabitForm_motivation,HabitForm_frequency,HabitForm_division,HabitForm_habitgenre1
 from ..models.progress.relief_models import Relief
 from ..forms.progress.relief_forms import ReliefForm,ReliefForm_motivation
+from ..models.progress.relate_models import Relate
+from ..forms.progress.relate_forms import RelateForm,RelateForm_motivation
 
 import requests
 from bs4 import BeautifulSoup
 
-def progress_summary(request):
-    return render(request, 'forpis/progress/summary.html')
+
+def progress_relate(request):
+    data_done_thanks = Relate.objects.all().order_by('thanksreview').reverse()
+    data_undone_plan = Relate.objects.all().order_by('motivation','plangenre1','plan').reverse()
+    data_done_plan = Relate.objects.all().order_by('completiondate','review').reverse()
+
+    params = {
+        'data_done_thanks':data_done_thanks,
+        'data_undone_plan':data_undone_plan,
+        'data_done_plan':data_done_plan,
+        'form':RelateForm(),
+        'form_motivation':RelateForm_motivation(),
+        'id':0,
+        'delete_flag':0,
+        }
+    if (request.method == 'POST'):
+        obj = Relate()
+        relate = RelateForm(request.POST, instance=obj)
+        motivation = RelateForm_motivation(request.POST, instance=obj)
+        relate.save()
+        motivation.save()
+        return redirect(to='/forpis/progress/relate')
+    return render(request, 'forpis/progress/relate.html', params)
+
+def progress_relate_edit(request,num):
+    data_done_thanks = Relate.objects.all().order_by('thanksreview').reverse()
+    data_undone_plan = Relate.objects.all().order_by('motivation','plangenre1','plan').reverse()
+    data_done_plan = Relate.objects.all().order_by('completiondate','review').reverse()
+
+    obj = Relate.objects.get(id=num)
+
+    if (request.method == 'POST'):
+        relate = RelateForm(request.POST, instance=obj)
+        motivation = RelateForm_motivation(request.POST, instance=obj)
+        relate.save()
+        motivation.save()
+        return redirect(to='/forpis/progress/relate')
+    params = {
+        'data_done_thanks':data_done_thanks,
+        'data_undone_plan':data_undone_plan,
+        'data_done_plan':data_done_plan,
+        'form':RelateForm(instance=obj),
+        'form_motivation':RelateForm_motivation(instance=obj),
+        'id':num,
+        'delete_flag':0,
+        }
+    return render(request, 'forpis/progress/relate.html', params)
+
+def progress_relate_delete(request,num):
+    data_done_thanks = Relate.objects.all().order_by('thanksreview').reverse()
+    data_undone_plan = Relate.objects.all().order_by('motivation','plangenre1','plan').reverse()
+    data_done_plan = Relate.objects.all().order_by('completiondate','review').reverse()
+
+    relate = Relate.objects.get(id=num)
+    if (request.method == 'POST'):
+        relate.delete()
+        return redirect(to='/forpis/progress/relate')
+    params = {
+        'data_done_thanks':data_done_thanks,
+        'data_undone_plan':data_undone_plan,
+        'data_done_plan':data_done_plan,
+        'obj':relate,
+        'id':num,
+        'delete_flag':1,
+        }
+    return render(request, 'forpis/progress/relate.html', params)
 
 def progress_habit(request):
-    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','habitgenre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','habitgenre1').reverse()
     data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
     params = {
@@ -25,43 +91,43 @@ def progress_habit(request):
         'form_motivation':HabitForm_motivation(),
         'form_frequency':HabitForm_frequency(),
         'form_division':HabitForm_division(),
-        'form_genre1':HabitForm_genre1(),
+        'form_habitgenre1':HabitForm_habitgenre1(),
         'id':0,
         'delete_flag':0,
         }
     if (request.method == 'POST'):
         obj = Habit()
         habit = HabitForm(request.POST, instance=obj)
-        habit_motivation = HabitForm_motivation(request.POST, instance=obj)
-        habit_frequency = HabitForm_frequency(request.POST, instance=obj)
-        habit_division = HabitForm_division(request.POST, instance=obj)
-        habit_genre1 = HabitForm_genre1(request.POST, instance=obj)
+        motivation = HabitForm_motivation(request.POST, instance=obj)
+        frequency = HabitForm_frequency(request.POST, instance=obj)
+        division = HabitForm_division(request.POST, instance=obj)
+        habitgenre1 = HabitForm_habitgenre1(request.POST, instance=obj)
         habit.save()
-        habit_motivation.save()
-        habit_frequency.save()
-        habit_division.save()
-        habit_genre1.save()
+        motivation.save()
+        frequency.save()
+        division.save()
+        habitgenre1.save()
         return redirect(to='/forpis/progress/habit')
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_edit(request,num):
-    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','habitgenre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','habitgenre1').reverse()
     data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
     obj = Habit.objects.get(id=num)
 
     if (request.method == 'POST'):
         habit = HabitForm(request.POST, instance=obj)
-        habit_motivation = HabitForm_motivation(request.POST, instance=obj)
-        habit_frequency = HabitForm_frequency(request.POST, instance=obj)
-        habit_division = HabitForm_division(request.POST, instance=obj)
-        habit_genre1 = HabitForm_genre1(request.POST, instance=obj)
+        motivation = HabitForm_motivation(request.POST, instance=obj)
+        frequency = HabitForm_frequency(request.POST, instance=obj)
+        division = HabitForm_division(request.POST, instance=obj)
+        habitgenre1 = HabitForm_habitgenre1(request.POST, instance=obj)
         habit.save()
-        habit_motivation.save()
-        habit_frequency.save()
-        habit_division.save()
-        habit_genre1.save()
+        motivation.save()
+        frequency.save()
+        division.save()
+        habitgenre1.save()
         return redirect(to='/forpis/progress/habit')
     params = {
         'data_habit':data_habit,
@@ -71,15 +137,15 @@ def progress_habit_edit(request,num):
         'form_motivation':HabitForm_motivation(instance=obj),
         'form_frequency':HabitForm_frequency(instance=obj),
         'form_division':HabitForm_division(instance=obj),
-        'form_genre1':HabitForm_genre1(instance=obj),
+        'form_habitgenre1':HabitForm_habitgenre1(instance=obj),
         'id':num,
         'delete_flag':0,
         }
     return render(request, 'forpis/progress/habit.html', params)
 
 def progress_habit_delete(request,num):
-    data_habit = Habit.objects.all().order_by('motivation','frequency','division','genre1').reverse()
-    data_undone = Habit.objects.all().order_by('motivation','genre1').reverse()
+    data_habit = Habit.objects.all().order_by('motivation','frequency','division','habitgenre1').reverse()
+    data_undone = Habit.objects.all().order_by('motivation','habitgenre1').reverse()
     data_done = Habit.objects.all().order_by('completiondate','review').reverse()
 
     habit = Habit.objects.get(id=num)
@@ -97,6 +163,12 @@ def progress_habit_delete(request,num):
     return render(request, 'forpis/progress/habit.html', params)
 
 
+def progress_summary(request):
+    return render(request, 'forpis/progress/summary.html')
+
+
+
+
 
 
 
@@ -104,9 +176,9 @@ def progress_habit_delete(request,num):
 def progress_relief(request):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
-    titles = get_movieTitles()
+    titles = search_movieTitles()
     titlesNum = len(titles)
-    highlights = get_movieHighlights()
+    highlights = search_movieHighlights()
 
     params = {
         'data_undone':data_undone,
@@ -131,9 +203,9 @@ def progress_relief(request):
 def progress_relief_edit(request,num):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
-    titles = get_movieTitles()
+    titles = search_movieTitles()
     titlesNum = len(titles)
-    highlights = get_movieHighlights()
+    highlights = search_movieHighlights()
 
     obj = Relief.objects.get(id=num)
 
@@ -159,9 +231,9 @@ def progress_relief_edit(request,num):
 def progress_relief_delete(request,num):
     data_undone = Relief.objects.all().order_by('motivation','genre1','genre2','plan').reverse()
     data_done = Relief.objects.all().order_by('completiondate','review').reverse()
-    titles = get_movieTitles()
+    titles = search_movieTitles()
     titlesNum = len(titles)
-    highlights = get_movieHighlights()
+    highlights = search_movieHighlights()
 
     relief = Relief.objects.get(id=num)
     if (request.method == 'POST'):
@@ -179,7 +251,7 @@ def progress_relief_delete(request,num):
         }
     return render(request, 'forpis/progress/relief.html', params)
 
-def get_movieTitles():
+def search_movieTitles():
     # WebサイトのURLを指定
     url = "https://vokka.jp/16136"
     # Requestsを利用してWebページを取得する
@@ -195,7 +267,7 @@ def get_movieTitles():
             titles.append(t.getText())
     return titles
 
-def get_movieHighlights():
+def search_movieHighlights():
     # WebサイトのURLを指定
     url = "https://vokka.jp/16136"
     # Requestsを利用してWebページを取得する
@@ -222,6 +294,3 @@ def get_movieHighlights():
 
 def progress_earnmoney(request):
     return render(request, 'forpis/progress/earn.html')
-
-def progress_relationship(request):
-    return render(request, 'forpis/progress/relate.html')
