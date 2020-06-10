@@ -81,13 +81,13 @@ table td{
   border-right: #666666;
 }
 .add-table_done td, .add-table td{
-    width: 269px;
-    text-align: left;
+  width: 269px;
+  text-align: left;
 }
 .add-table_done{
-    display: flex;
-    height: 60px;
-    margin-bottom: 67px;
+  display: flex;
+  height: 60px;
+  margin-bottom: 67px;
 }
 
 /*tr*/
