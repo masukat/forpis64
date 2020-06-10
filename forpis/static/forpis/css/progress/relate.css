@@ -104,10 +104,10 @@ form{
 
 
 [id^="delete_display_"], [id^="edit_display_"], [id^="thanksreview_display_"], [id^="motivation_display_"] {
-    width: 21px;
+    width: 32px;
 }
 [id^="name_display_"], [id^="thanksgenre1_display_"], [id^="plangenre1_display_"], [id^="thanksdate_display_"] ,[id^="plandate_display_"]{
-    width: 55px;
+    width: 77px;
 }
 [id^="thanks_display_"], [id^="plan_display_"], [id^="thanksmemo_display_"], [id^="planmemo_display_"]{
     width: 198px;
