@@ -64,6 +64,7 @@ class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
     genre2 = models.CharField(max_length=100,blank=True)
     plan = models.TextField()
+    plandate = models.DateField(null=True,blank=True)
     urllink = models.TextField(blank=True)
     tag1 = models.TextField(blank=True)
     tag2 = models.TextField(blank=True)
