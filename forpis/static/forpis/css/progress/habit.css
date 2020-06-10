@@ -42,7 +42,7 @@ ul.cp_list li.cp_list_li:after {
 	transform: rotate(60deg);
 }
 .cp_list_li_child {
-    margin-left: 2px;
+  margin-left: 2px;
 }
 
 /*アコーディオンメニュー*/
@@ -111,7 +111,7 @@ ul.cp_list li.cp_list_li:after {
 /*タイトル*/
 .iventName_add, .iventName_button{
   font-size: 20pt;
-  margin-left: 64px;
+  margin-left: 25px;
 }
 .iventName_update, .iventName_delete{
   font-size: 15pt;
@@ -146,6 +146,10 @@ table th{
   background-color: #0000BB;
   color: white;
 }
+table td {
+  text-align: left;
+  color: #666;
+}
 
 /*【delete】*/
 .delete-table th{
@@ -153,14 +157,29 @@ table th{
 }
 
 /*【add】*/
-.add-table_done tr td, .add-table tr td{
+[class^="add-table"] tr th{
+  border-left: #666666;
+}
+[class^="add-table"] tr td{
   border-color: white;
+  border-right: #666666;
+  width: 269px;
+  text-align: left;
 }
-.add-table_done{
-  height: 128px;
-}
-.add-table{
+[class^="add-table"]{
   width: 102%;
+}
+.div_add-table_problem, .div_add-table_habit{
+  float: left;
+}
+.div_add-table_problem{
+  margin-right: 27px;
+}
+
+.add-table_done{
+    display: flex;
+    height: 60px;
+    margin-bottom: 67px;
 }
 
 
@@ -171,11 +190,15 @@ table th{
 #id_genre2{
     width: 135px;
 }
-#id_habit{
+#id_problem, #id_proburl, #id_probmemo, #id_habit, #id_habitmemo{
     width: 266px;
-    height: 50px;
+    height: 83px;
     font-size: 12pt;
     margin-bottom: -7px;
+}
+#id_habitflag, #id_motivation, #id_frequency, #id_division, #id_habitgenre1{
+    font-size: 12pt;
+    font-family: arial unicode ms;
 }
 
 
@@ -203,25 +226,30 @@ table th{
 [id^="motivation_display_"], [id^="review_display_"]{
     width: 43px;
 }
-#id_frequency, #id_division{
-    font-size: 12pt;
-    font-family: arial unicode ms;
+[id^="probgenre1_display_"]{
+    width: 77px;
+}
+[id^="probgenre2_display_"]{
+    width: 85px;
+}
+[id^="problem_display_"], [id^="habit_display_"], [id^="probmemo_display_"]{
+    width: 329px;
 }
 #division_display_1, #number_display_1{
     width: 50px;
 }
-#genre1_display_1{
+#habitgenre1_display_1{
     width: 92px;
 }
-#memo_display_1{
+#habitmemo_display_1{
     width: 370px;
 }
-.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
+.delete, .done, .motivation, .review, .habitgenre1, .edit, .frequency, .division, .number, .probgenre1, .probgenre2{
     text-align: center;
 }
 .completiondate{
-  width: 136px;
-  text-align: right;
+    width: 136px;
+    text-align: right;
 }
 .habit{
     width: 360px;
@@ -229,18 +257,24 @@ table th{
 .edit-table_undone {
     margin-bottom: 20px;
 }
+.edit-table_solution td{
+    background-color: #CCFFFF;
+}
 
+.th_habitflag{
+    font-size: 12pt;
+}
 /*【必須項目】*/
-.th_genre1, .th_habit, .th_motivation{
+.th_habitgenre1, .th_habit, .th_motivation{
     position: relative;
 }
-.must_genre1, .must_habit, .must_motivation{
+.must_habitgenre1, .must_habit, .must_motivation{
     background: #FF1A00;
     font-size: 13px;
     position: absolute;
     border-radius: 3px;
 }
-.must_genre1{
+.must_habitgenre1{
     left: 87px;
     bottom: 4px;
 }
@@ -362,8 +396,9 @@ table th{
     table {
         width: 101%;
     }
-    .edit-table_undone {
-        margin-bottom: 20px;
+
+    .div_add-table_problem {
+        margin-right: 0px;
     }
     .add-table {
         width: 101%;
@@ -372,19 +407,30 @@ table th{
     .add-table_done {
         margin-bottom: 42px;
     }
+    .edit-table_undone {
+        margin-bottom: 20px;
+    }
 
     .fa-child:before {
         font-size: 19px;
     }
+
+    [class^="add-table"] tr td {
+        width: 194px;
+    }
+    .th_habitflag {
+        font-size: 10pt;
+    }
     #id_motivation {
         width: 48px;
     }
-    #id_motivation, #id_frequency, #id_division, #id_number, #id_genre1{
+    #id_motivation, #id_frequency, #id_division, #id_number, #id_habitflag, #id_habitgenre1, #id_probgenre1, #id_probgenre2{
         font-size: 10pt;
         font-family: monospace;
+        width: 100px;
     }
-    #id_habit, #id_memo{
-        width: 178px;
+    #id_problem, #id_proburl, #id_probmemo, #id_habit, #id_habitmemo{
+        width: 191px;
         font-size: 10pt;
         height: 45px;
         margin-bottom: -3px;
@@ -393,13 +439,13 @@ table th{
         width: 32px;
     }
     /*【必須項目】*/
-    .must_genre1, .must_habit, .must_motivation{
+    .must_habitgenre1, .must_habit, .must_motivation{
         left: 68px;
         bottom: 5px;
-        font-size: 12px;
+        font-size: 11px;
     }
     .must_habit {
-        bottom: 2px;
+        bottom: 18px;
     }
     .checkbox {
         margin-left: 0px;

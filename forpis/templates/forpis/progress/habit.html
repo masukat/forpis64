@@ -69,7 +69,7 @@
     //4_習慣
     //5_本
     function hidden(){
-        var array = ["delete","edit","division","genre1","memo","completiondate"];
+        var array = ["delete","edit","division","habitgenre1","habitmemo","completiondate","probgenre1","probgenre2","probmemo"];
             for(var k=1;k<6;k++){
                 for(var j=0;j<array.length;j++){
                     var id = array[j] + "_display_" + k;
@@ -107,8 +107,8 @@
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">⑴やりたいこと</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑴稼ぐ力</button>
             <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑵習慣</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑵ストレス発散法</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑵癒し</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶感謝</button>
         </div>
 <!-- １、習慣 ----------------------------------------------------------------------------------------------------------------------------------------------->
         <div class="tab-content">
@@ -125,7 +125,7 @@
                           <li class="cp_list_li">意思</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and habit.motivation == 5 and '意思' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '意思' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -133,7 +133,7 @@
                           <li class="cp_list_li">喧嘩</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '喧嘩' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -141,7 +141,7 @@
                           <li class="cp_list_li">行動</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and habit.motivation == 5 and '行動' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and '行動' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -149,7 +149,7 @@
                           <li class="cp_list_li">他</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 0 and habit.motivation == 5 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 %}
+                                      {% if habit.frequency == 0 and habit.motivation == 5 and not '意思' in habit.habitgenre1 and not '喧嘩' in habit.habitgenre1 and not '行動' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -165,7 +165,7 @@
                           <li class="cp_list_li">行動</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '行動' in habit.genre1 %}
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '行動' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -173,7 +173,7 @@
                           <li class="cp_list_li">向上</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '向上' in habit.genre1 %}
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '向上' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -181,7 +181,7 @@
                           <li class="cp_list_li">意思</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.genre1 %}
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -189,7 +189,7 @@
                           <li class="cp_list_li">喧嘩</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.genre1 %}
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.habitgenre1 %}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -197,7 +197,7 @@
                           <li class="cp_list_li">他</li>
                               {% for habit in data_habit %}
                                   <ul>
-                                      {% if habit.frequency == 1 and habit.motivation == 5 and not '意思' in habit.genre1 and not '喧嘩' in habit.genre1 and not '行動' in habit.genre1 and not '向上' in habit.genre1　%}
+                                      {% if habit.frequency == 1 and habit.motivation == 5 and not '意思' in habit.habitgenre1 and not '喧嘩' in habit.habitgenre1 and not '行動' in habit.habitgenre1 and not '向上' in habit.habitgenre1　%}
                                           <li >{{habit.habit}}</li>
                                       {% endif %}
                                   </ul>
@@ -239,46 +239,75 @@
                           <!-- 追加・更新画面 -->
                           {% if delete_flag == 0 %}
                               {% if id == 0 %}
-                                  <div class="iventName_add">追加したい習慣</div>
                                   <form action="{% url 'progress_habit' %}" method="post">
                               {% elif id > 0 %}
                                   <div class="return_button_update_div"><a href={% url 'progress_habit' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
                                   <div class="iventName_button"><i class="fab fa-github"></i>更新</div>
                                   <form action="{% url 'progress_habit_edit' id %}" method="post">
                               {% endif %}
-                                      <!-- 追加・更新欄 -->
-                                      <table class="add-table">
-                                          <tr>
-                                              <th class="th_motivation"><i class="fas fa-child"></i><span class="must_motivation">必須</span></th>
-                                              <td>{{form_motivation.motivation}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th>頻度</th>
-                                              <td>{{form_frequency.frequency}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th>区分</th>
-                                              <td>{{form_division.division}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th>回数</th>
-                                              <td>{{form.number}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th class="th_genre1">分野<span class="must_genre1">必須</span></th>
-                                              <td>{{form_genre1.genre1}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th class="th_habit">やりたいこと<span class="must_habit">必須</span></th>
-                                              <td>{{form.habit}}</td>
-                                          </tr>
-                                          <tr>
-                                              <th>メモ</th>
-                                              <td>{{form.memo}}</td>
-                                          </tr>
-                                      </table>
-                                      <div class="tr_input_div">
-                                          <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                                      <div class="div_add-table_problem"><div class="iventName_add">悩み/解決</div>
+                                          <!-- 追加・更新欄 -->
+                                          <table class="add-table_problem">
+                                              <tr>
+                                                  <th>分野</th>
+                                                  <td>{{form.probgenre1}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>項目</th>
+                                                  <td>{{form.probgenre2}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>悩み</th>
+                                                  <td>{{form.problem}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th class="th_habit">解決策<span class="must_habit">必須</span></th>
+                                                  <td>{{form.habit}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>url</th>
+                                                  <td>{{form.proburl}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>メモ</th>
+                                                  <td>{{form.probmemo}}</td>
+                                              </tr>
+                                          </table>
+                                          <div class="tr_input_div">
+                                              <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                                          </div>
+                                      </div>
+                                      <div class="div_add-table_habit"><div class="iventName_add">習慣化したい？</div>
+                                          <!-- 追加・更新欄 -->
+                                          <table class="add-table_habit">
+                                              <tr>
+                                                  <th class="th_habitflag">習慣化したい？</th>
+                                                  <td>{{form.habitflag}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th class="th_motivation"><i class="fas fa-child"></i><span class="must_motivation">必須</span></th>
+                                                  <td>{{form_motivation.motivation}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>頻度</th>
+                                                  <td>{{form_frequency.frequency}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>区分</th>
+                                                  <td>{{form_division.division}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th class="th_habitgenre1">分類<span class="must_habitgenre1">必須</span></th>
+                                                  <td>{{form_habitgenre1.habitgenre1}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <th>メモ</th>
+                                                  <td>{{form.habitmemo}}</td>
+                                              </tr>
+                                          </table>
+                                          <div class="tr_input_div">
+                                              <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                                          </div>
                                       </div>
                                           {% csrf_token %}
                                   </form>
@@ -351,30 +380,20 @@
                                       <td>{{obj.division}}</td>
                                   </tr>
                                   <tr>
-                                      <th>回数</th>
-                                      <td>
-                                            {% if obj.number is None %}
-                                                -
-                                            {% else %}
-                                                {{obj.number}}
-                                            {% endif %}
-                                      </td>
-                                  </tr>
-                                  <tr>
                                       <th>分野</th>
-                                      <td>{{obj.genre1}}</td>
+                                      <td>{{obj.habitgenre1}}</td>
                                   </tr>
                                   <tr>
                                       <th>やりたいこと</th>
-                                      <td>{{obj.habit}}</td>
+                                      <td>{{obj.habit | linebreaksbr}}</td>
                                   </tr>
                                   <tr>
                                       <th>メモ</th>
                                       <td>
-                                          {% if obj.memo == '' %}
+                                          {% if obj.habitmemo == '' %}
                                               -
                                           {% else %}
-                                              {{obj.memo}}
+                                              {{obj.habitmemo | linebreaksbr}}
                                           {% endif %}
                                       </td>
                                   </tr>
@@ -387,7 +406,7 @@
                           {% endif %}
                       </div>
 
-<!-- リスト ------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- 悩み解決リスト ------------------------------------------------------------------------------------------------------------------------------------------->
           <!-- 初期状態で列非表示 -->
           <div class="checkbox">
               <div class="delete_edit_check">
@@ -397,9 +416,62 @@
               </div>
               <div class="memo_check">
                   他項目:
-                  <input type="checkbox" id="division_check_1" onclick="checkbox_cell(this,'division_display_1')">区分
-                  <input type="checkbox" id="genre1_check_1" onclick="checkbox_cell(this,'genre1_display_1')">分野
-                  <input type="checkbox" id="memo_check_1" onclick="checkbox_cell(this,'memo_display_1')">memo
+                  <input type="checkbox" id="probgenre1_check_1" onclick="checkbox_cell(this,'probgenre1_display_1')">分野
+                  <input type="checkbox" id="probgenre2_check_1" onclick="checkbox_cell(this,'probgenre2_display_1')">項目
+                  <input type="checkbox" id="probmemo_check_1" onclick="checkbox_cell(this,'probmemo_display_1')">memo
+              </div>
+          </div>
+          <!-- テーブル(idは非表示にするときに呼び出される) -->
+          <div class="edit-table_undone" align="center">
+              <table class="edit-table_solution">
+                  <thead class="edit-table_thead_undone_solution">
+                      <tr>
+                          <th id="delete_display_1">削除</th>
+                          <th id="edit_display_1">編集</th>
+                          <th id="probgenre1_display_1">分野</th>
+                          <th id="probgenre2_display_1">項目</th>
+                          <th id="problem_display_1">悩み</th>
+                          <th id="habit_display_1">解決策</th>
+                          <th id="probmemo_display_1">メモ</th>
+                      </tr>
+                  </thead>
+                  <tbody class="edit-table_tbody_undone_solution">
+                  {% for habit in data_habit %}
+                  {% if habit.habitflag is False %}
+                      <tr>
+                          <td class="delete"><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a></td>
+                          <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
+                          <td class="probgenre1">{{habit.probgenre1}}</td>
+                          <td class="probgenre2">{{habit.probgenre2}}</td>
+                          <td class="problem">{{habit.problem | linebreaksbr}}</td>
+                          <td class="habit">{{habit.habit | linebreaksbr}}</td>
+                          <td class="probmemo">
+                                            {% if habit.probmemo is None %}
+
+                                            {% else %}
+                                                {{habit.probmemo | linebreaksbr}}
+                                            {% endif %}
+                          </td>
+                      </tr>
+                  {% endif %}
+                  {% endfor %}
+                  </tbody>
+              </table>
+           </div>
+
+<!-- リスト ------------------------------------------------------------------------------------------------------------------------------------------->
+          <!-- 初期状態で列非表示 -->
+          <div class="checkbox">
+              <div class="delete_edit_check">
+                  編集する？
+                  <input type="checkbox" id="delete_check_2" onclick="checkbox_cell(this,'delete_display_2')">delete
+                  <input type="checkbox" id="edit_check_2" onclick="checkbox_cell(this,'edit_display_2')">edit
+              </div>
+              <div class="memo_check">
+                  他項目:
+                  <input type="checkbox" id="division_check_2" onclick="checkbox_cell(this,'division_display_2')">区分
+                  <input type="checkbox" id="habitgenre1_check_2" onclick="checkbox_cell(this,'habitgenre1_display_2')">分野
+                  <input type="checkbox" id="habitmemo_check_2" onclick="checkbox_cell(this,'habitmemo_display_2')">memo
               </div>
           </div>
           <!-- テーブル(idは非表示にするときに呼び出される) -->
@@ -407,14 +479,14 @@
               <table>
                   <thead class="edit-table_thead_undone">
                       <tr>
-                          <th id="delete_display_1">削除</th>
-                          <th id="edit_display_1">編集</th>
-                          <th id="motivation_display_1"><i class="fas fa-child"></th>
-                          <th id="frequency_display_1">頻度</th>
-                          <th id="division_display_1">区分</th>
-                          <th id="genre1_display_1">分野</th>
-                          <th id="habit_display_1">やりたいこと</th>
-                          <th id="memo_display_1">メモ</th>
+                          <th id="delete_display_2">削除</th>
+                          <th id="edit_display_2">編集</th>
+                          <th id="motivation_display_2"><i class="fas fa-child"></th>
+                          <th id="frequency_display_2">頻度</th>
+                          <th id="division_display_2">区分</th>
+                          <th id="habitgenre1_display_2">分野</th>
+                          <th id="habit_display_2">やりたいこと</th>
+                          <th id="habitmemo_display_2">メモ</th>
                       </tr>
                   </thead>
                   <tbody class="edit-table_tbody_undone">
@@ -452,13 +524,13 @@
                                                     {{habit.division}}
                                                 {% endif %}
                           </td>
-                          <td class="genre1">{{habit.genre1}}</td>
-                          <td class="habit">{{habit.habit}}</td>
-                          <td class="memo">
-                                            {% if habit.memo is None %}
+                          <td class="habitgenre1">{{habit.habitgenre1}}</td>
+                          <td class="habit">{{habit.habit | linebreaksbr}}</td>
+                          <td class="habitmemo">
+                                            {% if habit.habitmemo is None %}
 
                                             {% else %}
-                                                {{habit.memo}}
+                                                {{habit.habitmemo | linebreaksbr}}
                                             {% endif %}
                           </td>
                       </tr>
