@@ -444,7 +444,13 @@
                           <td class="probgenre1">{{habit.probgenre1}}</td>
                           <td class="probgenre2">{{habit.probgenre2}}</td>
                           <td class="problem">{{habit.problem | linebreaksbr}}</td>
-                          <td class="habit">{{habit.habit | linebreaksbr}}</td>
+                          <td class="habit">
+                                              {% if habit.habiturllink == '' %}
+                                                  ー
+                                              {% else %}
+                                                  <a href = {{habit.habiturllink}} target="_blank">{{habit.habit | linebreaksbr}}</a>
+                                              {% endif %}
+                          </td>
                           <td class="probmemo">
                                             {% if habit.probmemo is None %}
 
