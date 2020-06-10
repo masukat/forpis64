@@ -13,5 +13,7 @@ urlpatterns = [
     path('progress/relief/edit/<int:num>', progress_views.progress_relief_edit, name='progress_relief_edit'),
     path('progress/relief/delete/<int:num>', progress_views.progress_relief_delete, name='progress_relief_delete'),
     path('progress/earn', progress_views.progress_earnmoney, name='progress_earn'),
-    path('progress/relate', progress_views.progress_relationship, name='progress_relate'),
+    path('progress/relate', progress_views.progress_relate, name='progress_relate'),
+    path('progress/relate/edit/<int:num>', progress_views.progress_relate_edit, name='progress_relate_edit'),
+    path('progress/relate/delete/<int:num>', progress_views.progress_relate_delete, name='progress_relate_delete'),
 ]
