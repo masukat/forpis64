@@ -131,8 +131,8 @@
             <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">⑴やりたいこと</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑴稼ぐ力</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑵習慣</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑵ストレス発散法</button>
-            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶人を大切に</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑵癒し</button>
+            <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶感謝</button>
         </div>
         <!-- 目標 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
@@ -299,14 +299,14 @@
 
                 <div class="cp_actab">
                 <input id="tab-three" type="checkbox" name="tabs">
-                <label for="tab-three">３月(5~6月)</label>
+                <label for="tab-three">３月(7~9月)</label>
                   <div class="cp_actab-content">
                     <div class="list">
                         <li class="genre_li">生きる!ための勉強</li>
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
+                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -316,7 +316,7 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
+                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -327,7 +327,7 @@
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
+                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -337,7 +337,7 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
+                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -348,7 +348,7 @@
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
+                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -358,81 +358,7 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 2 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                    </div>
-                  </div>
-                </div>
-
-<div class="arrow">↓</div>
-
-                <div class="cp_actab">
-                <input id="tab-four" type="checkbox" name="tabs">
-                <label for="tab-four">コロナ後</label>
-                  <div class="cp_actab-content">
-                    <div class="list">
-                        <li class="genre_li">生きる!ための勉強</li>
-                          <div class="li_goal">
-                            目標：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                          <div class="li_todo">
-                            やること：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                        <li class="genre_li">読みたい本</li>
-                          <div class="li_goal">
-                            目標：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                          <div class="li_todo">
-                            やること：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                        <li class="genre_li">趣味</li>
-                          <div class="li_goal">
-                            目標：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                          <div class="li_todo">
-                            やること：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 0 and plan.done is False %}
+                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan}}</li>
                                 </ul>
@@ -562,6 +488,10 @@
                                 <tr>
                                     <th>期限</th>
                                     <td>{{form_deadline.deadline}}</td>
+                                </tr>
+                                <tr>
+                                    <th>予定日</th>
+                                    <td>{{form.plandate}}</td>
                                 </tr>
                                 <tr>
                                     <th class="th_plan">やりたいこと<span class="must_plan">必須</span></th>

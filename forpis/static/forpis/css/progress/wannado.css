@@ -381,6 +381,9 @@ td.deadline{
 #id_plan, #id_tag1{
     height: 88px;
 }
+#id_deadline, #id_completiondate, #id_plandate, #id_genre1, #id_genre2{
+    width: 100px;
+}
 
 
 /*【やりたいことリスト】*/
