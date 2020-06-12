@@ -40,6 +40,21 @@ HABITGENRE1_CHOISES=(
     ('他','他'),
 )
 
+PROBGENRE1_CHOISES=(
+    ('生活','生活'),
+    ('心','心'),
+)
+
+PROBGENRE2_CHOISES=(
+    ('怒り','怒り'),
+    ('イライラ','イライラ'),
+    ('ネガティブ','ネガティブ'),
+    ('不安','不安'),
+    ('人生最悪','人生最悪'),
+    ('やる気','やる気'),
+    ('睡眠','睡眠'),
+)
+
 class Habit_motivation(models.Model):
     motivation = models.IntegerField(blank=True,default=4,choices=MOTIVATION_CHOISES)
 
@@ -51,6 +66,12 @@ class Habit_division(models.Model):
 
 class Habit_habitgenre1(models.Model):
     habitgenre1 = models.CharField(max_length=100,default='意思',choices=HABITGENRE1_CHOISES)
+
+class Habit_probgenre1(models.Model):
+    probgenre1 = models.CharField(blank=True,max_length=100,default='心',choices=PROBGENRE1_CHOISES)
+
+class Habit_probgenre2(models.Model):
+    probgenre2 = models.CharField(blank=True,max_length=100,default='不安',choices=PROBGENRE2_CHOISES)
 
 class Habit(models.Model):
     motivation = models.IntegerField(null=True,blank=True)
