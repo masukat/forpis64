@@ -207,7 +207,6 @@ function hidden(){
                       <form action="{% url 'progress_habit_edit' id %}" method="post">
                   {% endif %}
                           <div class="div_add-table_problem"><div class="iventName_add">悩み/解決</div>
-                              <!-- 追加・更新欄 -->
                               <table class="add-table_problem">
                                   <tr>
                                       <th>分野</th>
@@ -239,7 +238,6 @@ function hidden(){
                               </div>
                           </div>
                           <div class="div_add-table_habit"><div class="iventName_add">習慣化したい？</div>
-                              <!-- 追加・更新欄 -->
                               <table class="add-table_habit">
                                   <tr>
                                       <th class="th_habitflag">習慣化したい？</th>
@@ -279,88 +277,89 @@ function hidden(){
                   <div class="iventName_button"><i class="fab fa-github"></i>消す？？</div>
                   <form action={% url 'progress_habit_delete' id%} method="post">
 
-                  <!-- 完了確認欄 -->
-                  <table class="delete-table">
-                      <tr>
-                          <th>完了</th>
-                          <td>
-                              {% if obj.done1 %}
-                                  完了
-                              {% else %}
-                                  未完了
-                              {% endif %}
-                          </td>
-                      </tr>
-                      <tr>
-                          <th>評価</th>
-                          <td>
-                              {% if obj.review is None %}
-                                  -
-                              {% else %}
-                                  {{obj.review}}
-                              {% endif %}
-                          </td>
-                      </tr>
-                      <tr>
-                          <th>完了日</th>
-                          <td>
-                              {% if obj.completiondate is None %}
-                                  -
-                              {% else %}
-                                  {{obj.completiondate|date:"Y/n/j"}}
-                              {% endif %}
-                          </td>
-                      </tr>
-                      <tr>
-                          <th><i class="fas fa-child"></i></th>
-                          <td>
-                              {% if obj.motivation is None %}
-                                  -
-                              {% else %}
-                                  {{obj.motivation}}
-                              {% endif %}
-                          </td>
-                      </tr>
-
-                      <tr>
-                          <th>頻度</th>
-                          <td>
-                                {% if obj.frequency == 0 %}
-                                    やめたい
-                                {% elif obj.frequency == 1 %}
-                                    毎日
-                                {% elif obj.frequency == 2 %}
-                                    毎週
-                                {% elif obj.frequency == 3 %}
-                                    毎月
-                                {% endif %}
-                          </td>
-                      </tr>
-                      <tr>
-                          <th>区分</th>
-                          <td>{{obj.division}}</td>
-                      </tr>
-                      <tr>
-                          <th>分野</th>
-                          <td>{{obj.habitgenre1}}</td>
-                      </tr>
-                      <tr>
-                          <th>やりたいこと</th>
-                          <td>{{obj.habit | linebreaksbr}}</td>
-                      </tr>
-                      <tr>
-                          <th>メモ</th>
-                          <td>
-                              {% if obj.habitmemo == '' %}
-                                  -
-                              {% else %}
-                                  {{obj.habitmemo | linebreaksbr}}
-                              {% endif %}
-                          </td>
-                      </tr>
-                  </table>
-                  <div class="tr_input_delete_div">
-                      <input class="tr_input_delete" type="submit" value="削除">
+                  <div class="div_delete-table_problem"><div class="iventName_delete">悩み/解決</div>
+                      <table class="delete-table_problem">
+                          <tr>
+                              <th>分野</th>
+                              <td>{{obj.probgenre1}}</td>
+                          </tr>
+                          <tr>
+                              <th>項目</th>
+                              <td>{{obj.probgenre2}}</td>
+                          </tr>
+                          <tr>
+                              <th>悩み</th>
+                              <td>{{obj.problem}}</td>
+                          </tr>
+                          <tr>
+                              <th>解決策</th>
+                              <td>{{obj.habit}}</td>
+                          </tr>
+                          <tr>
+                              <th>url</th>
+                              <td>{{obj.proburl}}</td>
+                          </tr>
+                          <tr>
+                              <th>メモ</th>
+                              <td>{{obj.probmemo}}</td>
+                          </tr>
+                      </table>
+                      <div class="tr_input_delete_div">
+                          <input class="tr_input_delete" type="submit" value="削除">
+                      </div>
+                  </div>
+                  <div class="div_delete-table_habit"><div class="iventName_delete">悩み/解決</div>
+                      <table class="delete-table_habit">
+                          <tr>
+                              <th class="th_habitflag">習慣化したい？</th>
+                              <td>
+                                  {% if obj.habitflag %}
+                                      はい
+                                  {% else %}
+                                      いいえ
+                                  {% endif %}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th><i class="fas fa-child"></i></th>
+                              <td> {{obj.motivation}}</td>
+                          </tr>
+                          <tr>
+                              <th>頻度</th>
+                              <td>
+                                  {% if obj.frequency == 0 %}
+                                      やめたい
+                                  {% elif obj.frequency == 1 %}
+                                      毎日
+                                  {% elif obj.frequency == 2 %}
+                                      毎週
+                                  {% elif obj.frequency == 3 %}
+                                      毎月
+                                  {% endif %}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>区分</th>
+                              <td>{{obj.division}}</td>
+                          </tr>
+                          <tr>
+                              <th>分類</th>
+                              <td>{{obj.habitgenre1}}</td>
+                          </tr>
+                          <tr>
+                              <th>メモ</th>
+                              <td>
+                                  {% if obj.habitmemo == '' %}
+                                      -
+                                  {% else %}
+                                      {{obj.habitmemo | linebreaksbr}}
+                                  {% endif %}
+                              </td>
+                          </tr>
+                      </table>
+                      <div class="tr_input_delete_div">
+                          <input class="tr_input_delete" type="submit" value="削除">
+                      </div>
                   </div>
                       {% csrf_token %}
                   </form>

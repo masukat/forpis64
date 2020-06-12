@@ -166,13 +166,13 @@ table td {
   width: 269px;
   text-align: left;
 }
-[class^="add-table"]{
+[class^="add-table"],[class^="delete-table"]{
   width: 102%;
 }
-.div_add-table_problem, .div_add-table_habit{
+.div_add-table_problem, .div_add-table_habit, .div_delete-table_problem, .div_delete-table_habit{
   float: left;
 }
-.div_add-table_problem{
+.div_add-table_problem, .div_delete-table_problem{
   margin-right: 27px;
 }
 
@@ -180,6 +180,16 @@ table td {
     display: flex;
     height: 60px;
     margin-bottom: 67px;
+}
+
+/*【delete】*/
+[class^="delete-table"] td{
+  background: #fff;
+  border-color: #555555;
+  width: 254px;
+}
+[class^="delete-table"]{
+  color: #444444;
 }
 
 
@@ -264,6 +274,7 @@ table td {
 .th_habitflag{
     font-size: 12pt;
 }
+
 /*【必須項目】*/
 .th_habitgenre1, .th_habit, .th_motivation{
     position: relative;
@@ -397,7 +408,7 @@ table td {
         width: 101%;
     }
 
-    .div_add-table_problem {
+    .div_add-table_problem, .div_delete-table_problem {
         margin-right: 0px;
     }
     .add-table {
