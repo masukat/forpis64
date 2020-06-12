@@ -197,8 +197,8 @@ table td {
 #id_number{
     width: 48px;
 }
-#id_genre2{
-    width: 135px;
+#id_probgenre1, #id_probgenre2{
+    font-size: 12pt;
 }
 #id_problem, #id_proburl, #id_probmemo, #id_habit, #id_habitmemo{
     width: 266px;
@@ -214,7 +214,7 @@ table td {
 
 /*【check】*/
 .checkbox{
-    margin-left: -67px;
+    margin-left: -149px;
 }
 /*【やりたいことリスト】*/
 .stoprow, .dayrow, .weekrow, .monthrow{
