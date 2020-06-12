@@ -9,95 +9,56 @@
     <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/progress_table.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/habit.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+    <script type="text/javascript" src="{% static 'forpis/js/rowspanizer.js' %}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script>
-        $( function() {
-            // 日付は、年-月-日 の形式でお願いする。
-            let dateFormat = 'yy-mm-dd';
-            $('#id_completiondate').datepicker({
-            dateFormat: dateFormat
-            });
-        } );
-    </script>
 </head>
 <body>
 <script>
-    window.onload = function(){
-        //もしスマホなら最初は非表示
-        if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
-            hidden();
-        }else{
-            AllChecked();
-        }
-        //自動補完をoff
-        $('form').attr('autocomplete', 'off');
-        //項目「やめたい」をcheckedに
-        document.getElementById("tab-two").checked = true;
-        //ハンバーガーメニュー
-        (function($) {
-            var $body   = $('body');
-            var $btn   = $('.toggle_btn');
-            var $mask  = $('#mask');
-            var open   = 'open'; // class
-            // menu open close
-            $btn.on( 'click', function() {
-              if ( ! $body.hasClass( open ) ) {
-                $body.addClass( open );
-              } else {
-                $body.removeClass( open );
-              }
-            });
-            // mask close
-            $mask.on('click', function() {
-              $body.removeClass( open );
-            });
-          } )(jQuery);
-    }
-    function AllChecked(){
-        document.querySelectorAll('.checkbox input').forEach(function(input){
-            input.checked = true;
-        });
-    }
-    //最初に隠しておくため
-    //1_やりたいことリスト
-    //2_やったことリスト
-    //3_勉強
-    //4_習慣
-    //5_本
-    function hidden(){
-        var array = ["delete","edit","division","habitgenre1","habitmemo","completiondate","probgenre1","probgenre2","probmemo"];
-            for(var k=1;k<6;k++){
-                for(var j=0;j<array.length;j++){
-                    var id = array[j] + "_display_" + k;
-                    var obj = array[j] + "_check_" + k;
-                    var CELL = document.getElementById(id);
-                    if(CELL === null) {
+window.onload = function(){
+    //ハンバーガメニュー
+    hamburger();
+    //自動補完をoff
+    autoCompletion();
 
-                    }else{
-                        try{
-                            var TABLE = CELL.parentNode.parentNode.parentNode;
-                            for(var i=0;TABLE.rows[i];i++) {
-                                TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
-                            }
-                        }catch{
+    //もしスマホなら最初は非表示
+    if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
+        hidden();
+    }else{
+        //セルを動的に結合
+        rowspanizer();
+        AllChecked();
+    }
 
+    document.getElementById("tab-two").checked = true;
+}
+
+function hidden(){
+    var array = ["delete","edit","division","habitgenre1","habitmemo","completiondate","probgenre1","probgenre2","probmemo"];
+        for(var k=1;k<6;k++){
+            for(var j=0;j<array.length;j++){
+                var id = array[j] + "_display_" + k;
+                var obj = array[j] + "_check_" + k;
+                var CELL = document.getElementById(id);
+                if(CELL === null) {
+
+                }else{
+                    try{
+                        var TABLE = CELL.parentNode.parentNode.parentNode;
+                        for(var i=0;TABLE.rows[i];i++) {
+                            TABLE.rows[i].cells[CELL.cellIndex].style.display = (document.getElementById(obj).checked) ? '' : 'none';
                         }
+                    }catch{
+
                     }
                 }
             }
-    }
-    //checkboxのcheckがついたら表示
-    function checkbox_cell( obj,id ){
-        var CELL = document.getElementById(id);
-        var TABLE = CELL.parentNode.parentNode.parentNode;
-        for(var i=0;TABLE.rows[i];i++) {
-            TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
         }
-    }
+}
+
 </script>
 <div class="body">
     <div class="body_wrap">
@@ -106,7 +67,7 @@
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_summary' %}'">概要</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'wannado' %}'">⑴やりたいこと</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_earn' %}'">⑴稼ぐ力</button>
-            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑵習慣</button>
+            <button class="tab-checked" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_habit' %}'">⑵習慣/悩み</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relief' %}'">⑵癒し</button>
             <button class="tab" id="TAB-01_button" type="button" onclick="location.href='{% url 'progress_relate' %}'">⑶感謝</button>
         </div>
@@ -235,176 +196,176 @@
           </div>
 
 <!-- 追加・更新・削除画面 ----------------------------------------------------------------------------------------------------------------------------------------->
-                      <div class="formtable">
-                          <!-- 追加・更新画面 -->
-                          {% if delete_flag == 0 %}
-                              {% if id == 0 %}
-                                  <form action="{% url 'progress_habit' %}" method="post">
-                              {% elif id > 0 %}
-                                  <div class="return_button_update_div"><a href={% url 'progress_habit' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
-                                  <div class="iventName_button"><i class="fab fa-github"></i>更新</div>
-                                  <form action="{% url 'progress_habit_edit' id %}" method="post">
-                              {% endif %}
-                                      <div class="div_add-table_problem"><div class="iventName_add">悩み/解決</div>
-                                          <!-- 追加・更新欄 -->
-                                          <table class="add-table_problem">
-                                              <tr>
-                                                  <th>分野</th>
-                                                  <td>{{form.probgenre1}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>項目</th>
-                                                  <td>{{form.probgenre2}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>悩み</th>
-                                                  <td>{{form.problem}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th class="th_habit">解決策<span class="must_habit">必須</span></th>
-                                                  <td>{{form.habit}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>url</th>
-                                                  <td>{{form.proburl}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>メモ</th>
-                                                  <td>{{form.probmemo}}</td>
-                                              </tr>
-                                          </table>
-                                          <div class="tr_input_div">
-                                              <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
-                                          </div>
-                                      </div>
-                                      <div class="div_add-table_habit"><div class="iventName_add">習慣化したい？</div>
-                                          <!-- 追加・更新欄 -->
-                                          <table class="add-table_habit">
-                                              <tr>
-                                                  <th class="th_habitflag">習慣化したい？</th>
-                                                  <td>{{form.habitflag}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th><i class="fas fa-child"></i></th>
-                                                  <td>{{form_motivation.motivation}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>頻度</th>
-                                                  <td>{{form_frequency.frequency}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>区分</th>
-                                                  <td>{{form_division.division}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>分類</th>
-                                                  <td>{{form_habitgenre1.habitgenre1}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <th>メモ</th>
-                                                  <td>{{form.habitmemo}}</td>
-                                              </tr>
-                                          </table>
-                                          <div class="tr_input_div">
-                                              <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
-                                          </div>
-                                      </div>
-                                          {% csrf_token %}
-                                  </form>
-
-                          <!-- 削除画面(データ表示) -->
-                          {% elif delete_flag == 1 %}
-                              <div class="return_button_delete_div"><a href={% url 'progress_habit' %}><button class="return_button_delete" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
-                              <div class="iventName_button"><i class="fab fa-github"></i>消す？？</div>
-                              <form action={% url 'progress_habit_delete' id%} method="post">
-
-                              <!-- 完了確認欄 -->
-                              <table class="delete-table">
-                                  <tr>
-                                      <th>完了</th>
-                                      <td>
-                                          {% if obj.done1 %}
-                                              完了
-                                          {% else %}
-                                              未完了
-                                          {% endif %}
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <th>評価</th>
-                                      <td>
-                                          {% if obj.review is None %}
-                                              -
-                                          {% else %}
-                                              {{obj.review}}
-                                          {% endif %}
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <th>完了日</th>
-                                      <td>
-                                          {% if obj.completiondate is None %}
-                                              -
-                                          {% else %}
-                                              {{obj.completiondate|date:"Y/n/j"}}
-                                          {% endif %}
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <th><i class="fas fa-child"></i></th>
-                                      <td>
-                                          {% if obj.motivation is None %}
-                                              -
-                                          {% else %}
-                                              {{obj.motivation}}
-                                          {% endif %}
-                                      </td>
-                                  </tr>
-
-                                  <tr>
-                                      <th>頻度</th>
-                                      <td>
-                                            {% if obj.frequency == 0 %}
-                                                やめたい
-                                            {% elif obj.frequency == 1 %}
-                                                毎日
-                                            {% elif obj.frequency == 2 %}
-                                                毎週
-                                            {% elif obj.frequency == 3 %}
-                                                毎月
-                                            {% endif %}
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <th>区分</th>
-                                      <td>{{obj.division}}</td>
-                                  </tr>
+          <div class="formtable">
+              <!-- 追加・更新画面 -->
+              {% if delete_flag == 0 %}
+                  {% if id == 0 %}
+                      <form action="{% url 'progress_habit' %}" method="post">
+                  {% elif id > 0 %}
+                      <div class="return_button_update_div"><a href={% url 'progress_habit' %}><button class="return_button_update" type="button"><i class="fas fa-arrow-circle-left"></i> 追加画面へ戻る</button></a></div>
+                      <div class="iventName_button"><i class="fab fa-github"></i>更新</div>
+                      <form action="{% url 'progress_habit_edit' id %}" method="post">
+                  {% endif %}
+                          <div class="div_add-table_problem"><div class="iventName_add">悩み/解決</div>
+                              <!-- 追加・更新欄 -->
+                              <table class="add-table_problem">
                                   <tr>
                                       <th>分野</th>
-                                      <td>{{obj.habitgenre1}}</td>
+                                      <td>{{form.probgenre1}}</td>
                                   </tr>
                                   <tr>
-                                      <th>やりたいこと</th>
-                                      <td>{{obj.habit | linebreaksbr}}</td>
+                                      <th>項目</th>
+                                      <td>{{form.probgenre2}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>悩み</th>
+                                      <td>{{form.problem}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th class="th_habit">解決策<span class="must_habit">必須</span></th>
+                                      <td>{{form.habit}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>url</th>
+                                      <td>{{form.proburl}}</td>
                                   </tr>
                                   <tr>
                                       <th>メモ</th>
-                                      <td>
-                                          {% if obj.habitmemo == '' %}
-                                              -
-                                          {% else %}
-                                              {{obj.habitmemo | linebreaksbr}}
-                                          {% endif %}
-                                      </td>
+                                      <td>{{form.probmemo}}</td>
                                   </tr>
                               </table>
-                              <div class="tr_input_delete_div">
-                                  <input class="tr_input_delete" type="submit" value="削除">
+                              <div class="tr_input_div">
+                                  <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
                               </div>
-                                  {% csrf_token %}
-                              </form>
-                          {% endif %}
-                      </div>
+                          </div>
+                          <div class="div_add-table_habit"><div class="iventName_add">習慣化したい？</div>
+                              <!-- 追加・更新欄 -->
+                              <table class="add-table_habit">
+                                  <tr>
+                                      <th class="th_habitflag">習慣化したい？</th>
+                                      <td>{{form.habitflag}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th><i class="fas fa-child"></i></th>
+                                      <td>{{form_motivation.motivation}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>頻度</th>
+                                      <td>{{form_frequency.frequency}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>区分</th>
+                                      <td>{{form_division.division}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>分類</th>
+                                      <td>{{form_habitgenre1.habitgenre1}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>メモ</th>
+                                      <td>{{form.habitmemo}}</td>
+                                  </tr>
+                              </table>
+                              <div class="tr_input_div">
+                                  <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                              </div>
+                          </div>
+                              {% csrf_token %}
+                      </form>
+
+              <!-- 削除画面(データ表示) -->
+              {% elif delete_flag == 1 %}
+                  <div class="return_button_delete_div"><a href={% url 'progress_habit' %}><button class="return_button_delete" type="button"><i class="fas fa-arrow-circle-left"></i> 消さない</button></a></div>
+                  <div class="iventName_button"><i class="fab fa-github"></i>消す？？</div>
+                  <form action={% url 'progress_habit_delete' id%} method="post">
+
+                  <!-- 完了確認欄 -->
+                  <table class="delete-table">
+                      <tr>
+                          <th>完了</th>
+                          <td>
+                              {% if obj.done1 %}
+                                  完了
+                              {% else %}
+                                  未完了
+                              {% endif %}
+                          </td>
+                      </tr>
+                      <tr>
+                          <th>評価</th>
+                          <td>
+                              {% if obj.review is None %}
+                                  -
+                              {% else %}
+                                  {{obj.review}}
+                              {% endif %}
+                          </td>
+                      </tr>
+                      <tr>
+                          <th>完了日</th>
+                          <td>
+                              {% if obj.completiondate is None %}
+                                  -
+                              {% else %}
+                                  {{obj.completiondate|date:"Y/n/j"}}
+                              {% endif %}
+                          </td>
+                      </tr>
+                      <tr>
+                          <th><i class="fas fa-child"></i></th>
+                          <td>
+                              {% if obj.motivation is None %}
+                                  -
+                              {% else %}
+                                  {{obj.motivation}}
+                              {% endif %}
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <th>頻度</th>
+                          <td>
+                                {% if obj.frequency == 0 %}
+                                    やめたい
+                                {% elif obj.frequency == 1 %}
+                                    毎日
+                                {% elif obj.frequency == 2 %}
+                                    毎週
+                                {% elif obj.frequency == 3 %}
+                                    毎月
+                                {% endif %}
+                          </td>
+                      </tr>
+                      <tr>
+                          <th>区分</th>
+                          <td>{{obj.division}}</td>
+                      </tr>
+                      <tr>
+                          <th>分野</th>
+                          <td>{{obj.habitgenre1}}</td>
+                      </tr>
+                      <tr>
+                          <th>やりたいこと</th>
+                          <td>{{obj.habit | linebreaksbr}}</td>
+                      </tr>
+                      <tr>
+                          <th>メモ</th>
+                          <td>
+                              {% if obj.habitmemo == '' %}
+                                  -
+                              {% else %}
+                                  {{obj.habitmemo | linebreaksbr}}
+                              {% endif %}
+                          </td>
+                      </tr>
+                  </table>
+                  <div class="tr_input_delete_div">
+                      <input class="tr_input_delete" type="submit" value="削除">
+                  </div>
+                      {% csrf_token %}
+                  </form>
+              {% endif %}
+          </div>
 
 <!-- 悩み解決リスト ------------------------------------------------------------------------------------------------------------------------------------------->
           <!-- 初期状態で列非表示 -->
@@ -417,7 +378,6 @@
               <div class="memo_check">
                   他項目:
                   <input type="checkbox" id="probgenre1_check_1" onclick="checkbox_cell(this,'probgenre1_display_1')">分野
-                  <input type="checkbox" id="probgenre2_check_1" onclick="checkbox_cell(this,'probgenre2_display_1')">項目
                   <input type="checkbox" id="probmemo_check_1" onclick="checkbox_cell(this,'probmemo_display_1')">memo
               </div>
           </div>
@@ -436,26 +396,26 @@
                       </tr>
                   </thead>
                   <tbody class="edit-table_tbody_undone_solution">
-                  {% for habit in data_habit %}
-                  {% if habit.habitflag is False %}
+                  {% for problem in data_problem %}
+                  {% if problem.habitflag is False %}
                       <tr>
-                          <td class="delete"><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a></td>
-                          <td class="edit"><a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a></td>
-                          <td class="probgenre1">{{habit.probgenre1}}</td>
-                          <td class="probgenre2">{{habit.probgenre2}}</td>
-                          <td class="problem">{{habit.problem | linebreaksbr}}</td>
+                          <td class="delete"><a href={% url 'progress_habit_delete' problem.id%}><i class="far fa-trash-alt"></i></a></td>
+                          <td class="edit"><a href={% url 'progress_habit_edit' problem.id %}><i class="far fa-edit"></i></a></td>
+                          <td class="probgenre1">{{problem.probgenre1}}</td>
+                          <td class="probgenre2">{{problem.probgenre2}}</td>
+                          <td class="problem">{{problem.problem | linebreaksbr}}</td>
                           <td class="habit">
-                                              {% if habit.habiturllink == '' %}
-                                                  ー
+                                              {% if problem.proburl == '' %}
+                                                  {{problem.habit | linebreaksbr}}
                                               {% else %}
-                                                  <a href = {{habit.habiturllink}} target="_blank">{{habit.habit | linebreaksbr}}</a>
+                                                  <a href = {{problem.prourl}} target="_blank">{{problem.habit | linebreaksbr}}</a>
                                               {% endif %}
                           </td>
                           <td class="probmemo">
-                                            {% if habit.probmemo is None %}
+                                            {% if problem.probmemo is None %}
 
                                             {% else %}
-                                                {{habit.probmemo | linebreaksbr}}
+                                                {{problem.probmemo | linebreaksbr}}
                                             {% endif %}
                           </td>
                       </tr>
@@ -497,6 +457,7 @@
                   </thead>
                   <tbody class="edit-table_tbody_undone">
                   {% for habit in data_habit %}
+                  {% if habit.habitflag %}
                       <tr class=
                                 {% if habit.frequency == 0 %}"stoprow"
                                 {% elif habit.frequency == 1 %}"dayrow"
@@ -540,6 +501,7 @@
                                             {% endif %}
                           </td>
                       </tr>
+                  {% endif %}
                   {% endfor %}
                   </tbody>
               </table>

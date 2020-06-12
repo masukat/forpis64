@@ -137,7 +137,7 @@ button.return_button_delete{
 
 /*テーブル*/
 table {
-  width: 125%;
+  width: 137%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -230,7 +230,7 @@ table td {
     width: 77px;
 }
 [id^="probgenre2_display_"]{
-    width: 85px;
+    width: 97px;
 }
 [id^="problem_display_"], [id^="habit_display_"], [id^="probmemo_display_"]{
     width: 329px;
@@ -253,9 +253,6 @@ table td {
 }
 .habit{
     width: 360px;
-}
-.probgenre2{
-    font-size: 11pt;
 }
 .edit-table_undone {
     margin-bottom: 20px;
@@ -438,9 +435,23 @@ table td {
         height: 45px;
         margin-bottom: -3px;
     }
+
     [id^="motivation_display_"], [id^="review_display_"]{
         width: 32px;
     }
+    [id^="probgenre1_display_"]{
+        width: 11%;
+    }
+    [id^="probgenre2_display_"]{
+        width: 17%;
+    }
+    [id^="problem_display_"], #habit_display_1{
+        width: 27%;
+    }
+    .probgenre2{
+        font-size: 9pt;
+    }
+
     /*【必須項目】*/
     .must_habitgenre1, .must_habit, .must_motivation{
         left: 68px;
