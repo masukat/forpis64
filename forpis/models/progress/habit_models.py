@@ -43,6 +43,7 @@ HABITGENRE1_CHOISES=(
 PROBGENRE1_CHOISES=(
     ('生活','生活'),
     ('心','心'),
+    ('他','他'),
 )
 
 PROBGENRE2_CHOISES=(
@@ -53,6 +54,7 @@ PROBGENRE2_CHOISES=(
     ('人生最悪','人生最悪'),
     ('やる気','やる気'),
     ('睡眠','睡眠'),
+    ('他','他'),
 )
 
 class Habit_motivation(models.Model):
