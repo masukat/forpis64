@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 
 def progress_relate(request):
-    data_done_thanks = Relate.objects.all().order_by('thanksreview').reverse()
+    data_done_thanks = Relate.objects.all().order_by('name','thanksdate').reverse()
     data_undone_plan = Relate.objects.all().order_by('motivation','plangenre1','plan').reverse()
     data_done_plan = Relate.objects.all().order_by('completiondate','review').reverse()
 
