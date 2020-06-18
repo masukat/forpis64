@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 MOTIVATION_CHOISES=(
     ('6','6'),
@@ -49,22 +50,22 @@ DEADLINE_CHOISES=(
 )
 
 class WannaDo_motivation(models.Model):
-    motivation = models.IntegerField(blank=True,choices=MOTIVATION_CHOISES)
+    motivation = models.IntegerField(blank=True,default=5,choices=MOTIVATION_CHOISES)
 
 class WannaDo_genre1(models.Model):
-    genre1 = models.CharField(max_length=100,choices=GENRE1_CHOISES)
+    genre1 = models.CharField(max_length=100,default='勉強',choices=GENRE1_CHOISES)
 
 class WannaDo_genre2(models.Model):
     genre2 = models.CharField(max_length=100,blank=True,choices=GENRE2_CHOISES)
 
 class WannaDo_deadline(models.Model):
-    deadline = models.IntegerField(blank=True,null=True,choices=DEADLINE_CHOISES)
+    deadline = models.IntegerField(blank=True,null=True,default=1,choices=DEADLINE_CHOISES)
 
 class WannaDo(models.Model):
     genre1 = models.CharField(max_length=100)
     genre2 = models.CharField(max_length=100,blank=True)
     plan = models.TextField()
-    plandate = models.DateField(null=True,blank=True)
+    plandate = models.DateField(null=True,blank=True,default=datetime.date.today)
     urllink = models.TextField(blank=True)
     tag1 = models.TextField(blank=True)
     tag2 = models.TextField(blank=True)
