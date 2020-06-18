@@ -11,6 +11,7 @@ body{
 /*アコーディオンメニュー*/
 .tablist{
   margin-top: 19px;
+  margin-bottom: 21px;
 }
 .cp_actab {
 	position: relative;
@@ -471,7 +472,7 @@ td.deadline{
     }
     .iventName_add, .iventName_button {
         font-size: 14pt;
-        margin-left: 0;
+        margin-left: 61px;
     }
     /*【タブ】*/
     .tab-checked, .tab {
