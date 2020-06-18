@@ -407,7 +407,7 @@ td.deadline{
     width: 43px;
 }
 [id^="genre1_display_"]{
-    width: 56px;
+    width: 76px;
 }
 [id^="genre2_display_"]{
     width: 80px;
@@ -418,12 +418,11 @@ td.deadline{
 [id^="deadline_display_"]{
     width: 73px;
 }
-.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number{
-    text-align: center;
+[id^="completiondate_display_"]{
+    width: 8%;
 }
-.completiondate{
-  width: 136px;
-  text-align: right;
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number, .completiondate{
+    text-align: center;
 }
 .habit{
     width: 360px;
@@ -546,7 +545,7 @@ td.deadline{
         font-size: 11pt;
     }
     .cp_actab input:checked ~ .cp_actab-content {
-        max-height: 38em;
+        max-height: 50em;
     }
 
     /*【リスト】*/
@@ -653,6 +652,9 @@ td.deadline{
     }
     #id_motivation {
         width: 48px;
+    }
+    #id_plandate{
+        font-size: 11pt;
     }
     #id_motivation, #id_deadline, #id_genre1, #id_genre2, #id_plan, #id_tag1, #id_urllink, #id_completiondate{
         font-size: 10pt;
