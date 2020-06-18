@@ -236,11 +236,14 @@ table td {
 [id^="motivation_display_"], [id^="review_display_"]{
     width: 43px;
 }
+[id^="delete_display_"], [id^="edit_display_"] {
+    width: 5%;
+}
 [id^="probgenre1_display_"]{
     width: 77px;
 }
 [id^="probgenre2_display_"]{
-    width: 97px;
+    width: 105px;
 }
 [id^="problem_display_"], [id^="habit_display_"], [id^="probmemo_display_"]{
     width: 329px;
