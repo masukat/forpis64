@@ -5,11 +5,13 @@ from ..forms.progress.wannado_forms import WannaDoForm,WannaDoForm_motivation,Wa
 
 def wannado(request):
     data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_undone_goal = WannaDo.objects.all().order_by('plandate')
     data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
     params = {
         'data_undone':data_undone,
+        'data_undone_goal':data_undone_goal,
         'data_genre1':data_genre1,
         'data_done':data_done,
         'form':WannaDoForm(),
@@ -37,6 +39,7 @@ def wannado(request):
 
 def wannado_edit(request,num):
     data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_undone_goal = WannaDo.objects.all().order_by('plandate')
     data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
@@ -76,6 +79,7 @@ def wannado_edit(request,num):
         return redirect(to='/forpis/progress/wannado')
     params = {
         'data_undone':data_undone,
+        'data_undone_goal':data_undone_goal,
         'data_genre1':data_genre1,
         'data_done':data_done,
         'form':WannaDoForm(instance=obj),
@@ -90,6 +94,7 @@ def wannado_edit(request,num):
 
 def wannado_delete(request,num):
     data_undone = WannaDo.objects.all().order_by('genre1','deadline')
+    data_undone_goal = WannaDo.objects.all().order_by('plandate')
     data_genre1 = WannaDo.objects.all().order_by('deadline','motivation','genre2')
     data_done = WannaDo.objects.all().order_by('completiondate','review').reverse()
 
@@ -99,6 +104,7 @@ def wannado_delete(request,num):
         return redirect(to='/forpis/progress/wannado')
     params = {
         'data_undone':data_undone,
+        'data_undone_goal':data_undone_goal,
         'data_genre1':data_genre1,
         'data_done':data_done,
         'obj':wannado,
