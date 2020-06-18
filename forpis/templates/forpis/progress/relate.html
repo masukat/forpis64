@@ -9,21 +9,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/progress_table.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'forpis/css/progress/relate.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
-    <script type="text/javascript" src="{% static 'forpis/js/rowspanizer.js' %}" /></script>
+    <script type="text/javascript" src="{% static 'forpis/js/common.js' %}" /></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script>
-        $( function() {
-            // 日付は、年-月-日 の形式でお願いする。
-            let dateFormat = 'yy-mm-dd';
-            $('#id_thanksdate').datepicker({
-            dateFormat: dateFormat
-            });
-        } );
-    </script>
 </head>
 <body>
 <script>
@@ -32,7 +23,8 @@
         hamburger();
         //自動補完をoff
         autoCompletion();
-
+        //カレンダー機能
+        calendar();
         //もしスマホなら最初は非表示
         if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
             hidden();
@@ -43,6 +35,16 @@
         }
     }
 
+    function calendar(){
+        // 日付は、年-月-日 の形式でお願いする。
+        var array = ["#id_thanksdate","#id_completiondate","#id_plandate"];
+            for(var j=0;j<array.length;j++){
+                let dateFormat = 'yy-mm-dd';
+                $(array[j]).datepicker({
+                    dateFormat: dateFormat
+                });
+            }
+    }
     //最初に隠しておくため
     function hidden(){
         var array = ["delete","edit","thanksgenre1","thanksdate","thanksreview","thanksmemo","plangenre1","plandate","motivation","planmemo"];
@@ -390,7 +392,7 @@
                                               {% if thanks.thanksurllink == '' %}
                                                   {{thanks.thanks}}
                                               {% else %}
-                                                  <a href="{{thanks.thanksurllink}}" target="_blank">{{thanks.thanks}}</a>
+                                                  <a href="{{thanks.thanksurllink}}" target="_blank">{{thanks.thanks | linebreaksbr}}</a>
                                               {% endif %}
                             </td>
                             <td class="thanksmemo">
@@ -472,7 +474,7 @@
                                               {% if plan.planurllink == '' %}
                                                   {{plan.plan}}
                                               {% else %}
-                                                  <a href="{{plan.planurllink}}" target="_blank">{{plan.plan}}</a>
+                                                  <a href="{{plan.planurllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
                                               {% endif %}
                             </td>
                             <td class="planmemo">
