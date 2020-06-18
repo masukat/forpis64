@@ -86,7 +86,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and habit.motivation == 5 and '意思' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -94,7 +94,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and habit.motivation == 5 and '喧嘩' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -102,7 +102,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and habit.motivation == 5 and '行動' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -110,7 +110,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 0 and habit.motivation == 5 and not '意思' in habit.habitgenre1 and not '喧嘩' in habit.habitgenre1 and not '行動' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -126,7 +126,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and '行動' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -134,7 +134,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and '向上' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -142,7 +142,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and '意思' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -150,7 +150,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and '喧嘩' in habit.habitgenre1 %}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -158,7 +158,7 @@
                               {% for habit in data_habit %}
                                   <ul>
                                       {% if habit.frequency == 1 and habit.motivation == 5 and not '意思' in habit.habitgenre1 and not '喧嘩' in habit.habitgenre1 and not '行動' in habit.habitgenre1 and not '向上' in habit.habitgenre1　%}
-                                          <li >{{habit.habit | linebreaksbr}}</li>
+                                          <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                                       {% endif %}
                                   </ul>
                               {% endfor %}
@@ -172,7 +172,7 @@
                       {% for habit in data_habit %}
                           <ul>
                               {% if habit.frequency == 2 and habit.motivation == 5 %}
-                                  <li >{{habit.habit | linebreaksbr}}</li>
+                                  <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                               {% endif %}
                           </ul>
                       {% endfor %}
@@ -185,7 +185,7 @@
                       {% for habit in data_habit %}
                           <ul>
                               {% if habit.frequency == 3 and habit.motivation == 5 %}
-                                  <li >{{habit.habit | linebreaksbr}}</li>
+                                  <li ><a href={% url 'progress_habit_delete' habit.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'progress_habit_edit' habit.id %}><i class="far fa-edit"></i></a>:{{habit.habit | linebreaksbr}}</li>
                               {% endif %}
                           </ul>
                       {% endfor %}
