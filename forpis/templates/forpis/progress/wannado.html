@@ -353,7 +353,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -363,7 +363,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -374,7 +374,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -384,7 +384,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -395,7 +395,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -405,7 +405,7 @@
                               {% for plan in data_undone_goal %}
                               {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>{{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}

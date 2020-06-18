@@ -382,8 +382,8 @@ td.deadline{
 #id_plan, #id_tag1{
     height: 88px;
 }
-#id_deadline, #id_completiondate, #id_plandate, #id_genre1, #id_genre2{
-    width: 100px;
+#id_completiondate, #id_deadline, #id_plandate, #id_genre1, #id_genre2{
+    width: 102px;
 }
 
 
@@ -657,15 +657,12 @@ td.deadline{
     #id_plandate{
         font-size: 11pt;
     }
-    #id_motivation, #id_deadline, #id_genre1, #id_genre2, #id_plan, #id_tag1, #id_urllink, #id_completiondate{
+    #id_completiondate, #id_plandate, #id_motivation, #id_deadline, #id_genre1, #id_genre2, #id_plan, #id_tag1, #id_urllink{
         font-size: 10pt;
         font-family: monospace;
     }
     #id_plan, #id_tag1, #id_urllink {
         width: 177px;
-    }
-    #id_completiondate{
-        width: 132px;
     }
     [id^="motivation_display_"], [id^="review_display_"]{
         width: 32px;
