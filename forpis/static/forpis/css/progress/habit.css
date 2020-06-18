@@ -248,6 +248,9 @@ table td {
 [id^="problem_display_"], [id^="habit_display_"], [id^="probmemo_display_"]{
     width: 329px;
 }
+[id^="frequency_display_"], [id^="division_display_"]{
+    width: 5%;
+}
 #division_display_1, #number_display_1{
     width: 50px;
 }
