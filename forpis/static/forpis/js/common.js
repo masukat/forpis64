@@ -23,6 +23,22 @@ function autoCompletion(){
     $('form').attr('autocomplete', 'off');
 }
 
+
+function AllChecked(){
+    document.querySelectorAll('.checkbox input').forEach(function(input){
+        input.checked = true;
+    });
+}
+
+function checkbox_cell( obj,id ){
+    var CELL = document.getElementById(id);
+    var TABLE = CELL.parentNode.parentNode.parentNode;
+    for(var i=0;TABLE.rows[i];i++) {
+        TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
+    }
+}
+
+
 function rowspanizer(){
     /*!
     * jQuery Rowspanizer Plugin v0.1
@@ -37,18 +53,4 @@ function rowspanizer(){
 
 
     $('table').rowspanizer({columns: [2]});
-}
-
-function AllChecked(){
-    document.querySelectorAll('.checkbox input').forEach(function(input){
-        input.checked = true;
-    });
-}
-
-function checkbox_cell( obj,id ){
-    var CELL = document.getElementById(id);
-    var TABLE = CELL.parentNode.parentNode.parentNode;
-    for(var i=0;TABLE.rows[i];i++) {
-        TABLE.rows[i].cells[CELL.cellIndex].style.display = (obj.checked) ? '' : 'none';
-    }
 }
