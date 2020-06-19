@@ -468,6 +468,9 @@ table td {
     .probgenre2{
         font-size: 9pt;
     }
+    [id^="frequency_display_"], [id^="division_display_"] {
+        width: 13%;
+    }
 
     /*【必須項目】*/
     .must_habitgenre1, .must_habit, .must_motivation{
