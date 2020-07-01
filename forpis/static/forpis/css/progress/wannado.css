@@ -331,6 +331,14 @@ td.deadline{
 .nextyearrow{
   background: #AAAAAA;
 }
+.edit-table_tbody_done{
+  background-color: #AEFFBD;
+  color: #444444;
+}
+.goaldonerow{
+  background-color: #EDFFBE;
+  vertical-align: top;
+}
 
 /*【delete】*/
 .delete-table th{
@@ -339,8 +347,8 @@ td.deadline{
 
 /*【add】*/
 .add-table_done {
-  height: 96px;
-  margin-bottom: 20px;
+  height: 76px;
+  margin-bottom: 16px;
 }
 .add-table_done tr td, .add-table tr td{
   border-color: white;
@@ -383,7 +391,7 @@ td.deadline{
     height: 88px;
 }
 #id_completiondate, #id_deadline, #id_plandate, #id_genre1, #id_genre2{
-    width: 102px;
+    width: 48%;
 }
 
 
@@ -413,16 +421,22 @@ td.deadline{
 [id^="genre2_display_"]{
     width: 80px;
 }
+#genre2_display_4{
+    width: 91px;
+}
 [id^="tag1_display_"]{
     width: 370px;
 }
 [id^="deadline_display_"]{
     width: 73px;
 }
-[id^="completiondate_display_"]{
+[id^="plandate_display_"], [id^="completiondate_display_"]{
     width: 8%;
 }
-.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number, .completiondate{
+#plandate_display_4, #completiondate_display_4 {
+    width: 6%;
+}
+.delete, .done, .motivation, .review, .genre1, .edit, .frequency, .division, .number, .completiondate, .plandate{
     text-align: center;
 }
 .habit{
@@ -454,6 +468,11 @@ td.deadline{
 }
 .must_plan{
     bottom: 18px;
+}
+
+.tr_input_div {
+    margin-bottom: 18px;
+    margin-top: -11px;
 }
 
 /*------------------------------------------*

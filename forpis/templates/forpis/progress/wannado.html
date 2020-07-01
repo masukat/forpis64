@@ -118,20 +118,20 @@
                         <li class="genre_li">生きる!ための勉強</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -139,20 +139,20 @@
                         <li class="genre_li">読みたい本</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -160,20 +160,20 @@
                         <li class="genre_li">趣味</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 6 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -192,11 +192,11 @@
                         <li class="genre_li">生きる!ための勉強</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -204,11 +204,11 @@
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -217,11 +217,11 @@
                         <li class="genre_li">読みたい本</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -229,11 +229,11 @@
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -242,11 +242,11 @@
                         <li class="genre_li">趣味</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -254,11 +254,11 @@
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.done is False %}
                               {% if plan.deadline == 3 or plan.deadline == 4 or plan.deadline == 5 %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
                               {% endif %}
                               {% endif %}
@@ -278,20 +278,28 @@
                         <li class="genre_li">生きる!ための勉強</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -299,20 +307,28 @@
                         <li class="genre_li">読みたい本</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -320,20 +336,28 @@
                         <li class="genre_li">趣味</li>
                           <div class="li_goal">
                             目標：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
                           </div>
                           <div class="li_todo">
                             やること：
-                              {% for plan in data_undone %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 3 and plan.done is False %}
+                              {% for plan in data_undone_goal %}
+                              {% if '趣味' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and plan.deadline == 3 and plan.done is False %}
                                 <ul>
-                                  <li>{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -351,9 +375,13 @@
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone_goal %}
-                              {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '勉強' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1　%}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -361,9 +389,13 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone_goal %}
-                              {% if '勉強' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1 %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -372,9 +404,13 @@
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone_goal %}
-                              {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1 %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -382,9 +418,13 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone_goal %}
-                              {% if '本' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1 %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -393,9 +433,13 @@
                           <div class="li_goal">
                             目標：
                               {% for plan in data_undone_goal %}
-                              {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '趣味' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1 %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -403,9 +447,13 @@
                           <div class="li_todo">
                             やること：
                               {% for plan in data_undone_goal %}
-                              {% if '趣味' in plan.genre1 and not '目標' in plan.genre2 and plan.deadline == 1 and plan.done is False %}
+                              {% if '趣味' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 1 and plan.done is False and not 'ToDo:' in plan.tag1 %}
                                 <ul>
-                                  <li><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a> <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a> {{plan.plandate|date:"n/j"}}:{{plan.plan}}</li>
+                                  <li>
+                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                                    <a href={% url 'wannado_edit' plan.id%}><i class="far fa-edit"></i></a>
+                                    {{plan.plandate|date:"n/j"}}:{{plan.plan | linebreaksbr}}
+                                  </li>
                                 </ul>
                               {% endif %}
                               {% endfor %}
@@ -432,18 +480,17 @@
                             <!-- 完了確認欄 -->
                             <table class="add-table_done">
                                 <tr>
-                                    <th>完了</th>
-                                    <td>{{form.done}}</td>
+                                    <th>完了/完了日</th>
+                                    <td>{{form.done}} {{form.completiondate}}</td>
                                 </tr>
                                 <tr>
                                     <th>評価</th>
                                     <td>{{form.review}}</td>
                                 </tr>
-                                <tr>
-                                    <th>完了日</th>
-                                    <td>{{form.completiondate}}</td>
-                                </tr>
                             </table>
+                            <div class="tr_input_div">
+                                <input class="tr_input" type="submit" value={% if id == 0 %}"追加！"{% else %}"更新！"{% endif %}>
+                            </div>
                             <!-- 追加・更新欄 -->
                             <table class="add-table">
                                 <tr>
@@ -451,20 +498,12 @@
                                   <td>{{form_motivation.motivation}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="th_genre1">分野<span class="must_genre1">必須</span></th>
-                                    <td>{{form_genre1.genre1}}</td>
+                                    <th class="th_genre1">分野/項目<span class="must_genre1">必須</span></th>
+                                    <td>{{form_genre1.genre1}} {{form_genre2.genre2}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="th_genre2">項目<span class="must_genre2">必須</span></th>
-                                    <td>{{form_genre2.genre2}}</td>
-                                </tr>
-                                <tr>
-                                    <th>期限</th>
-                                    <td>{{form_deadline.deadline}}</td>
-                                </tr>
-                                <tr>
-                                    <th>予定日</th>
-                                    <td>{{form.plandate}}</td>
+                                    <th>期限/予定日</th>
+                                    <td>{{form_deadline.deadline}} {{form.plandate}}</td>
                                 </tr>
                                 <tr>
                                     <th class="th_plan">やりたいこと<span class="must_plan">必須</span></th>
@@ -592,6 +631,38 @@
                 {% endif %}
             </div>
 
+<!-- Request -------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="iventName"><i class="fas fa-carrot"></i>Request</div>
+                <div class="edit-table_undone" align="center">
+                    <table>
+                        <thead class="edit-table_thead_undone">
+                            <tr>
+                                <th id="delete_display_5">削除</th>
+                                <th id="edit_display_5">編集</th>
+                                <th id="plan_display_5">要望</th>
+                            </tr>
+                        </thead>
+                        <tbody class="edit-table_tbody_undone">
+                            {% for plan in data_genre1 %}
+                            {% if 'ToDo:' in plan.tag1 %}
+                            <tr>
+                                <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                <td class="plan">
+                                                  {% if plan.urllink == '' %}
+                                                      {{plan.plan | linebreaksbr}}
+                                                  {% else %}
+                                                      <a href="{{plan.urllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
+                                                  {% endif %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                 </div>
+
+
 <!-- 勉強リスト -------------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="iventName"><i class="fas fa-carrot"></i>勉強</div>
 
@@ -599,105 +670,105 @@
                     目標：
                     <ul class="goal_study_ul">
                       {% for plan in data_genre1 %}
-                          {% if '勉強' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                          {% if '勉強' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                               <li class="goal_study_li">
                                   <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
                                   <a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a>
-                                  {{plan.plan}}
+                                  {{plan.plan | linebreaksbr}}
                               </li>
                           {% endif %}
                       {% endfor %}
                     </ul>
                 </div>
 
-                      <!-- 初期状態で列非表示 -->
-                      <div class="checkbox">
-                          <div class="delete_edit_check">
-                              編集する？
-                              <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
-                              <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
-                          </div>
-                          <div class="tag1_check">
-                              他項目:
-                              <input type="checkbox" id="motivation_check_1" onclick="checkbox_cell(this,'motivation_display_1')">やる気
-                              <input type="checkbox" id="deadline_check_1" onclick="checkbox_cell(this,'deadline_display_1')">期限
-                              <input type="checkbox" id="genre2_check_1" onclick="checkbox_cell(this,'genre2_display_1')">項目
-                              <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell(this,'tag1_display_1')">メモ
-                          </div>
-                      </div>
-                      <!-- テーブル(idは非表示にするときに呼び出される) -->
-                      <div class="edit-table_undone" align="center">
-                          <table>
-                              <thead class="edit-table_thead_undone">
-                                  <tr>
-                                      <th id="delete_display_1">削除</th>
-                                      <th id="edit_display_1">編集</th>
-                                      <th id="motivation_display_1"><i class="fas fa-child"></th>
-                                      <th id="deadline_display_1">期限</th>
-                                      <th id="genre2_display_1">項目</th>
-                                      <th id="plan_display_1">やりたいこと</th>
-                                      <th id="tag1_display_1">メモ</th>
-                                  </tr>
-                              </thead>
-                              <tbody class="edit-table_tbody_undone">
-                              {% for plan in data_genre1 %}
-                                  {% if plan.done is False and '勉強' in plan.genre1 and not '目標' in plan.genre2 %}
-                                  <tr class=
-                                          {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
-                                          {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
-                                          {% else %}"thisyearrow"
-                                          {% endif %}>
-                                      <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
-                                      <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
-                                      <td class="motivation">
-                                                            {% if plan.motivation is None %}
-                                                                -
-                                                            {% else %}
-                                                                {{plan.motivation}}
-                                                            {% endif %}
-                                      </td>
-                                      <td class="deadline">
-                                                          {% if plan.deadline == 0 %}
-                                                              コロナ後
-                                                          {% elif plan.deadline == 1 %}
-                                                              今月
-                                                          {% elif plan.deadline == 2 %}
-                                                              5~6月
-                                                          {% elif plan.deadline == 3 %}
-                                                              7~9月
-                                                          {% elif plan.deadline == 4 %}
-                                                              10~12月
-                                                          {% elif plan.deadline == 5 %}
-                                                              今年
-                                                          {% elif plan.deadline == 6 %}
-                                                              3年以内
-                                                          {% elif plan.deadline == 7 %}
-                                                              5年以内
-                                                          {% elif plan.deadline == 8 %}
-                                                              いつか
-                                                          {% endif %}
-                                      </td>
-                                      <td class="genre2">{{plan.genre2}}</td>
-                                      <td class="plan">
-                                                        {% if plan.urllink == '' %}
-                                                            {{plan.plan}}
-                                                        {% else %}
-                                                            <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
-                                                        {% endif %}
-                                      </td>
-                                      <td class="tag1">
-                                                        {% if plan.tag1 is None %}
+                <!-- 初期状態で列非表示 -->
+                <div class="checkbox">
+                    <div class="delete_edit_check">
+                        編集する？
+                        <input type="checkbox" id="delete_check_1" onclick="checkbox_cell(this,'delete_display_1')">delete
+                        <input type="checkbox" id="edit_check_1" onclick="checkbox_cell(this,'edit_display_1')">edit
+                    </div>
+                    <div class="tag1_check">
+                        他項目:
+                        <input type="checkbox" id="motivation_check_1" onclick="checkbox_cell(this,'motivation_display_1')">やる気
+                        <input type="checkbox" id="deadline_check_1" onclick="checkbox_cell(this,'deadline_display_1')">期限
+                        <input type="checkbox" id="genre2_check_1" onclick="checkbox_cell(this,'genre2_display_1')">項目
+                        <input type="checkbox" id="tag1_check_1" onclick="checkbox_cell(this,'tag1_display_1')">メモ
+                    </div>
+                </div>
+                <!-- テーブル(idは非表示にするときに呼び出される) -->
+                <div class="edit-table_undone" align="center">
+                    <table>
+                        <thead class="edit-table_thead_undone">
+                            <tr>
+                                <th id="delete_display_1">削除</th>
+                                <th id="edit_display_1">編集</th>
+                                <th id="motivation_display_1"><i class="fas fa-child"></th>
+                                <th id="deadline_display_1">期限</th>
+                                <th id="genre2_display_1">項目</th>
+                                <th id="plan_display_1">やりたいこと</th>
+                                <th id="tag1_display_1">メモ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="edit-table_tbody_undone">
+                        {% for plan in data_genre1 %}
+                            {% if plan.done is False and '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' %}
+                            <tr class=
+                                    {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
+                                    {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
+                                    {% else %}"thisyearrow"
+                                    {% endif %}>
+                                <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                <td class="motivation">
+                                                      {% if plan.motivation is None %}
+                                                          -
+                                                      {% else %}
+                                                          {{plan.motivation}}
+                                                      {% endif %}
+                                </td>
+                                <td class="deadline">
+                                                    {% if plan.deadline == 0 %}
+                                                        コロナ後
+                                                    {% elif plan.deadline == 1 %}
+                                                        今月
+                                                    {% elif plan.deadline == 2 %}
+                                                        5~6月
+                                                    {% elif plan.deadline == 3 %}
+                                                        7~9月
+                                                    {% elif plan.deadline == 4 %}
+                                                        10~12月
+                                                    {% elif plan.deadline == 5 %}
+                                                        今年
+                                                    {% elif plan.deadline == 6 %}
+                                                        3年以内
+                                                    {% elif plan.deadline == 7 %}
+                                                        5年以内
+                                                    {% elif plan.deadline == 8 %}
+                                                        いつか
+                                                    {% endif %}
+                                </td>
+                                <td class="genre2">{{plan.genre2}}</td>
+                                <td class="plan">
+                                                  {% if plan.urllink == '' %}
+                                                      {{plan.plan | linebreaksbr}}
+                                                  {% else %}
+                                                      <a href="{{plan.urllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
+                                                  {% endif %}
+                                </td>
+                                <td class="tag1">
+                                                  {% if plan.tag1 is None %}
 
-                                                        {% else %}
-                                                            {{plan.tag1}}
-                                                        {% endif %}
-                                      </td>
-                                  </tr>
-                                  {% endif %}
-                              {% endfor %}
-                              </tbody>
-                          </table>
-                       </div>
+                                                  {% else %}
+                                                      {{plan.tag1 | linebreaksbr}}
+                                                  {% endif %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                 </div>
 
  <!-- 読みたい本リスト -------------------------------------------------------------------------------------------------------------------------------------------------->
              <div class="iventName"><i class="fas fa-carrot"></i>読みたい本</div>
@@ -706,105 +777,105 @@
                      目標：
                      <ul class="goal_book_ul">
                        {% for plan in data_genre1 %}
-                           {% if '本' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                           {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                                <li class="goal_book_li">
                                    <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
                                    <a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a>
-                                   {{plan.plan}}
+                                   {{plan.plan | linebreaksbr}}
                                </li>
                            {% endif %}
                        {% endfor %}
                      </ul>
                  </div>
 
-                       <!-- 初期状態で列非表示 -->
-                       <div class="checkbox">
-                           <div class="delete_edit_check">
-                               編集する？
-                               <input type="checkbox" id="delete_check_2" onclick="checkbox_cell(this,'delete_display_2')">delete
-                               <input type="checkbox" id="edit_check_2" onclick="checkbox_cell(this,'edit_display_2')">edit
-                           </div>
-                           <div class="tag1_check">
-                               他項目:
-                               <input type="checkbox" id="motivation_check_2" onclick="checkbox_cell(this,'motivation_display_2')">やる気
-                               <input type="checkbox" id="deadline_check_2" onclick="checkbox_cell(this,'deadline_display_2')">期限
-                               <input type="checkbox" id="genre2_check_2" onclick="checkbox_cell(this,'genre2_display_2')">項目
-                               <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell(this,'tag1_display_2')">メモ
-                           </div>
-                       </div>
-                       <!-- テーブル(idは非表示にするときに呼び出される) -->
-                       <div class="edit-table_undone" align="center">
-                           <table>
-                               <thead class="edit-table_thead_undone">
-                                   <tr>
-                                       <th id="delete_display_2">削除</th>
-                                       <th id="edit_display_2">編集</th>
-                                       <th id="motivation_display_2"><i class="fas fa-child"></th>
-                                       <th id="deadline_display_2">期限</th>
-                                       <th id="genre2_display_2">項目</th>
-                                       <th id="plan_display_2">やりたいこと</th>
-                                       <th id="tag1_display_2">メモ</th>
-                                   </tr>
-                               </thead>
-                               <tbody class="edit-table_tbody_undone">
-                               {% for plan in data_genre1 %}
-                                   {% if plan.done is False and '本' in plan.genre1 and not '目標' in plan.genre2 %}
-                                   <tr class=
-                                           {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
-                                           {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
-                                           {% else %}"thisyearrow"
-                                           {% endif %}>
-                                       <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
-                                       <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
-                                       <td class="motivation">
-                                                             {% if plan.motivation is None %}
-                                                                 -
-                                                             {% else %}
-                                                                 {{plan.motivation}}
-                                                             {% endif %}
-                                       </td>
-                                       <td class="deadline">
-                                                           {% if plan.deadline == 0 %}
-                                                               コロナ後
-                                                           {% elif plan.deadline == 1 %}
-                                                               今月
-                                                           {% elif plan.deadline == 2 %}
-                                                               5~6月
-                                                           {% elif plan.deadline == 3 %}
-                                                               7~9月
-                                                           {% elif plan.deadline == 4 %}
-                                                               10~12月
-                                                           {% elif plan.deadline == 5 %}
-                                                               今年
-                                                           {% elif plan.deadline == 6 %}
-                                                               3年以内
-                                                           {% elif plan.deadline == 7 %}
-                                                               5年以内
-                                                           {% elif plan.deadline == 8 %}
-                                                               いつか
-                                                           {% endif %}
-                                       </td>
-                                       <td class="genre2">{{plan.genre2}}</td>
-                                       <td class="plan">
-                                                         {% if plan.urllink == '' %}
-                                                             {{plan.plan}}
-                                                         {% else %}
-                                                             <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
-                                                         {% endif %}
-                                       </td>
-                                       <td class="tag1">
-                                                         {% if plan.tag1 is None %}
+                 <!-- 初期状態で列非表示 -->
+                 <div class="checkbox">
+                     <div class="delete_edit_check">
+                         編集する？
+                         <input type="checkbox" id="delete_check_2" onclick="checkbox_cell(this,'delete_display_2')">delete
+                         <input type="checkbox" id="edit_check_2" onclick="checkbox_cell(this,'edit_display_2')">edit
+                     </div>
+                     <div class="tag1_check">
+                         他項目:
+                         <input type="checkbox" id="motivation_check_2" onclick="checkbox_cell(this,'motivation_display_2')">やる気
+                         <input type="checkbox" id="deadline_check_2" onclick="checkbox_cell(this,'deadline_display_2')">期限
+                         <input type="checkbox" id="genre2_check_2" onclick="checkbox_cell(this,'genre2_display_2')">項目
+                         <input type="checkbox" id="tag1_check_2" onclick="checkbox_cell(this,'tag1_display_2')">メモ
+                     </div>
+                 </div>
+                 <!-- テーブル(idは非表示にするときに呼び出される) -->
+                 <div class="edit-table_undone" align="center">
+                     <table>
+                         <thead class="edit-table_thead_undone">
+                             <tr>
+                                 <th id="delete_display_2">削除</th>
+                                 <th id="edit_display_2">編集</th>
+                                 <th id="motivation_display_2"><i class="fas fa-child"></th>
+                                 <th id="deadline_display_2">期限</th>
+                                 <th id="genre2_display_2">項目</th>
+                                 <th id="plan_display_2">やりたいこと</th>
+                                 <th id="tag1_display_2">メモ</th>
+                             </tr>
+                         </thead>
+                         <tbody class="edit-table_tbody_undone">
+                         {% for plan in data_genre1 %}
+                             {% if plan.done is False and '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' %}
+                             <tr class=
+                                     {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
+                                     {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
+                                     {% else %}"thisyearrow"
+                                     {% endif %}>
+                                 <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                 <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                 <td class="motivation">
+                                                       {% if plan.motivation is None %}
+                                                           -
+                                                       {% else %}
+                                                           {{plan.motivation}}
+                                                       {% endif %}
+                                 </td>
+                                 <td class="deadline">
+                                                     {% if plan.deadline == 0 %}
+                                                         コロナ後
+                                                     {% elif plan.deadline == 1 %}
+                                                         今月
+                                                     {% elif plan.deadline == 2 %}
+                                                         5~6月
+                                                     {% elif plan.deadline == 3 %}
+                                                         7~9月
+                                                     {% elif plan.deadline == 4 %}
+                                                         10~12月
+                                                     {% elif plan.deadline == 5 %}
+                                                         今年
+                                                     {% elif plan.deadline == 6 %}
+                                                         3年以内
+                                                     {% elif plan.deadline == 7 %}
+                                                         5年以内
+                                                     {% elif plan.deadline == 8 %}
+                                                         いつか
+                                                     {% endif %}
+                                 </td>
+                                 <td class="genre2">{{plan.genre2}}</td>
+                                 <td class="plan">
+                                                   {% if plan.urllink == '' %}
+                                                       {{plan.plan | linebreaksbr}}
+                                                   {% else %}
+                                                       <a href="{{plan.urllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
+                                                   {% endif %}
+                                 </td>
+                                 <td class="tag1">
+                                                   {% if plan.tag1 is None %}
 
-                                                         {% else %}
-                                                             {{plan.tag1}}
-                                                         {% endif %}
-                                       </td>
-                                   </tr>
-                                   {% endif %}
-                               {% endfor %}
-                               </tbody>
-                           </table>
-                        </div>
+                                                   {% else %}
+                                                       {{plan.tag1 | linebreaksbr}}
+                                                   {% endif %}
+                                 </td>
+                             </tr>
+                             {% endif %}
+                         {% endfor %}
+                         </tbody>
+                     </table>
+                  </div>
 
 <!-- 趣味リスト -------------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="iventName"><i class="fas fa-carrot"></i>趣味</div>
@@ -813,192 +884,168 @@
                     目標：
                     <ul class="goal_hobby_ul">
                       {% for plan in data_genre1 %}
-                          {% if '趣味' in plan.genre1 and '目標' in plan.genre2 and plan.done is False %}
+                          {% if '趣味' in plan.genre1 and plan.genre2 == '目標' and plan.done is False %}
                               <li class="goal_hobby_li">
                                   <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
                                   <a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a>
-                                  {{plan.plan}}
+                                  {{plan.plan | linebreaksbr}}
                               </li>
                           {% endif %}
                       {% endfor %}
                     </ul>
                 </div>
 
-                      <!-- 初期状態で列非表示 -->
-                      <div class="checkbox">
-                          <div class="delete_edit_check">
-                              編集する？
-                              <input type="checkbox" id="delete_check_3" onclick="checkbox_cell(this,'delete_display_3')">delete
-                              <input type="checkbox" id="edit_check_3" onclick="checkbox_cell(this,'edit_display_3')">edit
-                          </div>
-                          <div class="tag1_check">
-                              他項目:
-                              <input type="checkbox" id="motivation_check_3" onclick="checkbox_cell(this,'motivation_display_3')">やる気
-                              <input type="checkbox" id="deadline_check_3" onclick="checkbox_cell(this,'deadline_display_3')">期限
-                              <input type="checkbox" id="genre2_check_3" onclick="checkbox_cell(this,'genre2_display_3')">項目
-                              <input type="checkbox" id="tag1_check_3" onclick="checkbox_cell(this,'tag1_display_3')">メモ
-                          </div>
-                      </div>
-                      <!-- テーブル(idは非表示にするときに呼び出される) -->
-                      <div class="edit-table_undone" align="center">
-                          <table>
-                              <thead class="edit-table_thead_undone">
-                                  <tr>
-                                      <th id="delete_display_3">削除</th>
-                                      <th id="edit_display_3">編集</th>
-                                      <th id="motivation_display_3"><i class="fas fa-child"></th>
-                                      <th id="deadline_display_3">期限</th>
-                                      <th id="genre2_display_3">項目</th>
-                                      <th id="plan_display_3">やりたいこと</th>
-                                      <th id="tag1_display_3">メモ</th>
-                                  </tr>
-                              </thead>
-                              <tbody class="edit-table_tbody_undone">
-                              {% for plan in data_genre1 %}
-                                  {% if plan.done is False and '趣味' in plan.genre1 and not '目標' in plan.genre2 %}
-                                  <tr class=
-                                          {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
-                                          {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
-                                          {% else %}"thisyearrow"
-                                          {% endif %}>
-                                      <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
-                                      <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
-                                      <td class="motivation">
-                                                            {% if plan.motivation is None %}
-                                                                -
-                                                            {% else %}
-                                                                {{plan.motivation}}
-                                                            {% endif %}
-                                      </td>
-                                      <td class="deadline">
-                                                          {% if plan.deadline == 0 %}
-                                                              コロナ後
-                                                          {% elif plan.deadline == 1 %}
-                                                              今月
-                                                          {% elif plan.deadline == 2 %}
-                                                              5~6月
-                                                          {% elif plan.deadline == 3 %}
-                                                              7~9月
-                                                          {% elif plan.deadline == 4 %}
-                                                              10~12月
-                                                          {% elif plan.deadline == 5 %}
-                                                              今年
-                                                          {% elif plan.deadline == 6 %}
-                                                              3年以内
-                                                          {% elif plan.deadline == 7 %}
-                                                              5年以内
-                                                          {% elif plan.deadline == 8 %}
-                                                              いつか
-                                                          {% endif %}
-                                      </td>
-                                      <td class="genre2">{{plan.genre2}}</td>
-                                      <td class="plan">
-                                                      {% if plan.urllink == '' %}
-                                                          {{plan.plan}}
+                <!-- 初期状態で列非表示 -->
+                <div class="checkbox">
+                    <div class="delete_edit_check">
+                        編集する？
+                        <input type="checkbox" id="delete_check_3" onclick="checkbox_cell(this,'delete_display_3')">delete
+                        <input type="checkbox" id="edit_check_3" onclick="checkbox_cell(this,'edit_display_3')">edit
+                    </div>
+                    <div class="tag1_check">
+                        他項目:
+                        <input type="checkbox" id="motivation_check_3" onclick="checkbox_cell(this,'motivation_display_3')">やる気
+                        <input type="checkbox" id="deadline_check_3" onclick="checkbox_cell(this,'deadline_display_3')">期限
+                        <input type="checkbox" id="genre2_check_3" onclick="checkbox_cell(this,'genre2_display_3')">項目
+                        <input type="checkbox" id="tag1_check_3" onclick="checkbox_cell(this,'tag1_display_3')">メモ
+                    </div>
+                </div>
+                <!-- テーブル(idは非表示にするときに呼び出される) -->
+                <div class="edit-table_undone" align="center">
+                    <table>
+                        <thead class="edit-table_thead_undone">
+                            <tr>
+                                <th id="delete_display_3">削除</th>
+                                <th id="edit_display_3">編集</th>
+                                <th id="motivation_display_3"><i class="fas fa-child"></th>
+                                <th id="deadline_display_3">期限</th>
+                                <th id="genre2_display_3">項目</th>
+                                <th id="plan_display_3">やりたいこと</th>
+                                <th id="tag1_display_3">メモ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="edit-table_tbody_undone">
+                        {% for plan in data_genre1 %}
+                            {% if plan.done is False and '趣味' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' %}
+                            <tr class=
+                                    {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
+                                    {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
+                                    {% else %}"thisyearrow"
+                                    {% endif %}>
+                                <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                <td class="motivation">
+                                                      {% if plan.motivation is None %}
+                                                          -
                                                       {% else %}
-                                                          <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
+                                                          {{plan.motivation}}
                                                       {% endif %}
-                                      </td>
-                                      <td class="tag1">
-                                                        {% if plan.tag1 is None %}
+                                </td>
+                                <td class="deadline">
+                                                    {% if plan.deadline == 0 %}
+                                                        コロナ後
+                                                    {% elif plan.deadline == 1 %}
+                                                        今月
+                                                    {% elif plan.deadline == 2 %}
+                                                        5~6月
+                                                    {% elif plan.deadline == 3 %}
+                                                        7~9月
+                                                    {% elif plan.deadline == 4 %}
+                                                        10~12月
+                                                    {% elif plan.deadline == 5 %}
+                                                        今年
+                                                    {% elif plan.deadline == 6 %}
+                                                        3年以内
+                                                    {% elif plan.deadline == 7 %}
+                                                        5年以内
+                                                    {% elif plan.deadline == 8 %}
+                                                        いつか
+                                                    {% endif %}
+                                </td>
+                                <td class="genre2">{{plan.genre2}}</td>
+                                <td class="plan">
+                                                {% if plan.urllink == '' %}
+                                                    {{plan.plan | linebreaksbr}}
+                                                {% else %}
+                                                    <a href="{{plan.urllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
+                                                {% endif %}
+                                </td>
+                                <td class="tag1">
+                                                  {% if plan.tag1 is None %}
 
-                                                        {% else %}
-                                                            {{plan.tag1}}
-                                                        {% endif %}
-                                      </td>
-                                  </tr>
-                                  {% endif %}
-                              {% endfor %}
-                              </tbody>
-                          </table>
-                       </div>
+                                                  {% else %}
+                                                      {{plan.tag1 | linebreaksbr}}
+                                                  {% endif %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                 </div>
 
 <!-- 完了リスト -------------------------------------------------------------------------------------------------------------------------------------------------->
-               <div class="iventName">【完了リスト】</div>
-                         <!-- 初期状態で列非表示 -->
-                         <div class="checkbox">
-                             <div class="delete_edit_check">
-                                 編集する？
-                                 <input type="checkbox" id="delete_check_4" onclick="checkbox_cell(this,'delete_display_4')">delete
-                                 <input type="checkbox" id="edit_check_4" onclick="checkbox_cell(this,'edit_display_4')">edit
-                             </div>
-                             <div class="tag1_check">
-                                 他項目:
-                                 <input type="checkbox" id="motivation_check_4" onclick="checkbox_cell(this,'motivation_display_4')">やる気
-                                 <input type="checkbox" id="deadline_check_4" onclick="checkbox_cell(this,'deadline_display_4')">期限
-                                 <input type="checkbox" id="genre2_check_4" onclick="checkbox_cell(this,'genre2_display_4')">項目
-                                 <input type="checkbox" id="tag1_check_4" onclick="checkbox_cell(this,'tag1_display_4')">メモ
-                             </div>
-                         </div>
-                         <!-- テーブル(idは非表示にするときに呼び出される) -->
-                         <div class="edit-table_undone" align="center">
-                             <table>
-                                 <thead class="edit-table_thead_undone">
-                                     <tr>
-                                         <th id="delete_display_4">削除</th>
-                                         <th id="edit_display_4">編集</th>
-                                         <th id="deadline_display_4">期限</th>
-                                         <th id="completiondate_display_4">完了日</th>
-                                         <th id="genre1_display_4">分野</th>
-                                         <th id="genre2_display_4">項目</th>
-                                         <th id="plan_display_4">やりたいこと</th>
-                                         <th id="tag1_display_4">メモ</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody class="edit-table_tbody_undone">
-                                 {% for plan in data_undone %}
-                                     {% if plan.done %}
-                                     <tr class=
-                                             {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
-                                             {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
-                                             {% else %}"thisyearrow"
-                                             {% endif %}>
-                                         <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
-                                         <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
-                                         <td class="deadline">
-                                                             {% if plan.deadline == 0 %}
-                                                                 コロナ後
-                                                             {% elif plan.deadline == 1 %}
-                                                                 今月
-                                                             {% elif plan.deadline == 2 %}
-                                                                 5~6月
-                                                             {% elif plan.deadline == 3 %}
-                                                                 7~9月
-                                                             {% elif plan.deadline == 4 %}
-                                                                 10~12月
-                                                             {% elif plan.deadline == 5 %}
-                                                                 今年
-                                                             {% elif plan.deadline == 6 %}
-                                                                 3年以内
-                                                             {% elif plan.deadline == 7 %}
-                                                                 5年以内
-                                                             {% elif plan.deadline == 8 %}
-                                                                 いつか
-                                                             {% endif %}
-                                         </td>
-                                         <td class="completiondate">{{plan.completiondate|date:"n/j"}}</td>
-                                         <td class="genre1">{{plan.genre1}}</td>
-                                         <td class="genre2">{{plan.genre2}}</td>
-                                         <td class="plan">
-                                                           {% if plan.urllink == '' %}
-                                                               {{plan.plan}}
-                                                           {% else %}
-                                                               <a href="{{plan.urllink}}" target="_blank">{{plan.plan}}</a>
-                                                           {% endif %}
-                                         </td>
-                                         <td class="tag1">
-                                                           {% if plan.tag1 is None %}
+           <div class="iventName">【完了リスト】</div>
 
-                                                           {% else %}
-                                                               {{plan.tag1}}
-                                                           {% endif %}
-                                         </td>
-                                     </tr>
-                                     {% endif %}
-                                 {% endfor %}
-                                 </tbody>
-                             </table>
-                          </div>
+                 <div class="checkbox">
+                     <div class="delete_edit_check">
+                         編集する？
+                         <input type="checkbox" id="delete_check_4" onclick="checkbox_cell(this,'delete_display_4')">delete
+                         <input type="checkbox" id="edit_check_4" onclick="checkbox_cell(this,'edit_display_4')">edit
+                     </div>
+                     <div class="tag1_check">
+                         他項目:
+                         <input type="checkbox" id="motivation_check_4" onclick="checkbox_cell(this,'motivation_display_4')">やる気
+                         <input type="checkbox" id="deadline_check_4" onclick="checkbox_cell(this,'deadline_display_4')">期限
+                         <input type="checkbox" id="genre2_check_4" onclick="checkbox_cell(this,'genre2_display_4')">項目
+                         <input type="checkbox" id="tag1_check_4" onclick="checkbox_cell(this,'tag1_display_4')">メモ
+                     </div>
+                 </div>
+                 <!-- テーブル(idは非表示にするときに呼び出される) -->
+                 <div class="edit-table_done" align="center">
+                     <table>
+                         <thead class="edit-table_thead_done">
+                             <tr>
+                                 <th id="delete_display_4">削除</th>
+                                 <th id="edit_display_4">編集</th>
+                                 <th id="plandate_display_4">予定日</th>
+                                 <th id="completiondate_display_4">完了日</th>
+                                 <th id="genre1_display_4">分野</th>
+                                 <th id="genre2_display_4">項目</th>
+                                 <th id="plan_display_4">やりたいこと</th>
+                                 <th id="tag1_display_4">メモ</th>
+                             </tr>
+                         </thead>
+                         <tbody class="edit-table_tbody_done">
+                         {% for plan in data_done %}
+                             {% if plan.done or plan.genre2 == '今月目標' %}
+                             <tr class={% if plan.genre2 == '今月目標' %}"goaldonerow"{% endif %}>
+                                 <td class="delete"><a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a></td>
+                                 <td class="edit"><a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a></td>
+                                 <td class="plandate">{{plan.plandate|date:"n/j"}}</td>
+                                 <td class="completiondate">{{plan.completiondate|date:"n/j"}}</td>
+                                 <td class="genre1">{{plan.genre1}}</td>
+                                 <td class="genre2">{{plan.genre2}}</td>
+                                 <td class="plan">
+                                                   {% if plan.urllink == '' %}
+                                                       {{plan.plan | linebreaksbr}}
+                                                   {% else %}
+                                                       <a href="{{plan.urllink}}" target="_blank">{{plan.plan | linebreaksbr}}</a>
+                                                   {% endif %}
+                                 </td>
+                                 <td class="tag1">
+                                                   {% if plan.tag1 is None %}
+
+                                                   {% else %}
+                                                       {{plan.tag1 | linebreaksbr}}
+                                                   {% endif %}
+                                 </td>
+                             </tr>
+                             {% endif %}
+                         {% endfor %}
+                         </tbody>
+                     </table>
+                  </div>
 
 <!-- ハンバーガーメニュー ----------------------------------------------------------------------------------------------------------------------------------------->
             <div id="navArea">
