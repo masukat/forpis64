@@ -734,6 +734,12 @@ td.deadline{
         font-size: 10pt;
         font-family: monospace;
     }
+    #id_genre1, #id_deadline{
+      width: 44%;
+    }
+    #id_completiondate, #id_plandate, #id_genre2{
+        width: 48%;
+    }
     #id_plan, #id_tag1, #id_urllink {
         width: 177px;
     }
