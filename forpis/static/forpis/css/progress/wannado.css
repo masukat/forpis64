@@ -762,10 +762,11 @@ td.deadline{
         left: 78px;
         bottom: 5px;
         font-size: 12px;
+        width: 12px;
     }
     .must_plan{
         bottom: 38px;
-        left: 81px;
+        left: 84px;
     }
     .checkbox {
         margin-left: 0px;
