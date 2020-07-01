@@ -91,6 +91,8 @@
                 <p>
                   {% for plan in data_done %}
                   {% if plan.genre2 == '今月目標' and plan.plandate|date:"n" == thismonth%}
+                      <a href={% url 'wannado_delete' plan.id%}><i class="far fa-trash-alt"></i></a>
+                      <a href={% url 'wannado_edit' plan.id %}><i class="far fa-edit"></i></a>
                        {{plan.plan | linebreaksbr}}
                   {% endif %}
                   {% endfor %}
@@ -460,11 +462,11 @@
                             <!-- 追加・更新欄 -->
                             <table class="add-table">
                                 <tr>
-                                  <th class="th_motivation"><i class="fas fa-child"></i><span class="must_motivation">必須</span></th>
+                                  <th><i class="fas fa-child"></i></th>
                                   <td>{{form_motivation.motivation}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="th_genre1">分野/項目<span class="must_genre1">必須</span></th>
+                                    <th class="th_genre1">分野/項目<span class="must_genre1">★</span></th>
                                     <td>{{form_genre1.genre1}} {{form_genre2.genre2}}</td>
                                 </tr>
                                 <tr>
@@ -472,7 +474,7 @@
                                     <td>{{form_deadline.deadline}} {{form.plandate}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="th_plan">やりたいこと<span class="must_plan">必須</span></th>
+                                    <th class="th_plan">やりたいこと<span class="must_plan">★</span></th>
                                     <td>{{form.plan}}</td>
                                 </tr>
                                 <tr>

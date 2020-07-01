@@ -724,6 +724,11 @@ td.deadline{
     .fa-child:before {
         font-size: 19px;
     }
+    #id_done {
+        margin: 6px;
+        margin-top: 8px;
+        width: 20px;
+    }
     #id_motivation {
         width: 48px;
     }
@@ -753,13 +758,14 @@ td.deadline{
         font-size: 9pt;
     }
     /*【必須項目】*/
-    .must_motivation, .must_genre1, .must_genre2, .must_plan{
-        left: 65px;
+    .must_genre1, .must_plan{
+        left: 78px;
         bottom: 5px;
         font-size: 12px;
     }
     .must_plan{
-        bottom: 17px;
+        bottom: 38px;
+        left: 81px;
     }
     .checkbox {
         margin-left: 0px;
