@@ -51,7 +51,7 @@
     //4_習慣
     //5_本
     function hidden(){
-        var array = ["delete","edit","motivation","genre2","tag1"];
+        var array = ["delete","edit","motivation","genre2","tag1","plandate"];
             for(var k=1;k<6;k++){
                 for(var j=0;j<array.length;j++){
                     var id = array[j] + "_display_" + k;
@@ -961,8 +961,7 @@
                      </div>
                      <div class="tag1_check">
                          他項目:
-                         <input type="checkbox" id="motivation_check_4" onclick="checkbox_cell(this,'motivation_display_4')">やる気
-                         <input type="checkbox" id="deadline_check_4" onclick="checkbox_cell(this,'deadline_display_4')">期限
+                         <input type="checkbox" id="plandate_check_4" onclick="checkbox_cell(this,'plandate_display_4')">予定日
                          <input type="checkbox" id="genre2_check_4" onclick="checkbox_cell(this,'genre2_display_4')">項目
                          <input type="checkbox" id="tag1_check_4" onclick="checkbox_cell(this,'tag1_display_4')">メモ
                      </div>

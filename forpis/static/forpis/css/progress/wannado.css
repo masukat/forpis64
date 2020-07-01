@@ -688,6 +688,16 @@ td.deadline{
         padding: 5px 9px;
         left: 542px;
     }
+
+    /*【今月目標】*/
+    .thismonthgoal {
+        width: 100%;
+    }
+    /*【requesttable】*/
+    .requesttable {
+        width: 100%;
+        left: 50%;
+    }
     /*【テーブル】*/
     form {
         position: relative;
@@ -707,7 +717,7 @@ td.deadline{
         font-family: monospace;
     }
     .add-table_done {
-        height: 80px;
+        height: 56px;
         margin-bottom: 29px;
     }
 
@@ -729,6 +739,9 @@ td.deadline{
     }
     [id^="motivation_display_"], [id^="review_display_"]{
         width: 32px;
+    }
+    #plandate_display_4, #completiondate_display_4 {
+        width: 17%;
     }
     td.deadline {
         font-size: 9pt;
