@@ -2,22 +2,32 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from ..models.progress.wannado_models import WannaDo
 from ..forms.progress.wannado_forms import WannaDoForm, WannaDoForm_motivation, WannaDoForm_genre1, WannaDoForm_genre2, WannaDoForm_deadline
+import datetime
+
+
+# 通常データ
+data_undone = WannaDo.objects.all().order_by('genre1', 'deadline')
+# 目標タブ
+data_undone_goal = WannaDo.objects.all().order_by('plandate')
+# 分野ごとのリスト
+data_genre1 = WannaDo.objects.all().order_by('deadline', 'motivation', 'genre2')
+# 完了リスト
+data_done = WannaDo.objects.all().order_by('completiondate').reverse()
+# 今月の値取得
+today = datetime.datetime.today()
+thismonth = today.strftime("%-m")
+# 今年の残りの値を取得
+restmonth = 12 - int(thismonth)
 
 
 def wannado(request):
-    data_undone = WannaDo.objects.all().order_by('genre1', 'deadline')
-    # 目標タブ
-    data_undone_goal = WannaDo.objects.all().order_by('plandate')
-    # 分野ごとのリスト
-    data_genre1 = WannaDo.objects.all().order_by('deadline', 'motivation', 'genre2')
-    # 完了リスト
-    data_done = WannaDo.objects.all().order_by('completiondate').reverse()
-
     params = {
         'data_undone': data_undone,
         'data_undone_goal': data_undone_goal,
         'data_genre1': data_genre1,
         'data_done': data_done,
+        'thismonth': thismonth,
+        'restmonth': restmonth,
         'form': WannaDoForm(),
         'form_motivation': WannaDoForm_motivation(),
         'form_genre1': WannaDoForm_genre1(),
@@ -43,11 +53,6 @@ def wannado(request):
 
 
 def wannado_edit(request, num):
-    data_undone = WannaDo.objects.all().order_by('genre1', 'deadline')
-    data_undone_goal = WannaDo.objects.all().order_by('plandate')
-    data_genre1 = WannaDo.objects.all().order_by('deadline', 'motivation', 'genre2')
-    data_done = WannaDo.objects.all().order_by('completiondate').reverse()
-
     obj = WannaDo.objects.get(id=num)
 
     # 分野、空白削除、max_length=100
@@ -87,6 +92,8 @@ def wannado_edit(request, num):
         'data_undone_goal': data_undone_goal,
         'data_genre1': data_genre1,
         'data_done': data_done,
+        'thismonth': thismonth,
+        'restmonth': restmonth,
         'form': WannaDoForm(instance=obj),
         'form_motivation': WannaDoForm_motivation(instance=obj),
         'form_genre1': WannaDoForm_genre1(instance=obj),
@@ -99,11 +106,6 @@ def wannado_edit(request, num):
 
 
 def wannado_delete(request, num):
-    data_undone = WannaDo.objects.all().order_by('genre1', 'deadline')
-    data_undone_goal = WannaDo.objects.all().order_by('plandate')
-    data_genre1 = WannaDo.objects.all().order_by('deadline', 'motivation', 'genre2')
-    data_done = WannaDo.objects.all().order_by('completiondate').reverse()
-
     wannado = WannaDo.objects.get(id=num)
     if (request.method == 'POST'):
         wannado.delete()
@@ -113,6 +115,8 @@ def wannado_delete(request, num):
         'data_undone_goal': data_undone_goal,
         'data_genre1': data_genre1,
         'data_done': data_done,
+        'thismonth': thismonth,
+        'restmonth': restmonth,
         'obj': wannado,
         'id': num,
         'delete_flag': 1,

@@ -1,8 +1,4 @@
-/*【全体】*/
-body{
-  font-size: 14pt;
-}
-
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*【tab】*/
 .tab-content {
     padding-top: 0;
@@ -86,6 +82,7 @@ body{
 	transform: rotate(315deg);
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*リスト*/
 ul{
   margin-top: 0;
@@ -235,6 +232,7 @@ ul{
   text-align: center;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*margin-left*/
 .iventName, .checkbox {
   margin-left: -114px;
@@ -254,6 +252,7 @@ ul{
   font-size: 15pt;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*テーブルボタン*/
 .return_button_update_div, .return_button_delete_div{
   position: relative;
@@ -275,6 +274,7 @@ button.return_button_delete{
   left: 519px;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*目標*/
 .goal_study_div, .goal_book_div, .goal_hobby_div{
   margin-left: -57px;
@@ -298,6 +298,38 @@ button.return_button_delete{
   line-height: 1.5;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*【今月目標】*/
+.thismonthgoal {
+    padding: 0;
+    margin: 0.4em 0;
+    color: #FF367F;
+    background: #ffebf6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+    width: 82%;
+}
+.thismonthgoal .thismonthgoal-title {
+    font-size: 1.2em;
+    background: #FF367F;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-left: 11px;
+}
+.thismonthgoal p {
+    margin: 0;
+    padding: 12px;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*【全体】*/
+body{
+  font-size: 14pt;
+}
 /*テーブル*/
 table {
   width: 120%;
@@ -319,6 +351,18 @@ td.deadline{
   text-align: center;
   font-size: 12pt;
 }
+
+.requesttable{
+    width: 52%;
+    left: 19%;
+}
+.requesttable td{
+    background-color: #ffebe0;
+    color: #444444;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*【row】*/
 .thismonthrow, .thisyearrow, .nextyearrow{
   color: #666666;
 }
@@ -339,12 +383,23 @@ td.deadline{
   background-color: #EDFFBE;
   vertical-align: top;
 }
-
-/*【delete】*/
-.delete-table th{
-  border-color: #444444;
+.stoprow, .dayrow, .weekrow, .monthrow{
+    color: #666;
+}
+.stoprow{
+    background-color: #DCC2FF;
+}
+.dayrow{
+    background-color: #FFFFCC;
+}
+.weekrow{
+    background-color: #FFDBC9;
+}
+.monthrow{
+    background-color: #B1F9D0;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*【add】*/
 .add-table_done {
   height: 76px;
@@ -359,6 +414,11 @@ td.deadline{
 }
 .add-table_done, .add-table{
   width: 100%;
+}
+
+/*【delete】*/
+.delete-table th{
+  border-color: #444444;
 }
 
 
@@ -396,22 +456,6 @@ td.deadline{
 
 
 /*【やりたいことリスト】*/
-.stoprow, .dayrow, .weekrow, .monthrow{
-    color: #666;
-}
-.stoprow{
-    background-color: #DCC2FF;
-}
-.dayrow{
-    background-color: #FFFFCC;
-}
-.weekrow{
-    background-color: #FFDBC9;
-}
-.monthrow{
-    background-color: #B1F9D0;
-}
-
 [id^="motivation_display_"], [id^="review_display_"]{
     width: 43px;
 }

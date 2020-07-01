@@ -33,29 +33,6 @@
         }
         //項目「やめたい」をcheckedに
         document.getElementById("tab-five").checked = true;
-        //それぞれのクラスに今月の値を入れる
-        var today_month = document.getElementsByClassName('today_month');
-        for (var i = 0; i < today_month.length; i++) {
-          today_month[i].innerHTML = todayMonth();
-        }
-        //それぞれのクラスに今年の残りの値を入れる
-        var rest_month = document.getElementsByClassName('rest_month');
-        for (var i = 0; i < rest_month.length; i++) {
-          rest_month[i].innerHTML = restMonth();
-        }
-    }
-    //今月の値を取得
-    function todayMonth() {
-      var now = new Date();
-    	var month = now.getMonth()+1; //１を足すこと
-    	return month;
-    }
-    //今年の残りの値を取得
-    function restMonth() {
-      var now = new Date();
-    	var month = now.getMonth()+1; //１を足すこと
-      var restmonth = 12 - month
-    	return restmonth;
     }
     function calendar(){
         // 日付は、年-月-日 の形式でお願いする。
@@ -109,6 +86,16 @@
         </div>
         <!-- 目標 ---------------------------------------------------------------------------------------------------->
         <div class="tab-content">
+            <div class="thismonthgoal">
+                <div class="thismonthgoal-title">今月({{thismonth}}月)の目標：</div>
+                <p>
+                  {% for plan in data_done %}
+                  {% if plan.genre2 == '今月目標' and plan.plandate|date:"n" == thismonth%}
+                       {{plan.plan | linebreaksbr}}
+                  {% endif %}
+                  {% endfor %}
+                </p>
+            </div>
             <div class="tablist">
                 <div class="cp_actab">
                 <input id="tab-one" type="checkbox" name="tabs">
@@ -130,27 +117,6 @@
                             やること：
                               {% for plan in data_undone_goal %}
                               {% if '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 6 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan | linebreaksbr}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                        <li class="genre_li">読みたい本</li>
-                          <div class="li_goal">
-                            目標：
-                              {% for plan in data_undone_goal %}
-                              {% if '本' in plan.genre1 and plan.genre2 == '目標' and plan.deadline == 6 and plan.done is False %}
-                                <ul>
-                                  <li>{{plan.plan | linebreaksbr}}</li>
-                                </ul>
-                              {% endif %}
-                              {% endfor %}
-                          </div>
-                          <div class="li_todo">
-                            やること：
-                              {% for plan in data_undone_goal %}
-                              {% if '本' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and plan.deadline == 6 and plan.done is False %}
                                 <ul>
                                   <li>{{plan.plan | linebreaksbr}}</li>
                                 </ul>
@@ -186,7 +152,7 @@
 
                 <div class="cp_actab">
                 <input id="tab-two" type="checkbox" name="tabs">
-                <label for="tab-two">今年(<span class="today_month"></span>~12月の<span class="rest_month"></span>ヶ月)</label>
+                <label for="tab-two">今年({{thismonth}}~12月の{{restmonth}}ヶ月)</label>
                   <div class="cp_actab-content">
                     <div class="list">
                         <li class="genre_li">生きる!ための勉強</li>
@@ -368,7 +334,7 @@
 
                 <div class="cp_actab">
                 <input id="tab-five" type="checkbox" name="tabs">
-                <label class="thismonth" for="tab-five">今月(<span class="today_month"></span>月)</label>
+                <label class="thismonth" for="tab-five">今月({{thismonth}}月)</label>
                   <div class="cp_actab-content">
                     <div class="list">
                         <li class="genre_li">生きる!ための勉強</li>
@@ -633,16 +599,16 @@
 
 <!-- Request -------------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="iventName"><i class="fas fa-carrot"></i>Request</div>
-                <div class="edit-table_undone" align="center">
-                    <table>
-                        <thead class="edit-table_thead_undone">
+                <div>
+                    <table class="requesttable">
+                        <thead>
                             <tr>
                                 <th id="delete_display_5">削除</th>
                                 <th id="edit_display_5">編集</th>
                                 <th id="plan_display_5">要望</th>
                             </tr>
                         </thead>
-                        <tbody class="edit-table_tbody_undone">
+                        <tbody>
                             {% for plan in data_genre1 %}
                             {% if 'ToDo:' in plan.tag1 %}
                             <tr>
@@ -712,7 +678,7 @@
                         </thead>
                         <tbody class="edit-table_tbody_undone">
                         {% for plan in data_genre1 %}
-                            {% if plan.done is False and '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' %}
+                            {% if plan.done is False and '勉強' in plan.genre1 and not plan.genre2 == '目標' and not plan.genre2 == '今月目標' and not plan.genre2 == '今月目標' and not 'ToDo:' in plan.tag1 %}
                             <tr class=
                                     {% if plan.deadline == 0 or plan.deadline == 1 %}"thismonthrow"
                                     {% elif plan.deadline == 6 or plan.deadline == 7 or plan.deadline == 8 %}"nextyearrow"
